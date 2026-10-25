@@ -35,8 +35,7 @@ Segmentation agreement and tracked label persistence are **proxies**, not measur
 ## Start here
 
 - Read [REPRODUCING.md](REPRODUCING.md) for external files, environment requirements and workflow commands.
-- See [ATTRIBUTION.md](ATTRIBUTION.md) for models, software and algorithm sources.
-- Run the checks below to verify source files and preview the study plans.
+
 
 ```bash
 # Run from this repository's root. Requires Python 3 and Bash.
