@@ -1,0 +1,985 @@
+{
+  "contract_version": "semantic_codec_contract_v1",
+  "created_date": "2026-07-27",
+  "status": "frozen_for_step_5_implementation",
+  "purpose": "Define one small RGB-blind semantic codec before writing its PyTorch implementation.",
+  "expected_trainable_parameters": 43883,
+  "authority": {
+    "implementation_plan": "New Approach/PRIMARY_MVP_STEP_BY_STEP.md",
+    "completed_mvp_step": 4,
+    "paired_manifest": "/home/dhiazr/gt69/dhiazgeo/wanti2v/outputs/seg_decoder_ds_v2/phase3_manifests/joint_manifest_v1.csv",
+    "paired_manifest_sha256": "00b24e53b740fb99ab228d9b8296ccda09f27fb1ddb0b62ebd24e950dcaa5f3a",
+    "class_schema_version": "thesis_11_v1"
+  },
+  "class_schema": {
+    "num_classes": 11,
+    "id_to_name": {
+      "0": "background",
+      "1": "person",
+      "2": "car",
+      "3": "bus",
+      "4": "bicycle",
+      "5": "truck",
+      "6": "road",
+      "7": "sidewalk",
+      "8": "building",
+      "9": "vegetation",
+      "10": "sky"
+    },
+    "valid_class_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ignore_value": 255,
+    "ignore_rule": "A pixel is ignored when valid_mask is false. Its stored class value must not be interpreted as background.",
+    "current_data_note": "The frozen Step 3 dataset has no valid positive background pixels. Class 0 remains in the fixed schema, but invalid zero placeholders are excluded from every loss and metric."
+  },
+  "interfaces": {
+    "tensor_layout": "B,C,T,H,W for floating-point features; B,T,H,W for labels and masks",
+    "labels": {
+      "name": "labels",
+      "shape": [
+        "B",
+        81,
+        480,
+        832
+      ],
+      "dtype": "int64",
+      "allowed_values_at_valid_pixels": "0 through 10"
+    },
+    "valid_mask": {
+      "name": "valid_mask",
+      "shape": [
+        "B",
+        81,
+        480,
+        832
+      ],
+      "dtype": "bool",
+      "meaning": "true means the teacher target is usable"
+    },
+    "confidence": {
+      "name": "teacher_confidence",
+      "shape": [
+        "B",
+        81,
+        480,
+        832
+      ],
+      "dtype": "float32 after loading",
+      "encoder_consumes_it": false,
+      "loss_uses_continuous_weighting": false,
+      "reason": "Goal 2 found class-normalized soft confidence weighting effectively null. Confidence remains metadata for diagnostics."
+    },
+    "raw_semantic_latent": {
+      "name": "z_sem_raw",
+      "shape": [
+        "B",
+        8,
+        21,
+        60,
+        104
+      ],
+      "dtype": "floating point",
+      "activation": "none"
+    },
+    "decoder_logits": {
+      "name": "logits",
+      "shape": [
+        "B",
+        11,
+        81,
+        480,
+        832
+      ],
+      "dtype": "floating point",
+      "activation": "none; apply softmax only for probabilities, Dice, previews, and metrics"
+    }
+  },
+  "rgb_blindness": {
+    "encoder_allowed_inputs": [
+      "labels",
+      "valid_mask"
+    ],
+    "encoder_forbidden_inputs": [
+      "RGB pixels",
+      "Wan RGB latents",
+      "Wan VAE features",
+      "Wan transformer features",
+      "text embeddings"
+    ],
+    "implementation_rule": "encode must have the signature encode(labels, valid_mask) and must reject tensors with an RGB channel dimension."
+  },
+  "input_representation": {
+    "type": "learned_class_embedding",
+    "semantic_class_embeddings": 11,
+    "ignore_token_id": 11,
+    "num_embeddings": 12,
+    "embedding_width": 8,
+    "invalid_pixel_rule": "Before embedding, replace labels wherever valid_mask is false with ignore_token_id 11. Never replace an invalid pixel with class 0.",
+    "reason_for_embedding": "A learned embedding is simpler and uses less memory than constructing a full-resolution 11-channel one-hot tensor."
+  },
+  "shared_layer_defaults": {
+    "convolution_bias": true,
+    "normalization": {
+      "type": "FrameGroupNorm",
+      "num_groups": 4,
+      "epsilon": 1e-06,
+      "affine": true,
+      "operation": "Reshape [B,C,T,H,W] to [B*T,C,H,W], apply ordinary GroupNorm, then restore [B,C,T,H,W].",
+      "temporal_rule": "Each frame is normalized independently. Normalization must not mix statistics across time."
+    },
+    "activation": "SiLU",
+    "spatial_interpolation": {
+      "mode": "framewise bilinear",
+      "align_corners": false,
+      "operation": "Reshape [B,C,T,H,W] to [B*T,C,H,W], resize only H and W, then restore [B,C,T,H,W].",
+      "time_dimension_is_unchanged": true,
+      "temporal_rule": "Interpolation must not mix adjacent frames."
+    }
+  },
+  "temporal_contract": {
+    "source_frames": 81,
+    "latent_times": 21,
+    "compression_factor_after_first_frame": 4,
+    "encoder_operation": {
+      "name": "first_frame_preserving_pack4",
+      "steps": [
+        "Prepend three additional copies of embedded frame 0, producing 84 feature frames.",
+        "Apply enc_down_1 with temporal kernel 4 and temporal stride 4.",
+        "The first temporal window is [frame 0, frame 0, frame 0, frame 0].",
+        "Every later temporal window contains exactly four consecutive source frames."
+      ]
+    },
+    "decoder_operation": {
+      "name": "learned_phase_unpack4",
+      "steps": [
+        "Project each of the 21 latent times to four ordered phase feature maps.",
+        "Reshape the phase features to 84 ordered feature frames.",
+        "Keep phase 0 from latent time 0 and discard its unused phases 1 through 3.",
+        "Keep all four phases from latent times 1 through 20, producing exactly 81 feature frames."
+      ]
+    },
+    "causality_rule": "A latent time may use only the source frame or four-frame group assigned to it. It must never use a frame from a later group.",
+    "mapping": [
+      {
+        "latent_time": 0,
+        "source_frame_start": 0,
+        "source_frame_end": 0
+      },
+      {
+        "latent_time": 1,
+        "source_frame_start": 1,
+        "source_frame_end": 4
+      },
+      {
+        "latent_time": 2,
+        "source_frame_start": 5,
+        "source_frame_end": 8
+      },
+      {
+        "latent_time": 3,
+        "source_frame_start": 9,
+        "source_frame_end": 12
+      },
+      {
+        "latent_time": 4,
+        "source_frame_start": 13,
+        "source_frame_end": 16
+      },
+      {
+        "latent_time": 5,
+        "source_frame_start": 17,
+        "source_frame_end": 20
+      },
+      {
+        "latent_time": 6,
+        "source_frame_start": 21,
+        "source_frame_end": 24
+      },
+      {
+        "latent_time": 7,
+        "source_frame_start": 25,
+        "source_frame_end": 28
+      },
+      {
+        "latent_time": 8,
+        "source_frame_start": 29,
+        "source_frame_end": 32
+      },
+      {
+        "latent_time": 9,
+        "source_frame_start": 33,
+        "source_frame_end": 36
+      },
+      {
+        "latent_time": 10,
+        "source_frame_start": 37,
+        "source_frame_end": 40
+      },
+      {
+        "latent_time": 11,
+        "source_frame_start": 41,
+        "source_frame_end": 44
+      },
+      {
+        "latent_time": 12,
+        "source_frame_start": 45,
+        "source_frame_end": 48
+      },
+      {
+        "latent_time": 13,
+        "source_frame_start": 49,
+        "source_frame_end": 52
+      },
+      {
+        "latent_time": 14,
+        "source_frame_start": 53,
+        "source_frame_end": 56
+      },
+      {
+        "latent_time": 15,
+        "source_frame_start": 57,
+        "source_frame_end": 60
+      },
+      {
+        "latent_time": 16,
+        "source_frame_start": 61,
+        "source_frame_end": 64
+      },
+      {
+        "latent_time": 17,
+        "source_frame_start": 65,
+        "source_frame_end": 68
+      },
+      {
+        "latent_time": 18,
+        "source_frame_start": 69,
+        "source_frame_end": 72
+      },
+      {
+        "latent_time": 19,
+        "source_frame_start": 73,
+        "source_frame_end": 76
+      },
+      {
+        "latent_time": 20,
+        "source_frame_start": 77,
+        "source_frame_end": 80
+      }
+    ],
+    "required_impulse_tests": [
+      {
+        "source_frame": 0,
+        "expected_latent_time": 0
+      },
+      {
+        "source_frame": 1,
+        "expected_latent_time": 1
+      },
+      {
+        "source_frame": 4,
+        "expected_latent_time": 1
+      },
+      {
+        "source_frame": 5,
+        "expected_latent_time": 2
+      },
+      {
+        "source_frame": 80,
+        "expected_latent_time": 20
+      }
+    ]
+  },
+  "encoder": {
+    "name": "SemanticEncoder",
+    "output_channels": 8,
+    "layer_table": [
+      {
+        "name": "class_embedding",
+        "operation": "Embedding",
+        "parameters": {
+          "num_embeddings": 12,
+          "embedding_dim": 8
+        },
+        "input_shape": [
+          "B",
+          81,
+          480,
+          832
+        ],
+        "output_shape": [
+          "B",
+          8,
+          81,
+          480,
+          832
+        ]
+      },
+      {
+        "name": "first_frame_prefix",
+        "operation": "prepend three copies of feature frame 0",
+        "input_shape": [
+          "B",
+          8,
+          81,
+          480,
+          832
+        ],
+        "output_shape": [
+          "B",
+          8,
+          84,
+          480,
+          832
+        ]
+      },
+      {
+        "name": "enc_down_1",
+        "operation": "Conv3d",
+        "parameters": {
+          "in_channels": 8,
+          "out_channels": 16,
+          "kernel_size": [
+            4,
+            3,
+            3
+          ],
+          "stride": [
+            4,
+            2,
+            2
+          ],
+          "padding": [
+            0,
+            1,
+            1
+          ]
+        },
+        "post_operation": "FrameGroupNorm(4,16) then SiLU",
+        "input_shape": [
+          "B",
+          8,
+          84,
+          480,
+          832
+        ],
+        "output_shape": [
+          "B",
+          16,
+          21,
+          240,
+          416
+        ]
+      },
+      {
+        "name": "enc_down_2",
+        "operation": "Conv3d",
+        "parameters": {
+          "in_channels": 16,
+          "out_channels": 24,
+          "kernel_size": [
+            1,
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            2,
+            2
+          ],
+          "padding": [
+            0,
+            1,
+            1
+          ]
+        },
+        "post_operation": "FrameGroupNorm(4,24) then SiLU",
+        "input_shape": [
+          "B",
+          16,
+          21,
+          240,
+          416
+        ],
+        "output_shape": [
+          "B",
+          24,
+          21,
+          120,
+          208
+        ]
+      },
+      {
+        "name": "enc_down_3",
+        "operation": "Conv3d",
+        "parameters": {
+          "in_channels": 24,
+          "out_channels": 32,
+          "kernel_size": [
+            1,
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            2,
+            2
+          ],
+          "padding": [
+            0,
+            1,
+            1
+          ]
+        },
+        "post_operation": "FrameGroupNorm(4,32) then SiLU",
+        "input_shape": [
+          "B",
+          24,
+          21,
+          120,
+          208
+        ],
+        "output_shape": [
+          "B",
+          32,
+          21,
+          60,
+          104
+        ]
+      },
+      {
+        "name": "enc_refine",
+        "operation": "Conv3d",
+        "parameters": {
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel_size": [
+            1,
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            1,
+            1
+          ]
+        },
+        "post_operation": "FrameGroupNorm(4,32) then SiLU",
+        "input_shape": [
+          "B",
+          32,
+          21,
+          60,
+          104
+        ],
+        "output_shape": [
+          "B",
+          32,
+          21,
+          60,
+          104
+        ]
+      },
+      {
+        "name": "latent_projection",
+        "operation": "Conv3d",
+        "parameters": {
+          "in_channels": 32,
+          "out_channels": 8,
+          "kernel_size": [
+            1,
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0,
+            0
+          ]
+        },
+        "post_operation": "none",
+        "input_shape": [
+          "B",
+          32,
+          21,
+          60,
+          104
+        ],
+        "output_shape": [
+          "B",
+          8,
+          21,
+          60,
+          104
+        ]
+      }
+    ]
+  },
+  "decoder": {
+    "name": "SemanticDecoder",
+    "phase_feature_channels": 32,
+    "full_decode_interface": "decode(z_sem_raw) returns logits with shape [B,11,81,480,832]",
+    "chunked_decode_interface": {
+      "name": "decode_chunks",
+      "signature": "decode_chunks(z_sem_raw, chunk_frames=9) yields ordered (frame_start, frame_end, logits_chunk) records",
+      "chunk_shape": "[B,11,frame_end-frame_start,480,832]",
+      "exactness_rule": "Concatenating all yielded chunks along time must be exactly equal, within floating-point tolerance, to decode(z_sem_raw).",
+      "implementation_reason": "After learned phase expansion, all decoder convolutions use temporal kernel 1, normalization is framewise, and resizing is framewise, so temporal chunks do not change results."
+    },
+    "layer_table": [
+      {
+        "name": "dec_refine",
+        "operation": "Conv3d",
+        "parameters": {
+          "in_channels": 8,
+          "out_channels": 32,
+          "kernel_size": [
+            1,
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            1,
+            1
+          ]
+        },
+        "post_operation": "FrameGroupNorm(4,32) then SiLU",
+        "input_shape": [
+          "B",
+          8,
+          21,
+          60,
+          104
+        ],
+        "output_shape": [
+          "B",
+          32,
+          21,
+          60,
+          104
+        ]
+      },
+      {
+        "name": "phase_projection",
+        "operation": "Conv3d",
+        "parameters": {
+          "in_channels": 32,
+          "out_channels": 128,
+          "kernel_size": [
+            1,
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0,
+            0
+          ]
+        },
+        "post_operation": "none",
+        "input_shape": [
+          "B",
+          32,
+          21,
+          60,
+          104
+        ],
+        "output_shape": [
+          "B",
+          128,
+          21,
+          60,
+          104
+        ]
+      },
+      {
+        "name": "phase_reshape",
+        "operation": "reshape 128 channels into 32 channels times 4 ordered phases, then flatten latent time and phase",
+        "input_shape": [
+          "B",
+          128,
+          21,
+          60,
+          104
+        ],
+        "output_shape": [
+          "B",
+          32,
+          84,
+          60,
+          104
+        ]
+      },
+      {
+        "name": "first_frame_phase_selection",
+        "operation": "keep expanded frame 0 and expanded frames 4 through 83",
+        "input_shape": [
+          "B",
+          32,
+          84,
+          60,
+          104
+        ],
+        "output_shape": [
+          "B",
+          32,
+          81,
+          60,
+          104
+        ]
+      },
+      {
+        "name": "dec_up_1",
+        "operation": "framewise bilinear spatial interpolation to 120x208, then Conv3d",
+        "parameters": {
+          "in_channels": 32,
+          "out_channels": 24,
+          "kernel_size": [
+            1,
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            1,
+            1
+          ]
+        },
+        "post_operation": "FrameGroupNorm(4,24) then SiLU",
+        "input_shape": [
+          "B",
+          32,
+          81,
+          60,
+          104
+        ],
+        "output_shape": [
+          "B",
+          24,
+          81,
+          120,
+          208
+        ]
+      },
+      {
+        "name": "dec_up_2",
+        "operation": "framewise bilinear spatial interpolation to 240x416, then Conv3d",
+        "parameters": {
+          "in_channels": 24,
+          "out_channels": 16,
+          "kernel_size": [
+            1,
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            1,
+            1
+          ]
+        },
+        "post_operation": "FrameGroupNorm(4,16) then SiLU",
+        "input_shape": [
+          "B",
+          24,
+          81,
+          120,
+          208
+        ],
+        "output_shape": [
+          "B",
+          16,
+          81,
+          240,
+          416
+        ]
+      },
+      {
+        "name": "dec_up_3",
+        "operation": "framewise bilinear spatial interpolation to 480x832, then Conv3d",
+        "parameters": {
+          "in_channels": 16,
+          "out_channels": 12,
+          "kernel_size": [
+            1,
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            1,
+            1
+          ]
+        },
+        "post_operation": "FrameGroupNorm(4,12) then SiLU",
+        "input_shape": [
+          "B",
+          16,
+          81,
+          240,
+          416
+        ],
+        "output_shape": [
+          "B",
+          12,
+          81,
+          480,
+          832
+        ]
+      },
+      {
+        "name": "logit_projection",
+        "operation": "Conv3d",
+        "parameters": {
+          "in_channels": 12,
+          "out_channels": 11,
+          "kernel_size": [
+            1,
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0,
+            0
+          ]
+        },
+        "post_operation": "none",
+        "input_shape": [
+          "B",
+          12,
+          81,
+          480,
+          832
+        ],
+        "output_shape": [
+          "B",
+          11,
+          81,
+          480,
+          832
+        ]
+      }
+    ]
+  },
+  "spatial_contract": {
+    "source_size": [
+      480,
+      832
+    ],
+    "latent_size": [
+      60,
+      104
+    ],
+    "compression_factor": 8,
+    "encoder_sizes": [
+      [
+        480,
+        832
+      ],
+      [
+        240,
+        416
+      ],
+      [
+        120,
+        208
+      ],
+      [
+        60,
+        104
+      ]
+    ],
+    "decoder_sizes": [
+      [
+        60,
+        104
+      ],
+      [
+        120,
+        208
+      ],
+      [
+        240,
+        416
+      ],
+      [
+        480,
+        832
+      ]
+    ],
+    "alignment_rule": "No crop, horizontal flip, or aspect-ratio change is allowed. Decoder interpolation uses explicit target sizes rather than rounded scale calculations."
+  },
+  "ignore_mask_propagation": {
+    "encoder": "Invalid labels are changed to ignore token 11 before embedding.",
+    "latent": "No hard latent-valid mask is created because each latent cell can contain both valid and invalid source pixels.",
+    "decoder": "The decoder predicts logits everywhere, including invalid pixels.",
+    "loss": "The original full-resolution valid_mask is applied after decoding. Invalid targets are set to ignore value 255 and contribute zero loss.",
+    "metrics": "Invalid pixels are excluded from confusion matrices, IoU, boundary metrics, fragmentation, and small-object recall."
+  },
+  "training_loss": {
+    "formula": "loss = valid_weighted_cross_entropy + 0.1 * foreground_dice",
+    "cross_entropy": {
+      "coefficient": 1.0,
+      "ignore_index": 255,
+      "pixel_selection": "valid_mask only",
+      "continuous_confidence_weighting": "disabled",
+      "global_confidence_threshold": "disabled",
+      "class_weighting": {
+        "mode": "median_frequency",
+        "counts_source": "valid pixels from the 16 training clips only",
+        "formula_for_present_class": "median(nonzero class frequencies) / class frequency",
+        "absent_class_weight": 0.0,
+        "maximum_weight": 20.0,
+        "reduction": "sum weighted losses divided by the sum of selected class weights"
+      }
+    },
+    "foreground_dice": {
+      "coefficient": 0.1,
+      "classes": "1 through 10",
+      "background_included": false,
+      "invalid_pixels_included": false,
+      "absent_class_rule": "omit a class when the current batch has no valid positive target for it",
+      "epsilon": 1.0,
+      "probability_dtype": "float32"
+    },
+    "other_losses": {
+      "boundary": 0.0,
+      "smoothness": 0.0,
+      "temporal": 0.0
+    }
+  },
+  "latent_normalization": {
+    "raw_codec_output": "z_sem_raw",
+    "normalized_output": "z_sem_norm",
+    "formula": "(z_sem_raw - channel_mean) / channel_std",
+    "statistics_shape": [
+      8
+    ],
+    "statistics_source": "All cached raw semantic latents from the frozen 16-clip training split only.",
+    "minimum_standard_deviation": 1e-06,
+    "fit_stage": "After codec selection and freezing; not during Step 5 unit tests.",
+    "leakage_rule": "Validation clips must never contribute to mean or standard deviation."
+  },
+  "precision": {
+    "recommended_model_autocast": "bfloat16 on M3 L40S",
+    "labels": "int64",
+    "valid_mask": "bool",
+    "class_counts_and_weights": "float64 while computing, then float32",
+    "cross_entropy_and_dice_reductions": "float32"
+  },
+  "checkpoint_schema": {
+    "format_version": 1,
+    "required_keys": {
+      "checkpoint_format_version": "integer equal to 1",
+      "codec_id": "stable string identifying this trained codec",
+      "contract_version": "semantic_codec_contract_v1",
+      "contract_sha256": "SHA-256 of this exact JSON file",
+      "manifest_path": "path to joint_manifest_v1.csv",
+      "manifest_sha256": "00b24e53b740fb99ab228d9b8296ccda09f27fb1ddb0b62ebd24e950dcaa5f3a",
+      "class_schema_version": "thesis_11_v1",
+      "model_state_dict": "encoder and decoder parameters",
+      "optimizer_state_dict": "optimizer state for resumable training",
+      "scheduler_state_dict": "learning-rate scheduler state or null",
+      "epoch": "completed epoch count",
+      "global_step": "completed optimizer-update count",
+      "training_config": "exact optimizer, learning rate, batch, precision, and loss configuration",
+      "train_clip_ids": "ordered training clip IDs",
+      "validation_clip_ids": "ordered validation clip IDs",
+      "class_valid_pixel_counts": "training-only counts for all 11 classes",
+      "class_weights": "the 11 frozen cross-entropy weights",
+      "best_selection_metric": "validation foreground mIoU",
+      "best_selection_value": "finite numeric value",
+      "normalization": "object with status, channel_mean, channel_std, and source split",
+      "rng_state": "Python, NumPy, CPU torch, and CUDA torch random states"
+    },
+    "normalization_before_freeze": {
+      "status": "not_fitted",
+      "channel_mean": null,
+      "channel_std": null,
+      "source_split": "train"
+    },
+    "load_rule": "Loading must fail when contract_version, contract_sha256, manifest_sha256, class schema, latent channels, or class count differs."
+  },
+  "step_5_required_tests": [
+    "Labels, masks, class IDs, dtypes, and shapes are asserted.",
+    "Invalid labels use embedding token 11 and never class 0.",
+    "The codec has exactly 43,883 trainable parameters.",
+    "Encoder output is exactly [B,8,21,60,104].",
+    "Decoder output is exactly [B,11,81,480,832].",
+    "Outputs are finite.",
+    "RGB-shaped channel inputs are rejected.",
+    "Frame impulse mappings pass for frames 0, 1, 4, 5, and 80.",
+    "No encoder latent uses a source frame from a later temporal group.",
+    "Framewise normalization does not change earlier latent times when later source groups are perturbed.",
+    "Full and chunked decoder outputs agree within atol 1e-6 and rtol 1e-5 in float32.",
+    "Invalid pixels contribute zero cross-entropy and zero Dice.",
+    "Checkpoint state-dict round trip reproduces identical outputs."
+  ],
+  "step_4_gate": {
+    "layer_shapes_proven": true,
+    "causality_explicit": true,
+    "decoder_output_shape": [
+      "B",
+      11,
+      81,
+      480,
+      832
+    ],
+    "rgb_blind_interface": true,
+    "ignore_policy_explicit": true,
+    "loss_policy_explicit": true,
+    "checkpoint_schema_explicit": true
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "dataset_id": "walking_pov_100_v1",
+  "train_seeds": [42, 43, 44, 45],
+  "validation_seeds": [46, 48, 49, 50],
+  "prompts": [
+    {
+      "scene": "brick_residential_car",
+      "split": "train",
+      "focus_class": "car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A silver sedan is parked beside the road near low brick houses. As the camera approaches, the car grows larger and passes toward the side of the frame. Front gardens, green hedges and roadside trees extend along the street. The sidewalk and road remain visible ahead beneath a blue sky. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "suburban_car_departing",
+      "split": "train",
+      "focus_class": "car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A dark blue car drives slowly away along a straight suburban road. Detached houses stand behind low hedges and planted front gardens. Nearby trees and garden fences pass toward the sides as the camera advances, while the car recedes into the distance. A broad sidewalk continues ahead under an open blue sky. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "shopping_street_parked_car",
+      "split": "train",
+      "focus_class": "car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A red car is parked beside a row of small shops along a quiet road. Store windows and plain shopfronts become larger as the camera approaches and pass beside the viewer. A few leafy street trees rise from planting beds along the paved sidewalk. Low buildings leave a broad strip of pale blue sky above the street. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "office_district_approaching_car",
+      "split": "train",
+      "focus_class": "car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A white car approaches along the road beside glass office buildings. The car gradually grows larger while remaining on the road. Planted trees and low shrubs line the wide sidewalk, and nearby building entrances slide toward the frame edges as the camera advances. Soft reflections cover the glass facades beneath a lightly clouded sky. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "park_boundary_parked_car",
+      "split": "train",
+      "focus_class": "car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A green car is parked beside a road bordering a spacious park. Grass and mature trees extend along the walking side, with low residential buildings across the road. The parked car and nearby tree trunks grow larger as the camera approaches. The sidewalk stretches ahead beside the grass verge, and patches of blue sky appear between the tree canopies. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "uphill_residential_car",
+      "split": "train",
+      "focus_class": "car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A grey car travels slowly uphill ahead along a gently rising residential road. Small houses and garden trees stand on both sides of the street. Nearby hedges and driveways pass beside the camera while the car moves farther away. The sidewalk follows the slope toward the distant houses beneath a bright overcast sky. Soft daylight, realistic colors and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "small_intersection_crossing_car",
+      "split": "train",
+      "focus_class": "car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A blue car crosses a small intersection ahead, briefly passing behind a roadside tree before becoming visible again. Low buildings surround the junction, with grass verges and clearly visible sidewalks around the road. The camera approaches the corner while remaining on the sidewalk. Nearby trees grow larger and shift toward the frame edges beneath a clear sky. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "shopping_road_bus_stop",
+      "split": "train",
+      "focus_class": "bus",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A full-size city bus is stopped beside a bus-stop sign on the road ahead. Small shops and low buildings line the opposite side of the street. Roadside trees shade parts of the clear sidewalk. As the camera approaches, the bus and the nearest tree gradually grow larger and move toward the side of the frame. Bright sky, realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "residential_bus_departing",
+      "split": "train",
+      "focus_class": "bus",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A city bus moves slowly away along a straight residential road. Houses with small front gardens stand behind low fences, and leafy trees line the grass verge. The bus becomes smaller in the distance as nearby fences and tree trunks pass beside the camera. The sidewalk and road continue toward distant buildings beneath an open blue sky. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "tree_lined_approaching_bus",
+      "split": "train",
+      "focus_class": "bus",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A city bus approaches along a broad road lined with leafy trees. Low-rise apartment buildings sit behind planted lawns on both sides. The bus gradually becomes larger while the camera advances along the wide sidewalk. Nearby tree trunks and building entrances drift toward the edges of the frame. The road remains visible ahead beneath a softly clouded sky. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "open_intersection_crossing_bus",
+      "split": "train",
+      "focus_class": "bus",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A city bus travels across an open intersection ahead, showing its long side and windows. Low commercial buildings stand around the junction, with planted trees and grass beside the sidewalks. The camera approaches the corner along the sidewalk while the bus continues across the road. Nearby paving and trees pass naturally beside the viewer beneath a pale blue sky. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "bus_depot_frontage",
+      "split": "train",
+      "focus_class": "bus",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A bus is parked beside a low depot building, facing along an open access road. A few small trees and grass strips border the sidewalk near the depot entrance. The parked bus becomes larger as the camera approaches, revealing more of its side. Nearby trees and the building frontage pass toward the frame edges beneath a broad clear sky. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "office_boulevard_bus_occlusion",
+      "split": "train",
+      "focus_class": "bus",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A bus moves slowly along a broad boulevard beside office buildings. A nearby tree trunk briefly hides part of the bus as the camera walks past the tree, then the bus becomes visible again. Low shrubs and grass border the wide sidewalk. Building facades and roadside planting pass beside the viewer, with the road ahead under a lightly clouded sky. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "curving_suburban_bus",
+      "split": "train",
+      "focus_class": "bus",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A city bus follows a gentle bend in the suburban road ahead. Houses with planted gardens and leafy trees line the outside of the curve. The sidewalk follows the road, and the camera walks forward along its gradual bend. Nearby hedges and trees pass beside the viewer while the bus recedes between the houses beneath a bright blue sky. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "warehouse_parked_box_truck",
+      "split": "train",
+      "focus_class": "truck",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A white box truck is parked beside a warehouse loading entrance along a quiet access road. Low industrial buildings extend along the street, with a few trees and narrow grass strips beside the sidewalk. The truck and warehouse entrance gradually become larger as the camera approaches. Nearby planting and pavement pass toward the frame edges beneath a clear sky. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "industrial_box_truck_departing",
+      "split": "train",
+      "focus_class": "truck",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A box truck drives slowly away along a straight industrial road between low warehouse buildings. Roadside grass and scattered young trees border the clear sidewalk. The truck becomes smaller ahead while nearby building entrances and trees pass beside the camera. Long warehouse walls lead toward the distant end of the street, with a broad bright sky overhead. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "apartment_delivery_truck",
+      "split": "train",
+      "focus_class": "truck",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A delivery truck is parked on the road beside a low apartment building. Planted trees, garden shrubs and short lawns border the broad paved sidewalk. The truck and the apartment entrance grow larger as the camera approaches, then shift toward the side of the frame. More residential buildings remain visible along the road beneath a softly clouded blue sky. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "park_road_moving_truck",
+      "split": "train",
+      "focus_class": "truck",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A maintenance truck moves slowly along the road beside a park. Open grass and mature trees extend along the walking side, with low buildings visible across the street. Nearby tree trunks and grass verges pass beside the camera as it advances. The truck continues along the road ahead while patches of blue sky show between the canopies. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "open_junction_crossing_truck",
+      "split": "train",
+      "focus_class": "truck",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A box truck crosses an open junction ahead, showing its cab and long side. Low buildings stand around the road, with leafy roadside trees and grass along the sidewalks. The camera approaches the corner while remaining on the sidewalk. Nearby trees and paving gradually grow larger as the truck continues across the distant junction beneath a pale blue sky. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "parked_truck_tree_reveal",
+      "split": "train",
+      "focus_class": "truck",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A parked truck beside the road is partly hidden behind a nearby tree trunk. As the camera walks past the tree, more of the truck becomes visible and gradually grows larger. Low residential buildings, planted gardens and grass verges line the street. The sidewalk remains clear ahead and the tree canopy frames a bright blue sky. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "riverside_parked_car",
+      "split": "val",
+      "focus_class": "car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A parked car stands beside a riverside road, with the river beyond a grassy bank and a line of trees. Low buildings face the water across the street. The car and nearby tree trunks become larger as the camera approaches, while the sidewalk leads ahead along the river. Soft daylight reflects from the water beneath an open blue sky. Realistic colors and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "railway_station_approaching_bus",
+      "split": "val",
+      "focus_class": "bus",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A city bus moves slowly along the road toward a railway station forecourt ahead. The low station building stands beyond planted trees and broad paved sidewalks. Nearby planting beds and tree trunks pass beside the viewer as the camera approaches the station entrance. The bus continues toward the forecourt, with open sky above the station roof. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "village_green_delivery_truck",
+      "split": "val",
+      "focus_class": "truck",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A delivery truck moves slowly along the road past small stone shops beside a village green. Grass and mature trees cover the green across the street. The shop windows and stone doorways grow larger and pass beside the camera as it advances. The truck continues past the buildings ahead, with a pale blue sky above the roofs. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "landscaped_roundabout_car",
+      "split": "val",
+      "focus_class": "car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A car moves around a small landscaped roundabout on the road ahead. Low buildings and sidewalks surround the junction, with grass, shrubs and a small tree on the central island. The camera approaches along the sidewalk while the car follows the curved road. Nearby planting and building fronts grow larger beside the viewer beneath a lightly clouded sky. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "hospital_service_parked_truck",
+      "split": "val",
+      "focus_class": "truck",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A box truck is parked beside a hospital service entrance along a quiet access road. Low hospital buildings stand within landscaped grounds containing grass, shrubs and planted trees. The wide sidewalk leads toward the entrance. As the camera advances, the truck and nearby trees become larger and move toward the frame edges beneath a bright overcast sky. Realistic daylight, natural colors and perspective. One continuous shot."
+    }
+  ]
+}

@@ -1,0 +1,680 @@
+{
+  "original_commit": "21ff6a3edf08819d5993de002b319de04eded676",
+  "copied_files": [
+    {
+      "path": "configs/cotracker_evaluation/reference_rgb_20260909.json",
+      "sha256": "2597bd7a834d42fd72e12ad371ce7864531610959a9f59726b47946fd3d84681",
+      "bytes": 136696
+    },
+    {
+      "path": "configs/datasets/walking_pov_100_v1.json",
+      "sha256": "35fe1e343f29dc4234b80a821e15794386120c2a7c452ed6f1f8ba3d1a055d6f",
+      "bytes": 17637
+    },
+    {
+      "path": "configs/datasets/walking_pov_mixed_100_v1.json",
+      "sha256": "260d3eac048d8c1124d4c0dacb2d3943e45ebb3bd653bb307d49cf27363a8204",
+      "bytes": 24173
+    },
+    {
+      "path": "configs/rgb_geometry_campaign_v1.json",
+      "sha256": "e8eae79c6162e1a1763b6132be3a8c9398f83fa695bb379634cc05322f8954ba",
+      "bytes": 37109
+    },
+    {
+      "path": "configs/rgb_geometry_challenge_v1.json",
+      "sha256": "156b8f4204e40d49d21731ecec65fa0d03d99fb8e5f944e6d52d994439192eb2",
+      "bytes": 48103
+    },
+    {
+      "path": "configs/rgb_geometry_pilot_v1.json",
+      "sha256": "bc6ecd3b23a477a7c746e5badce3a64876485b60764375f8b5f7979436e15ddc",
+      "bytes": 4648
+    },
+    {
+      "path": "configs/rgb_geometry_qualitative_lora_v1.json",
+      "sha256": "193a83d5e27d0c57a49e40017e33b2204e9e9e0d77e13c4b989dba33645c3d8b",
+      "bytes": 20407
+    },
+    {
+      "path": "configs/rgb_geometry_qualitative_v1.json",
+      "sha256": "50f48658b5bb809122f25c007b8a8a2609bf08fd159c5fd7ac47dfb4610f3ebd",
+      "bytes": 20225
+    },
+    {
+      "path": "configs/rgb_geometry_rl_comparison_v1.json",
+      "sha256": "cde09caefdf7293b53cf4f22a1dae708dbed877501c472c9216a6933000aa2e9",
+      "bytes": 17563
+    },
+    {
+      "path": "configs/rgb_geometry_rl_v2.json",
+      "sha256": "65512d6c1ee2d8fda5decaddb9cc47f29d447e9aaf2ba68ce50506cfccd6f754",
+      "bytes": 6498
+    },
+    {
+      "path": "configs/rgb_geometry_rl_v2_rescore_20260920.json",
+      "sha256": "cd5af0e289b043686e33a828e988ec147602ce39e6559ff53515164c809028cb",
+      "bytes": 8105
+    },
+    {
+      "path": "configs/semantic_denoiser_experiments/confirmation.json",
+      "sha256": "ed44984eb505bfa37ac5b523264ba76d476575c5b97b4776d511b16cff6cb009",
+      "bytes": 6639
+    },
+    {
+      "path": "jobs/codec_retraining/prepare.sh",
+      "sha256": "c8131835adbc95a7de6cc4bcacaf6c60406de90e73e25a1b48e35be008ed7925",
+      "bytes": 1462
+    },
+    {
+      "path": "jobs/codec_retraining/train.sh",
+      "sha256": "375cf39843d3e8821ef77b88ff2dfa9c15df213bdd29e94593d12302e1893664",
+      "bytes": 1742
+    },
+    {
+      "path": "jobs/datasets/create_walking_pov_100.sh",
+      "sha256": "8a75e048f8b341eab25e7b929fa386bf07d1b67b9cdd1b064fc85f4b2b777e6f",
+      "bytes": 5123
+    },
+    {
+      "path": "jobs/datasets/create_walking_pov_mixed_100.sh",
+      "sha256": "b9073a7ba0fbca3d837f05112b6ca1e29405f35e6c87878e412a0708f2e9aded",
+      "bytes": 5256
+    },
+    {
+      "path": "jobs/joint_semantic_mixed/continue_30epochs.sh",
+      "sha256": "8b5befad62f6e8615346d1b7b0e2c6402222746c46ba8482f8617c368156176b",
+      "bytes": 1057
+    },
+    {
+      "path": "jobs/joint_semantic_mixed/run.sh",
+      "sha256": "df1f256a7a4f702aa8e2c78b63c81f0f46e9dfd6df4e89a1377da178d139f6ca",
+      "bytes": 3868
+    },
+    {
+      "path": "jobs/rgb_geometry_challenge/common.sh",
+      "sha256": "e8c1671b1028b7bf949cf3677299b79855f56217f4fd77ee493dc4ddd576498c",
+      "bytes": 2488
+    },
+    {
+      "path": "jobs/rgb_geometry_challenge/environment.sh",
+      "sha256": "a6f19c792ec1f69e912f231301f263c7aab4d5585918a290d0d187f7839e5c2b",
+      "bytes": 2259
+    },
+    {
+      "path": "jobs/rgb_geometry_challenge/report.sh",
+      "sha256": "91ca3a05efcefd3874e61e7e671c2070210676f551ccce3c59325841dd2da30e",
+      "bytes": 707
+    },
+    {
+      "path": "jobs/rgb_geometry_challenge/submit.py",
+      "sha256": "db27d8683955fa466af6ea308f74467e48758f5adc97a66d8f6836d21d5b0c95",
+      "bytes": 11882
+    },
+    {
+      "path": "jobs/rgb_geometry_challenge/submit.sh",
+      "sha256": "f2d544131b4024ce79132cfc9e7b80785c6b50765849246dd69594bfdb8caac6",
+      "bytes": 372
+    },
+    {
+      "path": "jobs/rgb_geometry_challenge/worker.py",
+      "sha256": "c0391dd050ae0ab4afc08a9579390fa858bf939244b5c0700077e55edab95c7b",
+      "bytes": 10020
+    },
+    {
+      "path": "jobs/rgb_geometry_challenge/worker.sh",
+      "sha256": "7fbd8854956cd7d2a5b8762ce73f1ff632c6ec71c689e3ded709778b8037dfc8",
+      "bytes": 926
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative/baseline.sh",
+      "sha256": "db97de0839049c4f54e70ced2a8f535d8fdc12b7a75c31d9add3fa29a12e92f4",
+      "bytes": 766
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative/common.sh",
+      "sha256": "484b55904aa8eecbc143384b47c2db98ee2d3328ef2bf606a8570fc0e1cb21bd",
+      "bytes": 3997
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative/environment.sh",
+      "sha256": "094b8069680104a12539abb200cb9e0de3dd104eccaa9c9080d900ed9da9164c",
+      "bytes": 2131
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative/report.sh",
+      "sha256": "89a971c242935caac99224044a010038acac203b403cd5f344b65d92e81b0ec6",
+      "bytes": 706
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative/single_arm.sh",
+      "sha256": "06ac109db70e179c3ba26bab8d83941ca8f75bccf6ebf6de4108cff171e6c295",
+      "bytes": 1111
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative/submit.py",
+      "sha256": "f269167c0a9512b1e133c3cfdd30a9a971a1e30da267ec8d683b38ecfd054054",
+      "bytes": 12288
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative/submit.sh",
+      "sha256": "6155ea39a504a58c752c8efdfad3de69fb2b2f5a7bbf7edb8b7c241010bdf349",
+      "bytes": 374
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative/worker.py",
+      "sha256": "33c6a1fd19ceabedcd91041ef3d415b0269af0fdbe1f10d59689ac50449e3e3e",
+      "bytes": 9690
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative/worker.sh",
+      "sha256": "00b5938dbb62f2a04ba9d8469d3ca56b0c1ac8bf7db2c0d258ea7bc2aa3052d3",
+      "bytes": 925
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative_lora/arm.sh",
+      "sha256": "08fead42eb3818a291e339fee1d7d094a7122535c713ea0914172f150a32d066",
+      "bytes": 980
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative_lora/common.sh",
+      "sha256": "71c7e14f5a8770d4019d07b07f13996b151b0a6aeebd420ceb784da211eff7d8",
+      "bytes": 3853
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative_lora/environment.sh",
+      "sha256": "4e934c00e4b8edbce57bc34ec739eabeba9b4eacc97a8301b86e93d6ccdde86d",
+      "bytes": 1876
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative_lora/report.sh",
+      "sha256": "88cec158dff22a43204fb53de2096e0444570456b5f9ac9b2170e4d8b0d0fc44",
+      "bytes": 722
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative_lora/single_arm.sh",
+      "sha256": "7ad2703a42b790f12a8ce9bcb37d78c7ff5e21e593dbdfb5b5a93787b6f8a9a3",
+      "bytes": 1043
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative_lora/submit.py",
+      "sha256": "0e6dbcd1df73f9b83f9d031acaefb04f8cebbbfc70e28715fd8a0de009914864",
+      "bytes": 11099
+    },
+    {
+      "path": "jobs/rgb_geometry_qualitative_lora/submit.sh",
+      "sha256": "e763773264a18710a107fb78f197d83e7c2f0ae4a4e9fec0e8b54b1dc97ad0e8",
+      "bytes": 379
+    },
+    {
+      "path": "src/codec_retraining/data.py",
+      "sha256": "ae26f515bf7e29260067d46579b38cc826df2b219de6948994eb9d11d4e2367c",
+      "bytes": 18025
+    },
+    {
+      "path": "src/codec_retraining/model.py",
+      "sha256": "7615299bfd50e447a8a232baf50d4be7bfdef2295e572ac2245e5dee17f40a59",
+      "bytes": 1503
+    },
+    {
+      "path": "src/codec_retraining/run.py",
+      "sha256": "602adaf2568ec9f2479de28358536e28b9a73f5a93f3b4ed21574375015621bc",
+      "bytes": 24358
+    },
+    {
+      "path": "src/cotracker_evaluation/__init__.py",
+      "sha256": "c9e5240479ad7e7c5e07249ba1281c9f3eec03e9e7795d5403118acd5219f654",
+      "bytes": 86
+    },
+    {
+      "path": "src/cotracker_evaluation/comparison_io.py",
+      "sha256": "6c3f9ea35e8bb08026b903a6dba926ca187b6327ecdcc97430f388478557ea4c",
+      "bytes": 9799
+    },
+    {
+      "path": "src/cotracker_evaluation/make_results.py",
+      "sha256": "2527ee361a5d01c2c88695babc5a73429355da5ebb7a1c14ceb0a2c16d78a374",
+      "bytes": 26136
+    },
+    {
+      "path": "src/cotracker_evaluation/run_cotracker.py",
+      "sha256": "303afd59afdb1bf0607afec1acfb25cf5b51dcfa7655f01e49b106d641c731c2",
+      "bytes": 20689
+    },
+    {
+      "path": "src/cotracker_evaluation/tracking_metrics.py",
+      "sha256": "1a7165c9dbe163d02481da4fcc1bd53d51bce0107948a3d2ae7835379363d5a9",
+      "bytes": 16513
+    },
+    {
+      "path": "src/datasets/create_walking_pov_100.py",
+      "sha256": "56110554717f8e750b4ee9fce3f87f9e009ce5717d05935e5252811ee7126405",
+      "bytes": 25188
+    },
+    {
+      "path": "src/datasets/create_walking_pov_mixed_100.py",
+      "sha256": "c7297f7624cf296a5cc3732c85a4ab16790773f101f9c171ba4e4293893326af",
+      "bytes": 14988
+    },
+    {
+      "path": "src/joint_semantic_mixed/common.py",
+      "sha256": "4acf3e6f173cf9257fb43f149787d26c132796c0dcfd204d668b6863e72c14f6",
+      "bytes": 9210
+    },
+    {
+      "path": "src/joint_semantic_mixed/continuation.py",
+      "sha256": "fe9646137afb9a1f1c3c61836fcf3faf6cb137809b62fd162e334b7862e4c75e",
+      "bytes": 8013
+    },
+    {
+      "path": "src/joint_semantic_mixed/examples.py",
+      "sha256": "a0d73b2f443a982b0aaeec3a8ddebb217295afd332c1b119df6cb0cd8e9cd833",
+      "bytes": 10263
+    },
+    {
+      "path": "src/joint_semantic_mixed/monitoring.py",
+      "sha256": "c8fdc4736466cbecba93a6fb9ff5ae16baa774e0e2a0edd27cfeedcf86b54772",
+      "bytes": 17058
+    },
+    {
+      "path": "src/joint_semantic_mixed/prepare.py",
+      "sha256": "df8613596f29688b99e94de56d0e74e50f07f87cd1fcc5d80e28c2856fd96b89",
+      "bytes": 7262
+    },
+    {
+      "path": "src/joint_semantic_mixed/run.py",
+      "sha256": "19714643483a80b463f5596db6553025ba0ad931f219180773839fe9b59983bd",
+      "bytes": 3117
+    },
+    {
+      "path": "src/joint_semantic_mixed/training.py",
+      "sha256": "c8b19de6a5b9673e341527deb28861cc13c6a2d4cdfd052fabcc1999c314421b",
+      "bytes": 15243
+    },
+    {
+      "path": "src/middle_feature_semantic/__init__.py",
+      "sha256": "ec9f569687e8ba5c0ec3cb58cc8b38671de08060161261d205b275ead78245fa",
+      "bytes": 327
+    },
+    {
+      "path": "src/middle_feature_semantic/phase1_semantic_models.py",
+      "sha256": "bb26cb6f159015952c3eb87b0f192233fbc36044c65a9790c869de79e83ff518",
+      "bytes": 15524
+    },
+    {
+      "path": "src/middle_feature_semantic/reference_rgb_correction.py",
+      "sha256": "da14881d3d7ab4e6baa7d3eba9f9b9c56a9bb9b5f50813c866714f056043d232",
+      "bytes": 12138
+    },
+    {
+      "path": "src/middle_feature_semantic/wan_middle_feature_capture.py",
+      "sha256": "10ee97120481ac972625a732f2702de6a53749c8a8ee610de20f677eb8d064e2",
+      "bytes": 7812
+    },
+    {
+      "path": "src/phase3/__init__.py",
+      "sha256": "b289ad5c8864c0dbedda4314b0c1b8a7b9b8cf4c42f8d812bdc20e7a445a1b18",
+      "bytes": 64
+    },
+    {
+      "path": "src/phase3/semantic_codec.py",
+      "sha256": "dca2708a36b3d8183e53fba6a1faefa894a8dc4165eb618b644dee511ae0035d",
+      "bytes": 26649
+    },
+    {
+      "path": "src/phase3/semantic_codec_contract_v1.json",
+      "sha256": "2bb893ede6929fbfcecbd709f0515b15b1f227d6d6430e18ef5f140978b6a307",
+      "bytes": 24707
+    },
+    {
+      "path": "src/rgb_geometry_campaign/__init__.py",
+      "sha256": "446a6dc8937f6144c9eac28f7df766038474fb05e2ac3533cc05f6eeb1cc70cb",
+      "bytes": 75
+    },
+    {
+      "path": "src/rgb_geometry_campaign/launcher.py",
+      "sha256": "6b8cdf1d7c98ba2da5753d7a95bf10d44c2bd1cff3fce8eb685be91edbba8b89",
+      "bytes": 7437
+    },
+    {
+      "path": "src/rgb_geometry_campaign/policy.py",
+      "sha256": "98cef303764bdce4eddeb8b21a6d993fd30d518b852f978ebe515ce0832cd7bd",
+      "bytes": 23542
+    },
+    {
+      "path": "src/rgb_geometry_campaign/protocol.py",
+      "sha256": "a5831f257404914c09f6a3eb6be10efa2f69656b855f41e933ccce5f08830dfd",
+      "bytes": 10053
+    },
+    {
+      "path": "src/rgb_geometry_campaign/reporting.py",
+      "sha256": "8f5e20756bfb5ccc17979ee91f2b93967eb9867fb9f175d88ffdee65ffbe1819",
+      "bytes": 24834
+    },
+    {
+      "path": "src/rgb_geometry_campaign/scoring.py",
+      "sha256": "fcb63eb30618f780326528b04a1d5f4e32d4607010f8199965cc6ba2f7305b6e",
+      "bytes": 16449
+    },
+    {
+      "path": "src/rgb_geometry_campaign/track.py",
+      "sha256": "cedc3ef1e982a26382475edf31c25d8606b1a5e874b0ae48a278b5d5c62bf836",
+      "bytes": 13962
+    },
+    {
+      "path": "src/rgb_geometry_challenge/__init__.py",
+      "sha256": "3473c851ddd0854c96515ab9e744cac63501397a8d7dee974a657d7b517c4999",
+      "bytes": 80
+    },
+    {
+      "path": "src/rgb_geometry_challenge/experiments.py",
+      "sha256": "213dee13aa54b6f2e5246970281923dab4008698a3f632116508204a4cf0eac0",
+      "bytes": 4273
+    },
+    {
+      "path": "src/rgb_geometry_challenge/inputs.py",
+      "sha256": "eb0fb9a51073ba5a40b1af1a25a8de4ade092f5f64aab8093d80254f3586009a",
+      "bytes": 8787
+    },
+    {
+      "path": "src/rgb_geometry_challenge/protocol.py",
+      "sha256": "9ca175642a9f7f56b6e47a03d346ef5c4f7af1f1187086f6b806787f3a279452",
+      "bytes": 22566
+    },
+    {
+      "path": "src/rgb_geometry_challenge/reporting.py",
+      "sha256": "89b89f71c45af00068199c5251cab261638edadcc578d8dbd0a85c4ebd33d0be",
+      "bytes": 24439
+    },
+    {
+      "path": "src/rgb_geometry_challenge/run.py",
+      "sha256": "c3696da8ea589c04b2a6a7ef9a8244f50c421e01f37da74f8e62f96483c6091e",
+      "bytes": 5821
+    },
+    {
+      "path": "src/rgb_geometry_evaluation/__init__.py",
+      "sha256": "6aeda42d778078a716853d2f815d63f8a5a99d81d11acfdfc4fda96ec30fd528",
+      "bytes": 83
+    },
+    {
+      "path": "src/rgb_geometry_evaluation/metrics.py",
+      "sha256": "830b627b4c823b6f7dbbf87a11c18913da1674e4302091cbe83f8977be1bd86c",
+      "bytes": 15620
+    },
+    {
+      "path": "src/rgb_geometry_evaluation/protocol.py",
+      "sha256": "745fd9c971a1edad67232b601b2f05631729b5484de5751c5eda83df9ae763d6",
+      "bytes": 12632
+    },
+    {
+      "path": "src/rgb_geometry_evaluation/track.py",
+      "sha256": "90db492eb21b36de0327d65634e1999ce3c432d540fb24e5cbe9a829b68ebb00",
+      "bytes": 7737
+    },
+    {
+      "path": "src/rgb_geometry_lora_exploratory/__init__.py",
+      "sha256": "9b42e87850a39de6c425271d594bde1e3b9dbec66b99a6875ab3f5a664c286f8",
+      "bytes": 79
+    },
+    {
+      "path": "src/rgb_geometry_lora_exploratory/policy.py",
+      "sha256": "dc2c7e149439731d1e84d38a923693a1b1b68081f2db019891e1869a9133624a",
+      "bytes": 7721
+    },
+    {
+      "path": "src/rgb_geometry_lora_memory/__init__.py",
+      "sha256": "da569566b7605bc335d718c76c185d2fd6a23566c52eead93a3ab7420ebf6de5",
+      "bytes": 77
+    },
+    {
+      "path": "src/rgb_geometry_lora_memory/checkpointing.py",
+      "sha256": "9ce0b3e63b79864104fbb58e93a975a45d985cf3f1d6d69b6368886cf7f35d31",
+      "bytes": 4301
+    },
+    {
+      "path": "src/rgb_geometry_pilot/__init__.py",
+      "sha256": "b31e2d6b82aa41ffe303647e13f4a3249af7f88669ff1892df6a50433e7472b0",
+      "bytes": 77
+    },
+    {
+      "path": "src/rgb_geometry_pilot/policy.py",
+      "sha256": "baefcebd3b9b143d5438ffb6defac253b7816e151394948cdb3319a3fba46054",
+      "bytes": 26860
+    },
+    {
+      "path": "src/rgb_geometry_pilot/protocol.py",
+      "sha256": "57293ae4fcc649d954df8f15b5330ddabf8bfd450f86d7d6ea73c76c78a0a2d3",
+      "bytes": 18046
+    },
+    {
+      "path": "src/rgb_geometry_pilot/reward.py",
+      "sha256": "9edc645906faf1ca176d2e52320022420c12f98aa6aab957abdcb992fbed7acf",
+      "bytes": 21775
+    },
+    {
+      "path": "src/rgb_geometry_pilot/runtime.py",
+      "sha256": "06b1926d6e774b447fa2d9f8634b897e73470afcb256e9e917b8680ec910c96d",
+      "bytes": 14628
+    },
+    {
+      "path": "src/rgb_geometry_pilot/track.py",
+      "sha256": "4817e1b7c664403100d2e7e7b708d097fca5f65a1cc77cb3d9a70952e9779be7",
+      "bytes": 12259
+    },
+    {
+      "path": "src/rgb_geometry_qualification/__init__.py",
+      "sha256": "0d3a4f3fb4b774cf6d197dda39c1055d9201941d639a903dcebfa2c242ba7160",
+      "bytes": 75
+    },
+    {
+      "path": "src/rgb_geometry_qualification/controls.py",
+      "sha256": "c1a65a2230b51376af43ec7d080ae9e0e6ed8927493d9d8337ef0d9ccda23fea",
+      "bytes": 9306
+    },
+    {
+      "path": "src/rgb_geometry_qualification/diagnostics.py",
+      "sha256": "2764e5c1672d310ea577df18bd9bde036055c69c2677846ffdfc9343bc2c68b4",
+      "bytes": 11694
+    },
+    {
+      "path": "src/rgb_geometry_qualitative/__init__.py",
+      "sha256": "e8eea1b117f74e86212f4ebeeff0b8e1d76d62fbfba9271321cc8dfbfa3dd7db",
+      "bytes": 81
+    },
+    {
+      "path": "src/rgb_geometry_qualitative/artifacts.py",
+      "sha256": "904ce5326d027add8db5e5cd7e645a5a09821aee2523bb41f582e4045815f479",
+      "bytes": 11922
+    },
+    {
+      "path": "src/rgb_geometry_qualitative/experiments.py",
+      "sha256": "02c06c4ef2cd2271577ca3e392af0100af06d14c99bff828d61094b4959afa07",
+      "bytes": 11515
+    },
+    {
+      "path": "src/rgb_geometry_qualitative/policy.py",
+      "sha256": "f251e6b402016346102f5da43638f7faed2204d028aec054da339d4b486aa522",
+      "bytes": 2020
+    },
+    {
+      "path": "src/rgb_geometry_qualitative/protocol.py",
+      "sha256": "cd56a69b1c88556c886eb56ee1b6a8782d26db7c4a6c366208d79ffa54cee6f7",
+      "bytes": 6802
+    },
+    {
+      "path": "src/rgb_geometry_qualitative/reporting.py",
+      "sha256": "15055f4c60b1d7c35db0e43a5231409eb4e1d44d2f60e1a392d4b435d4039b24",
+      "bytes": 14890
+    },
+    {
+      "path": "src/rgb_geometry_qualitative/run.py",
+      "sha256": "4411b1f34e099a400144b7f6be467f729597c1ecb6b74d3583c0509fbcb8da06",
+      "bytes": 5982
+    },
+    {
+      "path": "src/rgb_geometry_qualitative_lora/__init__.py",
+      "sha256": "929b7988228512d9d93a45ea911e9000f28917e23f478e464348bd42ced516d9",
+      "bytes": 85
+    },
+    {
+      "path": "src/rgb_geometry_qualitative_lora/protocol.py",
+      "sha256": "24dce91eb9cf5136fad2b318aeb985599db9485a70e5924f04eb12a0e1a58753",
+      "bytes": 8386
+    },
+    {
+      "path": "src/rgb_geometry_qualitative_lora/reporting.py",
+      "sha256": "92ec446b590e09df4e9f543558bc47b56636efb6bd3eed0951e8759bcddde7f3",
+      "bytes": 14453
+    },
+    {
+      "path": "src/rgb_geometry_qualitative_lora/run.py",
+      "sha256": "eaf0c7b25c7944d96f5fa9c77b8ffd92fdb2d1e48b8e4ba184f7f9070548f75e",
+      "bytes": 468
+    },
+    {
+      "path": "src/rgb_geometry_reward_check/__init__.py",
+      "sha256": "562a77f44d21fbf7d7299f5d920a6afe7e1c46a5ac7345656d0667d168cb3053",
+      "bytes": 80
+    },
+    {
+      "path": "src/rgb_geometry_reward_check/controls.py",
+      "sha256": "c28e5c5accdfa2c4cfdbbd9fcfc0791df6babd268a938fc97e280e91cee6e123",
+      "bytes": 5032
+    },
+    {
+      "path": "src/rgb_geometry_rl_comparison/__init__.py",
+      "sha256": "051e136d2c697eae9c45b2fe39da4a479bb322b1b947d161753ca565f84ac868",
+      "bytes": 73
+    },
+    {
+      "path": "src/rgb_geometry_rl_comparison/experiments.py",
+      "sha256": "d1b4cd3a6603b30e435a14cd68e094822c970c5b2824aa2abc30c0f0d07b83dd",
+      "bytes": 15389
+    },
+    {
+      "path": "src/rgb_geometry_rl_comparison/policy.py",
+      "sha256": "1e0ced4d6c095b51d12e8a270c09663b5a8dc20c9cd35c8c8b0c59aee506ea4e",
+      "bytes": 30288
+    },
+    {
+      "path": "src/rgb_geometry_rl_comparison/protocol.py",
+      "sha256": "dc4698ae898a1149ed2eac9254d6e1a469ead2922ef6504f3d08284975359b57",
+      "bytes": 9015
+    },
+    {
+      "path": "src/rgb_geometry_rl_methods/__init__.py",
+      "sha256": "5917fe30bd2a72cd86e6d0cad921424b0510bb372f0690b5fe13ebaf44281a12",
+      "bytes": 71
+    },
+    {
+      "path": "src/rgb_geometry_rl_methods/objectives.py",
+      "sha256": "5c8771d4148a9bb3cf146adfbc3b01539218abdbba2a29806c13a2e8e90f2073",
+      "bytes": 11159
+    },
+    {
+      "path": "src/rgb_geometry_rl_v2/__init__.py",
+      "sha256": "d9a16481956a9e49e6867981e0ec7c1369208de7d4725a9c2e2a2fe2bb76b244",
+      "bytes": 85
+    },
+    {
+      "path": "src/rgb_geometry_rl_v2/metrics.py",
+      "sha256": "f160e38965ce16ebaf84e568acf6fb9c63eca9d030cb5f95e61615e8bc4f64ab",
+      "bytes": 10916
+    },
+    {
+      "path": "src/rgb_geometry_rl_v2/photo.py",
+      "sha256": "b932d0e483131ccd8b8931290eca50c11a940da6038a4122e575d17f73856475",
+      "bytes": 4026
+    },
+    {
+      "path": "src/rgb_geometry_rl_v2/policy.py",
+      "sha256": "ce4511292e42f6d7e55dc0e6090b53b612c6971c43d932b3b6e3f04d7ec59b58",
+      "bytes": 30319
+    },
+    {
+      "path": "src/rgb_geometry_rl_v2/protocol.py",
+      "sha256": "f9d80dc25e3649c0f0f7c3626de49182b6777bb82303eeb6d6591f53713a1311",
+      "bytes": 14667
+    },
+    {
+      "path": "src/rgb_geometry_rl_v2/track.py",
+      "sha256": "5113419d57612e77f07b362783d3dbf988bc73677c0dd56c643baee815da780b",
+      "bytes": 11615
+    },
+    {
+      "path": "src/seg_decoder/__init__.py",
+      "sha256": "ee7767c7afea5d03e359721fb0eb211b03546c96d1efff64c5a705c98877c05e",
+      "bytes": 62
+    },
+    {
+      "path": "src/seg_decoder/audit_uncertainty_v2.py",
+      "sha256": "63d93f3386ce7800e5e685ccffce96943b06930da122939e5babed3e2c4ea6d2",
+      "bytes": 13686
+    },
+    {
+      "path": "src/video_generation/__init__.py",
+      "sha256": "e551aabac24994396813bdf6554e6c8fc9291dddca63782c7c55c09e7084f9b3",
+      "bytes": 58
+    },
+    {
+      "path": "src/video_generation/gen_dataset.py",
+      "sha256": "5f3511172e66d7dc765c95259fe9fd980b6545bf998d6e0fc68701ecdb832aa7",
+      "bytes": 11486
+    },
+    {
+      "path": "src/video_generation/my_wan_pipeline.py",
+      "sha256": "8c5064c2bf3b666b3aaac6541df8a5a3265ba26c913f7c688fec28375afccab7",
+      "bytes": 15679
+    },
+    {
+      "path": "src/yolo/__init__.py",
+      "sha256": "4851e4499ad957a81d01e25ed3cd819e7a63cdcbe30c0da43467baef37b8d10a",
+      "bytes": 64
+    },
+    {
+      "path": "src/yolo/yolo_labelmap_concepts.py",
+      "sha256": "ef5eb17632153c6a4dafb9dca7af0ef5452df873605be39818a92a0bce68fea4",
+      "bytes": 30904
+    },
+    {
+      "path": "tests/cotracker_evaluation/test_tracking_metrics.py",
+      "sha256": "691dbc258fdfeafb41103d881006524f69f34660d241e4dea01d1ad81e56ef7a",
+      "bytes": 14390
+    },
+    {
+      "path": "tests/rgb_geometry_evaluation/test_metrics.py",
+      "sha256": "40165594a1f046be503958cd6e8339209132813fcf73491d97add071cea578b8",
+      "bytes": 10476
+    }
+  ],
+  "purpose": "Selected thesis source package; copied research files are byte-identical to the original.",
+  "original_git_status_at_copy": "clean",
+  "scope": [
+    "dataset preparation",
+    "selected semantic codec",
+    "historical semantic flow predictor",
+    "RLOO",
+    "Flow-GRPO",
+    "Flash-GRPO",
+    "RGB/semantic heads and rank-4 LoRA",
+    "tracking reward and evaluation",
+    "retained qualitative study",
+    "inference-only challenge"
+  ],
+  "package_additions": [
+    "README.md",
+    "REPRODUCING.md",
+    "ATTRIBUTION.md",
+    "requirements-core.txt",
+    ".gitignore",
+    ".gitattributes",
+    "SOURCE_MANIFEST.json",
+    "tools/verify_package.py"
+  ],
+  "limitations": [
+    "External weights/data/environments are not included.",
+    "M3-specific paths and frozen input hashes are retained.",
+    "Reduced source inventory is not identical to historical run inventories.",
+    "GPU execution and fresh environment installation were not validated for this package."
+  ]
+}

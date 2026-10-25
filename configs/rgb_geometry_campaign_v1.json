@@ -1,0 +1,620 @@
+{
+  "format": "rgb_geometry_campaign_v1",
+  "settings": {
+    "rounds": 10,
+    "siblings": 4,
+    "semantic_updates": 400,
+    "semantic_learning_rate": 2e-05,
+    "head_learning_rate": 1e-06,
+    "lora_learning_rate": 1e-08,
+    "seed": 42,
+    "action_indices": [
+      10,
+      20,
+      30,
+      40
+    ],
+    "inference_steps": 50,
+    "alpha": 0.25,
+    "noise_scale": 0.03,
+    "maximum_concurrent_gpus": 4,
+    "retention": "json_csv_only",
+    "e4_checkpoint": "/home/dhiazr/semantic_denoiser_80/E4/semantic_epoch80.pt"
+  },
+  "provenance": {
+    "expected_semantic_files": {
+      "prepared.json": "1da7cd6725430e38d94dee5755846434f3ac97d2b116af79ed40080daabaf9d0",
+      "training_config.json": "f67e3e2dd8b012f7f0f1b570d39f6b6060647deaae41642c966f8bc131e86457",
+      "training_complete.json": "1f319918ff2fdc9ac4460e1a881c476fcf0c782ee9bf0599ae23c418e815553f",
+      "semantic_best.pt": "434a8438ee8745fa87a171ee41e7048f516b8418e825560bdd64b2f27328066a",
+      "frozen_codec.pt": "5b44d02685d168c9f19f5effc19b8350c4a9a2c9d69c10ff46184d4394ccc434",
+      "normalization_stats.json": "9ef4ad057e301a160cfa9ef3c925cf52c3c030d31d601f2ba14335846fe1e2f0"
+    },
+    "scene_transfer_verified": false,
+    "evaluation_panel_previously_inspected": false,
+    "note": "New prompts and seeds declared before this campaign; exact recorded prompt overlap is checked. Semantic aliases and scene-level transfer remain unverified. All scores are proxies."
+  },
+  "panels": {
+    "rl_train": [
+      {
+        "scene": "rl_train_00",
+        "prompt": "First-person camera walking steadily forward at eye level along a quiet brick tram depot street. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "rl_train_01",
+        "prompt": "First-person camera walking steadily forward at eye level along a wide boulevard beside a botanical conservatory. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "rl_train_02",
+        "prompt": "First-person camera walking steadily forward at eye level along a limestone university service road. The scene contains a car at the curb and a delivery truck near a building. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "rl_train_03",
+        "prompt": "First-person camera walking steadily forward at eye level along a neighborhood avenue beside a public swimming pool. The scene contains two parked cars, a pedestrian and a bicycle beside a wall. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      }
+    ],
+    "semantic_train": [
+      {
+        "scene": "semantic_train_00",
+        "prompt": "First-person camera walking steadily forward at eye level along a terracotta railway district. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_train_01",
+        "prompt": "First-person camera walking steadily forward at eye level along a canal-side warehouse lane. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_train_02",
+        "prompt": "First-person camera walking steadily forward at eye level along a small science campus roadway. The scene contains a car at the curb and a delivery truck near a building. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_train_03",
+        "prompt": "First-person camera walking steadily forward at eye level along a civic library parking street. The scene contains two parked cars, a pedestrian and a bicycle beside a wall. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_train_04",
+        "prompt": "First-person camera walking steadily forward at eye level along a waterfront customs-house avenue. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_train_05",
+        "prompt": "First-person camera walking steadily forward at eye level along a tree-lined medical campus street. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_train_06",
+        "prompt": "First-person camera walking steadily forward at eye level along a sandstone theatre approach. The scene contains a car at the curb and a delivery truck near a building. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_train_07",
+        "prompt": "First-person camera walking steadily forward at eye level along a residential street beside a pottery workshop. The scene contains two parked cars, a pedestrian and a bicycle beside a wall. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      }
+    ],
+    "semantic_development": [
+      {
+        "scene": "semantic_development_00",
+        "prompt": "First-person camera walking steadily forward at eye level along a timber boatyard avenue. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_development_01",
+        "prompt": "First-person camera walking steadily forward at eye level along a glass-roofed market approach. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_development_02",
+        "prompt": "First-person camera walking steadily forward at eye level along a red-brick observatory lane. The scene contains a car at the curb and a delivery truck near a building. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_development_03",
+        "prompt": "First-person camera walking steadily forward at eye level along a suburban sports pavilion street. The scene contains two parked cars, a pedestrian and a bicycle beside a wall. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      }
+    ],
+    "semantic_confirmation": [
+      {
+        "scene": "semantic_confirmation_00",
+        "prompt": "First-person camera walking steadily forward at eye level along a weathered ferry terminal street. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_confirmation_01",
+        "prompt": "First-person camera walking steadily forward at eye level along a garden center delivery lane. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_confirmation_02",
+        "prompt": "First-person camera walking steadily forward at eye level along a hilltop planetarium avenue. The scene contains a car at the curb and a delivery truck near a building. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_confirmation_03",
+        "prompt": "First-person camera walking steadily forward at eye level along a tiled cultural-center road. The scene contains two parked cars, a pedestrian and a bicycle beside a wall. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_confirmation_04",
+        "prompt": "First-person camera walking steadily forward at eye level along a riverside rowing-club approach. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_confirmation_05",
+        "prompt": "First-person camera walking steadily forward at eye level along a low-rise courthouse avenue. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_confirmation_06",
+        "prompt": "First-person camera walking steadily forward at eye level along a former mill museum roadway. The scene contains a car at the curb and a delivery truck near a building. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_confirmation_07",
+        "prompt": "First-person camera walking steadily forward at eye level along a vineyard village street. The scene contains two parked cars, a pedestrian and a bicycle beside a wall. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_confirmation_08",
+        "prompt": "First-person camera walking steadily forward at eye level along a coastal aquarium access street. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "semantic_confirmation_09",
+        "prompt": "First-person camera walking steadily forward at eye level along a concrete music school lane. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      }
+    ],
+    "evaluation": [
+      {
+        "scene": "evaluation_00",
+        "prompt": "First-person camera walking steadily forward at eye level along a pale-stone postal sorting office street. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "evaluation_01",
+        "prompt": "First-person camera walking steadily forward at eye level along a bus depot beside a flower garden. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "evaluation_02",
+        "prompt": "First-person camera walking steadily forward at eye level along a blue-roofed fire station avenue. The scene contains a car at the curb and a delivery truck near a building. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "evaluation_03",
+        "prompt": "First-person camera walking steadily forward at eye level along a quiet street outside a ceramics museum. The scene contains two parked cars, a pedestrian and a bicycle beside a wall. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "evaluation_04",
+        "prompt": "First-person camera walking steadily forward at eye level along a palm-lined community college road. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "evaluation_05",
+        "prompt": "First-person camera walking steadily forward at eye level along a district bakery delivery street. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "evaluation_06",
+        "prompt": "First-person camera walking steadily forward at eye level along a riverside recreation-center avenue. The scene contains a car at the curb and a delivery truck near a building. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "evaluation_07",
+        "prompt": "First-person camera walking steadily forward at eye level along a green-roofed town archive approach. The scene contains two parked cars, a pedestrian and a bicycle beside a wall. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "evaluation_08",
+        "prompt": "First-person camera walking steadily forward at eye level along a veterinary hospital service road. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "evaluation_09",
+        "prompt": "First-person camera walking steadily forward at eye level along a pedestrian bridge approach beside shops. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      }
+    ],
+    "sentinel": [
+      {
+        "scene": "sentinel_00",
+        "prompt": "First-person camera walking steadily forward at eye level along an urban street beside a tiled library. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "sentinel_01",
+        "prompt": "First-person camera walking steadily forward at eye level along a park-edge transit plaza. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      }
+    ],
+    "endpoint": [
+      {
+        "scene": "endpoint_00",
+        "prompt": "First-person camera walking steadily forward at eye level along a broad avenue beside a metal sculpture garden. The scene contains a parked car, a pedestrian walking on the pavement and a bicycle near a fence. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "endpoint_01",
+        "prompt": "First-person camera walking steadily forward at eye level along a road alongside an old printworks. The scene contains a parked car and a bus moving slowly along the road. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "endpoint_02",
+        "prompt": "First-person camera walking steadily forward at eye level along a low-rise street beside a swimming stadium. The scene contains a car at the curb and a delivery truck near a building. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      },
+      {
+        "scene": "endpoint_03",
+        "prompt": "First-person camera walking steadily forward at eye level along a neighborhood street beside a railway viaduct. The scene contains two parked cars, a pedestrian and a bicycle beside a wall. Buildings, green trees, a paved road and a sidewalk are clearly visible under an open daytime sky. The camera advances in one continuous shot with natural walking motion. Nearby objects grow with perspective, distant objects remain coherent, and partial occlusion happens naturally. Vehicles preserve their shapes as the viewer approaches. No cuts, no transitions, realistic everyday street scene.",
+        "expected_classes": [
+          "car",
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ]
+      }
+    ]
+  }
+}

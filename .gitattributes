@@ -1,0 +1,4 @@
+# Preserve source bytes: the research protocols and manifest hash these files.
+*.py -text
+*.sh -text
+*.json -text

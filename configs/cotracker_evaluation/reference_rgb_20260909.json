@@ -1,0 +1,2834 @@
+{
+  "schema_version": 1,
+  "description": "All completed RGB variations, verified 2026-09-09. Reference-mask comparisons only; G10 excluded.",
+  "classes": [
+    "background",
+    "person",
+    "car",
+    "bus",
+    "bicycle",
+    "truck",
+    "road",
+    "sidewalk",
+    "building",
+    "vegetation",
+    "sky"
+  ],
+  "scenes": [
+    "avenue",
+    "intersection",
+    "parkside",
+    "residential"
+  ],
+  "settings": {
+    "width": 832,
+    "height": 480,
+    "frame_count": 81,
+    "fps": 16.0,
+    "anchor_frames": [
+      0,
+      32,
+      64
+    ],
+    "points_per_class": 16,
+    "cycle_horizon": 16,
+    "retention_horizons": [
+      8,
+      16
+    ]
+  },
+  "label_source": "Existing RGB teacher class_ids, computed before MP4 encoding; pseudo-labels, not human ground truth or semantic-branch outputs.",
+  "scientific_scope": "Exploratory per-class tracking diagnostics. No direct proof of 3D geometry or shape improvement.",
+  "conditions": [
+    {
+      "condition": "baseline",
+      "label": "Base Wan"
+    },
+    {
+      "condition": "alpha_0p1",
+      "label": "Correction alpha 0.10"
+    },
+    {
+      "condition": "alpha_0p25",
+      "label": "Correction alpha 0.25"
+    },
+    {
+      "condition": "alpha_0p5",
+      "label": "Correction alpha 0.50"
+    },
+    {
+      "condition": "alpha_1",
+      "label": "Correction alpha 1.00"
+    },
+    {
+      "condition": "r4_difference",
+      "label": "R4 reference difference"
+    },
+    {
+      "condition": "r4_matched",
+      "label": "R4 matched magnitude"
+    },
+    {
+      "condition": "r5_constant",
+      "label": "R5 constant penalty"
+    },
+    {
+      "condition": "r5_noise",
+      "label": "R5 noise-dependent penalty"
+    },
+    {
+      "condition": "wrong_reference",
+      "label": "Wrong-reference control"
+    },
+    {
+      "condition": "zero_reference",
+      "label": "Zero-reference control"
+    }
+  ],
+  "case_count": 44,
+  "source_case_count": 68,
+  "cases": [
+    {
+      "case_id": "avenue__baseline",
+      "scene": "avenue",
+      "condition": "baseline",
+      "condition_label": "Base Wan",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__off/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__off/review/generated_labels.npz",
+      "video_sha256": "7883eb511c1392bacf918959b585ed13137118a81102c26615a5796fdd12f910",
+      "labels_sha256": "8f2a19441d689d11297bd889886d512cc4da8ba0338336f073087f18fa37737b",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "avenue__off",
+          "condition": "off",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__off/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "avenue__off",
+          "condition": "off",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/avenue__off/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/avenue__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "avenue__off",
+          "condition": "off",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__off/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "avenue__identity",
+          "condition": "identity",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__identity/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__identity/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "avenue__off",
+          "condition": "off",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__off/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__off/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.18282437913432947,
+        "boundary_f1_at_3": 0.13027033294399895,
+        "change_event_f1": 0.03049033177790855,
+        "temporal_absolute_rate_error": 0.01687300211578425,
+        "sharpness_laplacian_variance": 0.025868044338292547,
+        "adjacent_frame_absolute_change": 0.08844219306483865,
+        "clipping_fraction": 0.049078783254853854,
+        "baseline_rgb_mean_absolute_difference": 0.0
+      }
+    },
+    {
+      "case_id": "intersection__baseline",
+      "scene": "intersection",
+      "condition": "baseline",
+      "condition_label": "Base Wan",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__off/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__off/review/generated_labels.npz",
+      "video_sha256": "b5984f53b91082d988f450bb08c26bcc1078f66b592b83e85fb76a8346ea1ea1",
+      "labels_sha256": "07c946a9df9614b4b1c43824eed4bcb08d368aa806f67a262ca6991c18106ba7",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "intersection__off",
+          "condition": "off",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__off/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "intersection__off",
+          "condition": "off",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/intersection__off/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/intersection__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "intersection__off",
+          "condition": "off",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__off/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "intersection__identity",
+          "condition": "identity",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__identity/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__identity/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "intersection__off",
+          "condition": "off",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__off/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__off/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.23871600407754667,
+        "boundary_f1_at_3": 0.28101425997308627,
+        "change_event_f1": 0.02484446813239867,
+        "temporal_absolute_rate_error": 0.006502114478103329,
+        "sharpness_laplacian_variance": 0.015461791053782275,
+        "adjacent_frame_absolute_change": 0.027148899715393783,
+        "clipping_fraction": 0.11780962709058773,
+        "baseline_rgb_mean_absolute_difference": 0.0
+      }
+    },
+    {
+      "case_id": "parkside__baseline",
+      "scene": "parkside",
+      "condition": "baseline",
+      "condition_label": "Base Wan",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__off/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__off/review/generated_labels.npz",
+      "video_sha256": "286faae7bec3cd1ff74e4e115259ff8de746db74809321d50de5d2059733c7ef",
+      "labels_sha256": "7b02677212f23e7c79904374706a2580bf4a79fc00a627364817880aedbb2ebe",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "parkside__off",
+          "condition": "off",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__off/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "parkside__off",
+          "condition": "off",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/parkside__off/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/parkside__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "parkside__off",
+          "condition": "off",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__off/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "parkside__identity",
+          "condition": "identity",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__identity/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__identity/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "parkside__off",
+          "condition": "off",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__off/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__off/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.09506852096133622,
+        "boundary_f1_at_3": 0.20561551452037893,
+        "change_event_f1": 0.03067716644695761,
+        "temporal_absolute_rate_error": 0.03884236811184599,
+        "sharpness_laplacian_variance": 0.02063950022429596,
+        "adjacent_frame_absolute_change": 0.06448738281615078,
+        "clipping_fraction": 0.0112303966181281,
+        "baseline_rgb_mean_absolute_difference": 0.0
+      }
+    },
+    {
+      "case_id": "residential__baseline",
+      "scene": "residential",
+      "condition": "baseline",
+      "condition_label": "Base Wan",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/residential__off/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/residential__off/review/generated_labels.npz",
+      "video_sha256": "710f1b8650e0015ce753e668489fa75c5a4d9b9d101525dc3a84ac0df40613b1",
+      "labels_sha256": "f4ed07a2da9681bb1e92984c95ea76e86c678c309935254e55c4f82b77b68689",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "residential__off",
+          "condition": "off",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/residential__off/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/residential__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "residential__off",
+          "condition": "off",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/residential__off/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/residential__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "residential__off",
+          "condition": "off",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/residential__off/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/residential__off/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "residential__identity",
+          "condition": "identity",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/residential__identity/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/residential__identity/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "residential__off",
+          "condition": "off",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/residential__off/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/residential__off/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.08807747199256255,
+        "boundary_f1_at_3": 0.1648230508156416,
+        "change_event_f1": 0.029021829382324605,
+        "temporal_absolute_rate_error": 0.04212873624197136,
+        "sharpness_laplacian_variance": 0.019810396741017883,
+        "adjacent_frame_absolute_change": 0.06048889448866248,
+        "clipping_fraction": 0.14967749840073336,
+        "baseline_rgb_mean_absolute_difference": 0.0
+      }
+    },
+    {
+      "case_id": "avenue__alpha_0p1",
+      "scene": "avenue",
+      "condition": "alpha_0p1",
+      "condition_label": "Correction alpha 0.10",
+      "video_relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p1/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p1/review/generated_labels.npz",
+      "video_sha256": "c8d255c277d878dc74231a3d43d9072ce47e3f992d83cd575e17eec42e7422ec",
+      "labels_sha256": "48a2d34216d3bfb2fdadd758789fe072929ecb042722011022820c83a0e59c02",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "avenue__intended_0p1",
+          "condition": "intended_0p1",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p1/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p1/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.1845151209554972,
+        "boundary_f1_at_3": 0.13837263423608748,
+        "change_event_f1": 0.03554980560059794,
+        "temporal_absolute_rate_error": 0.02148992182450077,
+        "sharpness_laplacian_variance": 0.020055182761064282,
+        "adjacent_frame_absolute_change": 0.0869540000334382,
+        "clipping_fraction": 0.05202794636026696,
+        "baseline_rgb_mean_absolute_difference": 0.07711838259373183
+      }
+    },
+    {
+      "case_id": "intersection__alpha_0p1",
+      "scene": "intersection",
+      "condition": "alpha_0p1",
+      "condition_label": "Correction alpha 0.10",
+      "video_relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p1/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p1/review/generated_labels.npz",
+      "video_sha256": "b5c8345f36792e1e3dd745d79c4270e6c47ff0dfe56dc14892119c9f7539d3d7",
+      "labels_sha256": "7902dc450299645e2e301541c366bdc78f0f5e7a215e6b7412a41a642737ccbf",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "intersection__intended_0p1",
+          "condition": "intended_0p1",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p1/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p1/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.23760151331583926,
+        "boundary_f1_at_3": 0.2767474079247372,
+        "change_event_f1": 0.018830101132959434,
+        "temporal_absolute_rate_error": 0.006716584995219857,
+        "sharpness_laplacian_variance": 0.014945706053648465,
+        "adjacent_frame_absolute_change": 0.027439322927966713,
+        "clipping_fraction": 0.1171269916640287,
+        "baseline_rgb_mean_absolute_difference": 0.03625973424425832
+      }
+    },
+    {
+      "case_id": "parkside__alpha_0p1",
+      "scene": "parkside",
+      "condition": "alpha_0p1",
+      "condition_label": "Correction alpha 0.10",
+      "video_relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p1/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p1/review/generated_labels.npz",
+      "video_sha256": "9238ecbfd88b033bb7593114e9508e6798d0954ef529f41dae35ae12a519f698",
+      "labels_sha256": "d4ae45f6d6e7a2d1e0ca67134038117b93ff48db01313d6c867e89093aeb198a",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "parkside__intended_0p1",
+          "condition": "intended_0p1",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p1/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p1/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.09593305188020282,
+        "boundary_f1_at_3": 0.20495884375469867,
+        "change_event_f1": 0.025874352952384383,
+        "temporal_absolute_rate_error": 0.03848834032896084,
+        "sharpness_laplacian_variance": 0.019091882616465473,
+        "adjacent_frame_absolute_change": 0.06460039005614818,
+        "clipping_fraction": 0.009787728266460906,
+        "baseline_rgb_mean_absolute_difference": 0.060750686644036093
+      }
+    },
+    {
+      "case_id": "residential__alpha_0p1",
+      "scene": "residential",
+      "condition": "alpha_0p1",
+      "condition_label": "Correction alpha 0.10",
+      "video_relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p1/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p1/review/generated_labels.npz",
+      "video_sha256": "26299f822b1d5a7b1ff15c3c622b985c65f939ff7d38e37e634ca2da9e8d37bf",
+      "labels_sha256": "f0c40a9b4628e071824f55a760dda07088496e72e336afba026c1107dddb742d",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "residential__intended_0p1",
+          "condition": "intended_0p1",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p1/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p1/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.087383254817243,
+        "boundary_f1_at_3": 0.16385774149578847,
+        "change_event_f1": 0.03377572792007561,
+        "temporal_absolute_rate_error": 0.043162887653725,
+        "sharpness_laplacian_variance": 0.01665390393248311,
+        "adjacent_frame_absolute_change": 0.06360692270100117,
+        "clipping_fraction": 0.1499217472235412,
+        "baseline_rgb_mean_absolute_difference": 0.06208577991267781
+      }
+    },
+    {
+      "case_id": "avenue__alpha_0p25",
+      "scene": "avenue",
+      "condition": "alpha_0p25",
+      "condition_label": "Correction alpha 0.25",
+      "video_relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p25/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p25/review/generated_labels.npz",
+      "video_sha256": "5d98380869cd7836f3013390ccc5018c48b6a987d7c1abd573dcb9d69b2ea6f9",
+      "labels_sha256": "c82a6c85f615e8591ddef440c075f5a1195ced9b7033a01d4fe13496abed4c4e",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "avenue__intended_0p25",
+          "condition": "intended_0p25",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p25/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p25/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "avenue__ordinary",
+          "condition": "ordinary",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__ordinary/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__ordinary/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "avenue__ordinary",
+          "condition": "ordinary",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__ordinary/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__ordinary/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.19302112621324874,
+        "boundary_f1_at_3": 0.1432631937407527,
+        "change_event_f1": 0.041357523284920275,
+        "temporal_absolute_rate_error": 0.022926221740841808,
+        "sharpness_laplacian_variance": 0.016677629984455343,
+        "adjacent_frame_absolute_change": 0.07972253384068609,
+        "clipping_fraction": 0.051445945199562096,
+        "baseline_rgb_mean_absolute_difference": 0.10736675762835844
+      }
+    },
+    {
+      "case_id": "intersection__alpha_0p25",
+      "scene": "intersection",
+      "condition": "alpha_0p25",
+      "condition_label": "Correction alpha 0.25",
+      "video_relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p25/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p25/review/generated_labels.npz",
+      "video_sha256": "186eec15245f01c7aed699389d4475be2556321d9875ad1f8866c0de010c1cbf",
+      "labels_sha256": "2f50715082c21eaa5acf6798fd5961706ca0375437f7e9aedf6bceea39789068",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "intersection__intended_0p25",
+          "condition": "intended_0p25",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p25/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p25/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "intersection__ordinary",
+          "condition": "ordinary",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__ordinary/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__ordinary/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "intersection__ordinary",
+          "condition": "ordinary",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__ordinary/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__ordinary/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.2565936527834714,
+        "boundary_f1_at_3": 0.31301896959665526,
+        "change_event_f1": 0.02321757385493993,
+        "temporal_absolute_rate_error": 0.011207063437017216,
+        "sharpness_laplacian_variance": 0.01474057687561453,
+        "adjacent_frame_absolute_change": 0.028202701103873552,
+        "clipping_fraction": 0.11265639220283317,
+        "baseline_rgb_mean_absolute_difference": 0.07266961709584718
+      }
+    },
+    {
+      "case_id": "parkside__alpha_0p25",
+      "scene": "parkside",
+      "condition": "alpha_0p25",
+      "condition_label": "Correction alpha 0.25",
+      "video_relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p25/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p25/review/generated_labels.npz",
+      "video_sha256": "30a5837a6ef68c170a3a009ebc4d6d77073983aaf0fb7deaca793224b2bf627d",
+      "labels_sha256": "3d5071d4655e7d5369d4edd085bfee945c88d7947f7618d3e0f2d68df774afc8",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "parkside__intended_0p25",
+          "condition": "intended_0p25",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p25/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p25/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "parkside__ordinary",
+          "condition": "ordinary",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__ordinary/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__ordinary/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "parkside__ordinary",
+          "condition": "ordinary",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__ordinary/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__ordinary/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.1048520175399682,
+        "boundary_f1_at_3": 0.20270288209121068,
+        "change_event_f1": 0.03198447477024082,
+        "temporal_absolute_rate_error": 0.049930175057041934,
+        "sharpness_laplacian_variance": 0.01820190902799368,
+        "adjacent_frame_absolute_change": 0.06365808583796025,
+        "clipping_fraction": 0.014548648207502374,
+        "baseline_rgb_mean_absolute_difference": 0.10201577805442574
+      }
+    },
+    {
+      "case_id": "residential__alpha_0p25",
+      "scene": "residential",
+      "condition": "alpha_0p25",
+      "condition_label": "Correction alpha 0.25",
+      "video_relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p25/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p25/review/generated_labels.npz",
+      "video_sha256": "b81157b256bed964eb3a0204c62eeebfc37254abff676da16fe5e663b72d1071",
+      "labels_sha256": "9594162a80efc68bf2c5a7fcd1c8c6b883d62a13d993c7b2ba48cb4fd749977e",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_strength_59884661",
+          "case_id": "residential__intended_0p25",
+          "condition": "intended_0p25",
+          "video_relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p25/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p25/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "residential__ordinary",
+          "condition": "ordinary",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/residential__ordinary/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/residential__ordinary/review/generated_labels.npz"
+        },
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "residential__ordinary",
+          "condition": "ordinary",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/residential__ordinary/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/residential__ordinary/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.09051628125748437,
+        "boundary_f1_at_3": 0.16658474428487222,
+        "change_event_f1": 0.029357004956696454,
+        "temporal_absolute_rate_error": 0.042093179818321017,
+        "sharpness_laplacian_variance": 0.013582240180744802,
+        "adjacent_frame_absolute_change": 0.061448397347703576,
+        "clipping_fraction": 0.09891824862166297,
+        "baseline_rgb_mean_absolute_difference": 0.09796921688097494
+      }
+    },
+    {
+      "case_id": "avenue__alpha_0p5",
+      "scene": "avenue",
+      "condition": "alpha_0p5",
+      "condition_label": "Correction alpha 0.50",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_half/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_half/review/generated_labels.npz",
+      "video_sha256": "668bdd844ad118e163a81fcdf842a6e78f4d531e96eb9ca98a7574d865fd63fe",
+      "labels_sha256": "076e222b73451ad8d2693b20fec6b199b7778f62ce0287a8a0576be2a8e6799c",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "avenue__intended_half",
+          "condition": "intended_half",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_half/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_half/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.20381821325492272,
+        "boundary_f1_at_3": 0.13869156960674012,
+        "change_event_f1": 0.03400831199893872,
+        "temporal_absolute_rate_error": 0.01987670702202187,
+        "sharpness_laplacian_variance": 0.014493793088160916,
+        "adjacent_frame_absolute_change": 0.07034702622331679,
+        "clipping_fraction": 0.0484258352458584,
+        "baseline_rgb_mean_absolute_difference": 0.13862470160295934
+      }
+    },
+    {
+      "case_id": "intersection__alpha_0p5",
+      "scene": "intersection",
+      "condition": "alpha_0p5",
+      "condition_label": "Correction alpha 0.50",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_half/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_half/review/generated_labels.npz",
+      "video_sha256": "515119e5cd17d16e603031d61a0a14f84d48d0d0f7bbba08a69bd144db49c028",
+      "labels_sha256": "f0f6f441d7a7fd3629be292b5cd212efd4cc3e5ad96872a29f287edf0531e8a1",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "intersection__intended_half",
+          "condition": "intended_half",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_half/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_half/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.28252579043407156,
+        "boundary_f1_at_3": 0.3443595977548898,
+        "change_event_f1": 0.022095742833021622,
+        "temporal_absolute_rate_error": 0.019267487520709677,
+        "sharpness_laplacian_variance": 0.012567649491959147,
+        "adjacent_frame_absolute_change": 0.030670994031243026,
+        "clipping_fraction": 0.11069203523992296,
+        "baseline_rgb_mean_absolute_difference": 0.10637466931416664
+      }
+    },
+    {
+      "case_id": "parkside__alpha_0p5",
+      "scene": "parkside",
+      "condition": "alpha_0p5",
+      "condition_label": "Correction alpha 0.50",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_half/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_half/review/generated_labels.npz",
+      "video_sha256": "29ae1117ab0d43fbd5b6686bb7d538fe304681123db43c47763f23aeb9017292",
+      "labels_sha256": "050191e262b27a8fa1317128dd3e8a0275426901a3906313e2bc771711c65269",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "parkside__intended_half",
+          "condition": "intended_half",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_half/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_half/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.15860952018944308,
+        "boundary_f1_at_3": 0.22181801400593187,
+        "change_event_f1": 0.03835668314927643,
+        "temporal_absolute_rate_error": 0.0741022132099161,
+        "sharpness_laplacian_variance": 0.019944132098721132,
+        "adjacent_frame_absolute_change": 0.06340773557312787,
+        "clipping_fraction": 0.03451550258190883,
+        "baseline_rgb_mean_absolute_difference": 0.15854315551710718
+      }
+    },
+    {
+      "case_id": "residential__alpha_0p5",
+      "scene": "residential",
+      "condition": "alpha_0p5",
+      "condition_label": "Correction alpha 0.50",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_half/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_half/review/generated_labels.npz",
+      "video_sha256": "6aab10542c8bc43c8c1d57760fcce31b9c4e4843d63c7fb394a75fe12cbc9919",
+      "labels_sha256": "d0d0f80f29418b886e1baceddbbc6843c52b2b2fe36eaa7f2214a1f6b65eb9aa",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "residential__intended_half",
+          "condition": "intended_half",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_half/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_half/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.11918880097131287,
+        "boundary_f1_at_3": 0.1819649414935055,
+        "change_event_f1": 0.030069907718159112,
+        "temporal_absolute_rate_error": 0.05525541774918573,
+        "sharpness_laplacian_variance": 0.012111861465705765,
+        "adjacent_frame_absolute_change": 0.0601459102705121,
+        "clipping_fraction": 0.09736879418592381,
+        "baseline_rgb_mean_absolute_difference": 0.1323730264916832
+      }
+    },
+    {
+      "case_id": "avenue__alpha_1",
+      "scene": "avenue",
+      "condition": "alpha_1",
+      "condition_label": "Correction alpha 1.00",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_full/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_full/review/generated_labels.npz",
+      "video_sha256": "c6aedee7db8f1bcd4c9725028f1a8d5748012f39965e81c13513bad41b36b38d",
+      "labels_sha256": "4c538c4307a1db4be94d1c7228bc267bc3e3efd34a56ba4baf9bae735c291bf3",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "avenue__intended_full",
+          "condition": "intended_full",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_full/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_full/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.23067664194528134,
+        "boundary_f1_at_3": 0.17396447339035226,
+        "change_event_f1": 0.0397699729568121,
+        "temporal_absolute_rate_error": 0.0338676060277147,
+        "sharpness_laplacian_variance": 0.012148122395170324,
+        "adjacent_frame_absolute_change": 0.06989415674470364,
+        "clipping_fraction": 0.058226299939986285,
+        "baseline_rgb_mean_absolute_difference": 0.17891640298896366
+      }
+    },
+    {
+      "case_id": "intersection__alpha_1",
+      "scene": "intersection",
+      "condition": "alpha_1",
+      "condition_label": "Correction alpha 1.00",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_full/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_full/review/generated_labels.npz",
+      "video_sha256": "ba8f63c8effe31f0542171196c43fb398955d53afd9651738235491df8af38d0",
+      "labels_sha256": "1cf8ca38fc869d7c196a9f7a3270d9189eb7d74c2ce9c37a9dd23c39476881bf",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "intersection__intended_full",
+          "condition": "intended_full",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_full/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_full/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.27438444365864406,
+        "boundary_f1_at_3": 0.337699896554646,
+        "change_event_f1": 0.026992617104659496,
+        "temporal_absolute_rate_error": 0.03169665407210813,
+        "sharpness_laplacian_variance": 0.012005416894860474,
+        "adjacent_frame_absolute_change": 0.03296768872532994,
+        "clipping_fraction": 0.10589954214809538,
+        "baseline_rgb_mean_absolute_difference": 0.13707647794558678
+      }
+    },
+    {
+      "case_id": "parkside__alpha_1",
+      "scene": "parkside",
+      "condition": "alpha_1",
+      "condition_label": "Correction alpha 1.00",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_full/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_full/review/generated_labels.npz",
+      "video_sha256": "7cca61439a37659beec8adef213074446c1b9f383c9f4f911cafc64385dddc9d",
+      "labels_sha256": "63bfada0f51267ead7d95df10271dd44c6bb24f78387b8159060ce017a7f6d22",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "parkside__intended_full",
+          "condition": "intended_full",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_full/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_full/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.25482308654043456,
+        "boundary_f1_at_3": 0.3001250323472102,
+        "change_event_f1": 0.05120264192317242,
+        "temporal_absolute_rate_error": 0.04282313407614814,
+        "sharpness_laplacian_variance": 0.017548248942159575,
+        "adjacent_frame_absolute_change": 0.06423616399988533,
+        "clipping_fraction": 0.050649980297694415,
+        "baseline_rgb_mean_absolute_difference": 0.2305612175920863
+      }
+    },
+    {
+      "case_id": "residential__alpha_1",
+      "scene": "residential",
+      "condition": "alpha_1",
+      "condition_label": "Correction alpha 1.00",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_full/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_full/review/generated_labels.npz",
+      "video_sha256": "cbd523ec7b659fbc5b909874b4bba768879d1e6f9bc6aaeddc5c1ec6f77d3905",
+      "labels_sha256": "99b84a741cd7494da7e99bafa4154c2123a0fd19188dfcdd744052d31dff8932",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "residential__intended_full",
+          "condition": "intended_full",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_full/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_full/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.16090632978319716,
+        "boundary_f1_at_3": 0.22008632303707135,
+        "change_event_f1": 0.0322332805029442,
+        "temporal_absolute_rate_error": 0.06379289379686016,
+        "sharpness_laplacian_variance": 0.013223391583902233,
+        "adjacent_frame_absolute_change": 0.06440599993802607,
+        "clipping_fraction": 0.06703871255737576,
+        "baseline_rgb_mean_absolute_difference": 0.19243257060463045
+      }
+    },
+    {
+      "case_id": "avenue__r4_difference",
+      "scene": "avenue",
+      "condition": "r4_difference",
+      "condition_label": "R4 reference difference",
+      "video_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast/review/generated_labels.npz",
+      "video_sha256": "fd53ca3c7f93c7ded1cf9c7f5ab2cb9130c59f9f1602dd0c9167130d6d8a5174",
+      "labels_sha256": "421626460fe26a6a2137cfac293bec995d3399d3037ac915b78b72170d76e128",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "avenue__contrast",
+          "condition": "contrast",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.20670917670080055,
+        "boundary_f1_at_3": 0.1323712083472485,
+        "change_event_f1": 0.03300811476402589,
+        "temporal_absolute_rate_error": 0.014439527316351085,
+        "sharpness_laplacian_variance": 0.018844874667716616,
+        "adjacent_frame_absolute_change": 0.07072173575870692,
+        "clipping_fraction": 0.06893143226693574,
+        "baseline_rgb_mean_absolute_difference": 0.12801922664598184
+      }
+    },
+    {
+      "case_id": "intersection__r4_difference",
+      "scene": "intersection",
+      "condition": "r4_difference",
+      "condition_label": "R4 reference difference",
+      "video_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast/review/generated_labels.npz",
+      "video_sha256": "7a4989ea60f23900a59349faccdeb77305a553d2a9da2cf2f13da9da99654a6d",
+      "labels_sha256": "e11dfc0f94d784e30fc64e578792138c47f64f8c3257bd822868f8c61c7beec9",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "intersection__contrast",
+          "condition": "contrast",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.273194222234245,
+        "boundary_f1_at_3": 0.3173236779670818,
+        "change_event_f1": 0.024913843674164632,
+        "temporal_absolute_rate_error": 0.008027729824960287,
+        "sharpness_laplacian_variance": 0.014672541956382769,
+        "adjacent_frame_absolute_change": 0.025194435752928256,
+        "clipping_fraction": 0.11034700788751714,
+        "baseline_rgb_mean_absolute_difference": 0.08712461857516089
+      }
+    },
+    {
+      "case_id": "parkside__r4_difference",
+      "scene": "parkside",
+      "condition": "r4_difference",
+      "condition_label": "R4 reference difference",
+      "video_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast/review/generated_labels.npz",
+      "video_sha256": "5654805ca8e23f1182e86b92ab84af7c8da8544f3a9a8b37ebe850161b1abf34",
+      "labels_sha256": "efdaf26d79dbccb2ed7f65f14141a6a6f7390de8e030710ff40535c705da47d4",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "parkside__contrast",
+          "condition": "contrast",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.12352109087562986,
+        "boundary_f1_at_3": 0.22096847247182944,
+        "change_event_f1": 0.039094757586757296,
+        "temporal_absolute_rate_error": 0.07637198351868682,
+        "sharpness_laplacian_variance": 0.018356377316385876,
+        "adjacent_frame_absolute_change": 0.06254048300907016,
+        "clipping_fraction": 0.017139522000633112,
+        "baseline_rgb_mean_absolute_difference": 0.14018246467098777
+      }
+    },
+    {
+      "case_id": "residential__r4_difference",
+      "scene": "residential",
+      "condition": "r4_difference",
+      "condition_label": "R4 reference difference",
+      "video_relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast/review/generated_labels.npz",
+      "video_sha256": "14665ac2c53d8cd5385c1eacddde815a9d92e4ec0db5750a1fecbab7aa933f97",
+      "labels_sha256": "ef1cc0debe7383172ea28989923fb61c2cb5ed8c8fa440ad573bf8195c9f6f70",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "residential__contrast",
+          "condition": "contrast",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.10111897920218489,
+        "boundary_f1_at_3": 0.16332310412886109,
+        "change_event_f1": 0.03262191593156276,
+        "temporal_absolute_rate_error": 0.052242571584696126,
+        "sharpness_laplacian_variance": 0.017548852738130977,
+        "adjacent_frame_absolute_change": 0.06296289842575789,
+        "clipping_fraction": 0.10827506108539095,
+        "baseline_rgb_mean_absolute_difference": 0.13937424077295962
+      }
+    },
+    {
+      "case_id": "avenue__r4_matched",
+      "scene": "avenue",
+      "condition": "r4_matched",
+      "condition_label": "R4 matched magnitude",
+      "video_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast_matched/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast_matched/review/generated_labels.npz",
+      "video_sha256": "45edca099882edb15dbbebc52ed86b147e70767bcd39bba38d012eddca0a1bc3",
+      "labels_sha256": "1d3a6fe704ad24fc670b7edd66e76ac06ffea698aa5e1bc37dbe7b1cf122a632",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "avenue__contrast_matched",
+          "condition": "contrast_matched",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast_matched/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast_matched/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.19221916228899058,
+        "boundary_f1_at_3": 0.14343356204395374,
+        "change_event_f1": 0.04166471589600301,
+        "temporal_absolute_rate_error": 0.02374815485001603,
+        "sharpness_laplacian_variance": 0.01660391656152996,
+        "adjacent_frame_absolute_change": 0.07930058990605175,
+        "clipping_fraction": 0.051500590244803204,
+        "baseline_rgb_mean_absolute_difference": 0.10800591580293796
+      }
+    },
+    {
+      "case_id": "intersection__r4_matched",
+      "scene": "intersection",
+      "condition": "r4_matched",
+      "condition_label": "R4 matched magnitude",
+      "video_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast_matched/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast_matched/review/generated_labels.npz",
+      "video_sha256": "1341ed33e619d4f9d08e3130c87b430e002ff2dfd9d371d3e7db2e48983035ef",
+      "labels_sha256": "759970c26104eb38b85696e6d9a23beb0cb68f2b2c680a6a4304275e8d184125",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "intersection__contrast_matched",
+          "condition": "contrast_matched",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast_matched/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast_matched/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.2622006445216001,
+        "boundary_f1_at_3": 0.29449277605285473,
+        "change_event_f1": 0.027063222473618333,
+        "temporal_absolute_rate_error": 0.0118582426603538,
+        "sharpness_laplacian_variance": 0.014048581195558294,
+        "adjacent_frame_absolute_change": 0.028023577271960677,
+        "clipping_fraction": 0.11173609256291547,
+        "baseline_rgb_mean_absolute_difference": 0.07678280779976904
+      }
+    },
+    {
+      "case_id": "parkside__r4_matched",
+      "scene": "parkside",
+      "condition": "r4_matched",
+      "condition_label": "R4 matched magnitude",
+      "video_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast_matched/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast_matched/review/generated_labels.npz",
+      "video_sha256": "59e37d4b226c5d831ca7740da3153419ca3332667939a0bea97920528ad0cca1",
+      "labels_sha256": "fcd8b449df6f8832819fccffc2ee0bf081c87e551cf38c8f8754bb507bd88d6c",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "parkside__contrast_matched",
+          "condition": "contrast_matched",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast_matched/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast_matched/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.1051235664661124,
+        "boundary_f1_at_3": 0.20145818894202355,
+        "change_event_f1": 0.032656724350152044,
+        "temporal_absolute_rate_error": 0.050440969686781495,
+        "sharpness_laplacian_variance": 0.018305561424773416,
+        "adjacent_frame_absolute_change": 0.06348026832565665,
+        "clipping_fraction": 0.015355474108367627,
+        "baseline_rgb_mean_absolute_difference": 0.10410380096715173
+      }
+    },
+    {
+      "case_id": "residential__r4_matched",
+      "scene": "residential",
+      "condition": "r4_matched",
+      "condition_label": "R4 matched magnitude",
+      "video_relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast_matched/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast_matched/review/generated_labels.npz",
+      "video_sha256": "bcb7235307b6a290160a7d83e8d862a2fd5b91eca991787e240270e23aad2a37",
+      "labels_sha256": "2aef6b8a7d15c5f3ed2b0eb819b1119631a316dba851317d54b9f3d8db2beaa0",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r4_59900883",
+          "case_id": "residential__contrast_matched",
+          "condition": "contrast_matched",
+          "video_relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast_matched/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast_matched/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.09132497958372972,
+        "boundary_f1_at_3": 0.16607708202789628,
+        "change_event_f1": 0.028615329421335548,
+        "temporal_absolute_rate_error": 0.04175754482857924,
+        "sharpness_laplacian_variance": 0.013376597315073013,
+        "adjacent_frame_absolute_change": 0.06099530439823866,
+        "clipping_fraction": 0.09497976597947663,
+        "baseline_rgb_mean_absolute_difference": 0.09938349933535964
+      }
+    },
+    {
+      "case_id": "avenue__r5_constant",
+      "scene": "avenue",
+      "condition": "r5_constant",
+      "condition_label": "R5 constant penalty",
+      "video_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_constant/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_constant/review/generated_labels.npz",
+      "video_sha256": "9f20b23804a5e513e542b169c59442c00226d25ba081a23103e647a6fe195865",
+      "labels_sha256": "aee2ffd1f7334eb16d9e5d0f768284fdaecd269476d406b62f93bb0acc7c2fd3",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "avenue__r5_constant",
+          "condition": "r5_constant",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_constant/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_constant/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.19227814979067498,
+        "boundary_f1_at_3": 0.14381904435181014,
+        "change_event_f1": 0.037767864240478774,
+        "temporal_absolute_rate_error": 0.0229944512571715,
+        "sharpness_laplacian_variance": 0.0204012050051932,
+        "adjacent_frame_absolute_change": 0.08276096074841917,
+        "clipping_fraction": 0.08084180573691568,
+        "baseline_rgb_mean_absolute_difference": 0.10936497078265672
+      }
+    },
+    {
+      "case_id": "intersection__r5_constant",
+      "scene": "intersection",
+      "condition": "r5_constant",
+      "condition_label": "R5 constant penalty",
+      "video_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_constant/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_constant/review/generated_labels.npz",
+      "video_sha256": "8c404cfcd153ed684645a464758efa39239d22371814ced2ce1eb2dfe7e154f6",
+      "labels_sha256": "89b6809b9bf12a179837475c065cf97174afe41621adc3c7f42089f2a85c44e9",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "intersection__r5_constant",
+          "condition": "r5_constant",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_constant/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_constant/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.2570897172878679,
+        "boundary_f1_at_3": 0.3033172003829607,
+        "change_event_f1": 0.029777827224751006,
+        "temporal_absolute_rate_error": 0.01276874752305972,
+        "sharpness_laplacian_variance": 0.016091057490327475,
+        "adjacent_frame_absolute_change": 0.028201079228892922,
+        "clipping_fraction": 0.11705293284069326,
+        "baseline_rgb_mean_absolute_difference": 0.07451266133122975
+      }
+    },
+    {
+      "case_id": "parkside__r5_constant",
+      "scene": "parkside",
+      "condition": "r5_constant",
+      "condition_label": "R5 constant penalty",
+      "video_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_constant/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_constant/review/generated_labels.npz",
+      "video_sha256": "ad8525ba9a704f8c94dcf57516e3fe71b6655ef5f215b98a191117ca39797e7f",
+      "labels_sha256": "c397d4639fc01ff1b94d76d95e6a9dd36d47cb452167f4e6d0db9c51a3cd60bb",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "parkside__r5_constant",
+          "condition": "r5_constant",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_constant/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_constant/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.09897606440397953,
+        "boundary_f1_at_3": 0.2110488642397336,
+        "change_event_f1": 0.03733644224393915,
+        "temporal_absolute_rate_error": 0.04618742678230903,
+        "sharpness_laplacian_variance": 0.021564817906897744,
+        "adjacent_frame_absolute_change": 0.06712063252925873,
+        "clipping_fraction": 0.01907410910955471,
+        "baseline_rgb_mean_absolute_difference": 0.1006138171126813
+      }
+    },
+    {
+      "case_id": "residential__r5_constant",
+      "scene": "residential",
+      "condition": "r5_constant",
+      "condition_label": "R5 constant penalty",
+      "video_relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_constant/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_constant/review/generated_labels.npz",
+      "video_sha256": "28df6ae0542c8b6c55542b8eafc03027d4b41352d8deee7e47386d557848600b",
+      "labels_sha256": "a73f18c9cac45dfeae3dc816bdf5c9510d7a21cc8f6e83de79901f2fca379593",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "residential__r5_constant",
+          "condition": "r5_constant",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_constant/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_constant/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.0901441299625895,
+        "boundary_f1_at_3": 0.1549538366315578,
+        "change_event_f1": 0.02869993927839648,
+        "temporal_absolute_rate_error": 0.03716036031636907,
+        "sharpness_laplacian_variance": 0.017122304204989364,
+        "adjacent_frame_absolute_change": 0.06528250989504158,
+        "clipping_fraction": 0.12969586729714044,
+        "baseline_rgb_mean_absolute_difference": 0.09411305437485377
+      }
+    },
+    {
+      "case_id": "avenue__r5_noise",
+      "scene": "avenue",
+      "condition": "r5_noise",
+      "condition_label": "R5 noise-dependent penalty",
+      "video_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_noise_penalty/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_noise_penalty/review/generated_labels.npz",
+      "video_sha256": "965b160116aeeeb79a6a12c0885a38d372098b652bf585c541f2c7ee93c0abee",
+      "labels_sha256": "50df6be3d19f563a99489690fbc0707cadb5904919b5c2e474c0c7832fb0724a",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "avenue__r5_noise_penalty",
+          "condition": "r5_noise_penalty",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_noise_penalty/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_noise_penalty/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.1938216091901268,
+        "boundary_f1_at_3": 0.1430378760535196,
+        "change_event_f1": 0.03919599628632154,
+        "temporal_absolute_rate_error": 0.02205349294466981,
+        "sharpness_laplacian_variance": 0.020385631567074194,
+        "adjacent_frame_absolute_change": 0.08165526129305363,
+        "clipping_fraction": 0.08005743345731772,
+        "baseline_rgb_mean_absolute_difference": 0.10626950446102354
+      }
+    },
+    {
+      "case_id": "intersection__r5_noise",
+      "scene": "intersection",
+      "condition": "r5_noise",
+      "condition_label": "R5 noise-dependent penalty",
+      "video_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_noise_penalty/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_noise_penalty/review/generated_labels.npz",
+      "video_sha256": "1e93daa56a068f5361ddc5efd615ed003f33ee96543f925d61baea84dfb7c89d",
+      "labels_sha256": "2586017bddae431c875ce8a3000a67023ffd802bc4faf4a842006d0e4b6cc82d",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "intersection__r5_noise_penalty",
+          "condition": "r5_noise_penalty",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_noise_penalty/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_noise_penalty/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.26497225011562303,
+        "boundary_f1_at_3": 0.3001249863199637,
+        "change_event_f1": 0.029089115713644403,
+        "temporal_absolute_rate_error": 0.010072060119998434,
+        "sharpness_laplacian_variance": 0.016317209792265922,
+        "adjacent_frame_absolute_change": 0.028681030473671855,
+        "clipping_fraction": 0.1171062589031339,
+        "baseline_rgb_mean_absolute_difference": 0.07562596406097766
+      }
+    },
+    {
+      "case_id": "parkside__r5_noise",
+      "scene": "parkside",
+      "condition": "r5_noise",
+      "condition_label": "R5 noise-dependent penalty",
+      "video_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_noise_penalty/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_noise_penalty/review/generated_labels.npz",
+      "video_sha256": "2e372933ce0f0e7f89761cdc10eec3c38ed890bd7cae2ca6bd2c4f8a52a4e8d5",
+      "labels_sha256": "0c7bf463a1227baf94717e460d92e52538612e57ed30b165a521e34585ef6c81",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "parkside__r5_noise_penalty",
+          "condition": "r5_noise_penalty",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_noise_penalty/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_noise_penalty/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.09836983265600237,
+        "boundary_f1_at_3": 0.20934840816037023,
+        "change_event_f1": 0.035893384986754005,
+        "temporal_absolute_rate_error": 0.046477670902567284,
+        "sharpness_laplacian_variance": 0.02147277552680469,
+        "adjacent_frame_absolute_change": 0.06755339493975043,
+        "clipping_fraction": 0.01920539942096655,
+        "baseline_rgb_mean_absolute_difference": 0.1023083182948607
+      }
+    },
+    {
+      "case_id": "residential__r5_noise",
+      "scene": "residential",
+      "condition": "r5_noise",
+      "condition_label": "R5 noise-dependent penalty",
+      "video_relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_noise_penalty/review/generated_rgb.mp4",
+      "labels_relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_noise_penalty/review/generated_labels.npz",
+      "video_sha256": "e783366fec8407392e617cbccef7bfb10a3f2fab2389b098772db4ba6a1126f3",
+      "labels_sha256": "af4ddafdcdfb65d78c6d463fe6aa6e6bc0f96ecd86c6f271d8bbdb3b71586f56",
+      "aliases": [
+        {
+          "bundle": "additional_rgb_r5_59900884",
+          "case_id": "residential__r5_noise_penalty",
+          "condition": "r5_noise_penalty",
+          "video_relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_noise_penalty/review/generated_rgb.mp4",
+          "labels_relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_noise_penalty/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.08986415369229024,
+        "boundary_f1_at_3": 0.1565372165789163,
+        "change_event_f1": 0.02858413338158458,
+        "temporal_absolute_rate_error": 0.036911612430128596,
+        "sharpness_laplacian_variance": 0.016945323768865178,
+        "adjacent_frame_absolute_change": 0.065554987359792,
+        "clipping_fraction": 0.12953122114725124,
+        "baseline_rgb_mean_absolute_difference": 0.09500164281070968
+      }
+    },
+    {
+      "case_id": "avenue__wrong_reference",
+      "scene": "avenue",
+      "condition": "wrong_reference",
+      "condition_label": "Wrong-reference control",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__wrong_reference/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__wrong_reference/review/generated_labels.npz",
+      "video_sha256": "cd9d7fc524a33523f45b2125d71033d863e4cfdd70e4926942f7e439389ee2e7",
+      "labels_sha256": "28016b37099e144edd93e8e4880c1f5c47bfa01c0a7a185781ee46749338bba9",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "avenue__wrong_reference",
+          "condition": "wrong_reference",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__wrong_reference/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__wrong_reference/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.1324943957288781,
+        "boundary_f1_at_3": 0.13427709082983513,
+        "change_event_f1": 0.028891403013721544,
+        "temporal_absolute_rate_error": 0.02828904833945787,
+        "sharpness_laplacian_variance": 0.019287972596048572,
+        "adjacent_frame_absolute_change": 0.10009914035908878,
+        "clipping_fraction": 0.018192925553313286,
+        "baseline_rgb_mean_absolute_difference": 0.2451109450172495
+      }
+    },
+    {
+      "case_id": "intersection__wrong_reference",
+      "scene": "intersection",
+      "condition": "wrong_reference",
+      "condition_label": "Wrong-reference control",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__wrong_reference/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__wrong_reference/review/generated_labels.npz",
+      "video_sha256": "c10ba6de7e893acd517026bd52150ca0bdcfd4146184b21caf907be48f19c0bf",
+      "labels_sha256": "d631a1ba5ab103c30d6c2a72771ead05995ace45e0d98a250557dcf32856d5f8",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "intersection__wrong_reference",
+          "condition": "wrong_reference",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__wrong_reference/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__wrong_reference/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.17949501159223522,
+        "boundary_f1_at_3": 0.22462143454458544,
+        "change_event_f1": 0.025231119310647056,
+        "temporal_absolute_rate_error": 0.030059076010586064,
+        "sharpness_laplacian_variance": 0.00611942333318753,
+        "adjacent_frame_absolute_change": 0.031597188231535255,
+        "clipping_fraction": 0.0508021270246386,
+        "baseline_rgb_mean_absolute_difference": 0.20874630245897505
+      }
+    },
+    {
+      "case_id": "parkside__wrong_reference",
+      "scene": "parkside",
+      "condition": "wrong_reference",
+      "condition_label": "Wrong-reference control",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__wrong_reference/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__wrong_reference/review/generated_labels.npz",
+      "video_sha256": "a9936875f89e8e5dd0289a95f33faf1d6a8ddf2088ad5e630ca138065c200ff7",
+      "labels_sha256": "6e9d343e13b533e6517ad8f358593130534c721c056aedd0b02b32cfee66cba2",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "parkside__wrong_reference",
+          "condition": "wrong_reference",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__wrong_reference/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__wrong_reference/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.09553362178784452,
+        "boundary_f1_at_3": 0.1679011836216394,
+        "change_event_f1": 0.0361386415700824,
+        "temporal_absolute_rate_error": 0.05072600429718896,
+        "sharpness_laplacian_variance": 0.01865011507668245,
+        "adjacent_frame_absolute_change": 0.06633565947413445,
+        "clipping_fraction": 0.010918220181096339,
+        "baseline_rgb_mean_absolute_difference": 0.24689282127368598
+      }
+    },
+    {
+      "case_id": "residential__wrong_reference",
+      "scene": "residential",
+      "condition": "wrong_reference",
+      "condition_label": "Wrong-reference control",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/residential__wrong_reference/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/residential__wrong_reference/review/generated_labels.npz",
+      "video_sha256": "7178eba927587d3dbf3d57a95a205c5a33cff07c5df79dfad13f4cedb27657e6",
+      "labels_sha256": "ba8fd64a0c0a9abc801f88971e50518a20ad08ee58e9dc36e802b26516bd4a7e",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "residential__wrong_reference",
+          "condition": "wrong_reference",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/residential__wrong_reference/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/residential__wrong_reference/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.09321868503992828,
+        "boundary_f1_at_3": 0.1570993054277628,
+        "change_event_f1": 0.025998755354606006,
+        "temporal_absolute_rate_error": 0.05579277201518991,
+        "sharpness_laplacian_variance": 0.013499471370452716,
+        "adjacent_frame_absolute_change": 0.06160765918903053,
+        "clipping_fraction": 0.036200286713886254,
+        "baseline_rgb_mean_absolute_difference": 0.26944876103489485
+      }
+    },
+    {
+      "case_id": "avenue__zero_reference",
+      "scene": "avenue",
+      "condition": "zero_reference",
+      "condition_label": "Zero-reference control",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__zero_reference/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__zero_reference/review/generated_labels.npz",
+      "video_sha256": "6a59ed17137e294e85311707c900c6b77f1a79131efec2ea6f355260435d4db8",
+      "labels_sha256": "798f6837f3001924bfe63b81bd60a24087dade9654d2ba4c3d6d7b62e53d7398",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "avenue__zero_reference",
+          "condition": "zero_reference",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__zero_reference/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/avenue__zero_reference/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.14896340683598994,
+        "boundary_f1_at_3": 0.14327740150543644,
+        "change_event_f1": 0.0629770820294989,
+        "temporal_absolute_rate_error": 0.09701290240565763,
+        "sharpness_laplacian_variance": 0.0176103736538394,
+        "adjacent_frame_absolute_change": 0.11757633425295352,
+        "clipping_fraction": 0.022097887484172206,
+        "baseline_rgb_mean_absolute_difference": 0.22901996675832773
+      }
+    },
+    {
+      "case_id": "intersection__zero_reference",
+      "scene": "intersection",
+      "condition": "zero_reference",
+      "condition_label": "Zero-reference control",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__zero_reference/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__zero_reference/review/generated_labels.npz",
+      "video_sha256": "883e271c7deae02aa3d0728e1df689df494812e6a1edf075f33cbca77d36cc48",
+      "labels_sha256": "49e61965ec398f6e52d1dc328f242db8109949d8bd3fe7736208e041dfcd9549",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "intersection__zero_reference",
+          "condition": "zero_reference",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__zero_reference/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/intersection__zero_reference/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.11792677624038388,
+        "boundary_f1_at_3": 0.22180317957124998,
+        "change_event_f1": 0.01943557977337899,
+        "temporal_absolute_rate_error": 0.03316187895273827,
+        "sharpness_laplacian_variance": 0.015964123742355976,
+        "adjacent_frame_absolute_change": 0.04926461488939822,
+        "clipping_fraction": 0.021106929523451515,
+        "baseline_rgb_mean_absolute_difference": 0.19911909544909442
+      }
+    },
+    {
+      "case_id": "parkside__zero_reference",
+      "scene": "parkside",
+      "condition": "zero_reference",
+      "condition_label": "Zero-reference control",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__zero_reference/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__zero_reference/review/generated_labels.npz",
+      "video_sha256": "de224591f46ac829d586fb65eb4050b603f73b2e624330f845d48fdeee94644e",
+      "labels_sha256": "d246bd6656d96f4d32e4977eeaed0c88c074c8c60c46ec5221c3cc8b2260ef7f",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "parkside__zero_reference",
+          "condition": "zero_reference",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__zero_reference/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/parkside__zero_reference/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.09502575357598163,
+        "boundary_f1_at_3": 0.20061355752013008,
+        "change_event_f1": 0.034162421574477596,
+        "temporal_absolute_rate_error": 0.0733928443223347,
+        "sharpness_laplacian_variance": 0.01860171439195121,
+        "adjacent_frame_absolute_change": 0.08621858591213823,
+        "clipping_fraction": 0.00736318026537934,
+        "baseline_rgb_mean_absolute_difference": 0.2148563814016036
+      }
+    },
+    {
+      "case_id": "residential__zero_reference",
+      "scene": "residential",
+      "condition": "zero_reference",
+      "condition_label": "Zero-reference control",
+      "video_relative_path": "reference_rgb_correction_59869249/evaluation/residential__zero_reference/review/generated_rgb.mp4",
+      "labels_relative_path": "reference_rgb_correction_59869249/evaluation/residential__zero_reference/review/generated_labels.npz",
+      "video_sha256": "16fdb434e351bf295ea242b408d5a1346cb2a6e25a389d7a1028184035417be9",
+      "labels_sha256": "4e6f72ed84f793fd9325c07e03051d04ea42fc45cb20f8ee0adaa3e1c48054d9",
+      "aliases": [
+        {
+          "bundle": "reference_rgb_correction_59869249",
+          "case_id": "residential__zero_reference",
+          "condition": "zero_reference",
+          "video_relative_path": "reference_rgb_correction_59869249/evaluation/residential__zero_reference/review/generated_rgb.mp4",
+          "labels_relative_path": "reference_rgb_correction_59869249/evaluation/residential__zero_reference/review/generated_labels.npz"
+        }
+      ],
+      "existing_metrics": {
+        "target_supported_foreground_miou": 0.06252326773673213,
+        "boundary_f1_at_3": 0.1550590414360821,
+        "change_event_f1": 0.026695577849464906,
+        "temporal_absolute_rate_error": 0.08675031974123161,
+        "sharpness_laplacian_variance": 0.013969075417628995,
+        "adjacent_frame_absolute_change": 0.07672297470271587,
+        "clipping_fraction": 0.0024012906246702543,
+        "baseline_rgb_mean_absolute_difference": 0.19786440332730612
+      }
+    }
+  ],
+  "source_files": [
+    {
+      "relative_path": "reference_rgb_correction_59869249/reference_rgb_correction_gate.json",
+      "sha256": "8bc5932816ed453b4452fb714e42054d35c3f374df2be6b5b506114de0ce841d",
+      "role": "engineering_gate",
+      "size_bytes": 3342
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/reference_rgb_correction_report.json",
+      "sha256": "9acadaa5092fae0aac0830163959c0365a0a7c9e54bb4dab840e36b3ab1ad61e",
+      "role": "evaluation_report",
+      "size_bytes": 292022
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/experiment_contract.json",
+      "sha256": "7f098996c7e44d34e0ed04700358c0c864f3fb0d14b052070018399a5fc88203",
+      "role": "historical_contract",
+      "size_bytes": 9143
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__off/case_report.json",
+      "sha256": "50336a3098492660bec1521938ad6771d4a6c19be99b577a4f375ebb7caada39",
+      "role": "case_report",
+      "size_bytes": 12551
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__off/review/generated_rgb.mp4",
+      "sha256": "7883eb511c1392bacf918959b585ed13137118a81102c26615a5796fdd12f910",
+      "role": "rgb_video",
+      "size_bytes": 1939084
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__off/review/generated_labels.npz",
+      "sha256": "8f2a19441d689d11297bd889886d512cc4da8ba0338336f073087f18fa37737b",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 456914
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_half/case_report.json",
+      "sha256": "d18eb102a46ad1ddd9b3745f88159a7cea604034b9a3fbf1332a62b0213a5bb7",
+      "role": "case_report",
+      "size_bytes": 12655
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_half/review/generated_rgb.mp4",
+      "sha256": "668bdd844ad118e163a81fcdf842a6e78f4d531e96eb9ca98a7574d865fd63fe",
+      "role": "rgb_video",
+      "size_bytes": 1951115
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_half/review/generated_labels.npz",
+      "sha256": "076e222b73451ad8d2693b20fec6b199b7778f62ce0287a8a0576be2a8e6799c",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 472635
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_full/case_report.json",
+      "sha256": "7ec98df844a23d8354fbe21210a77e4c3b4f1cda8dcc221585a116ec75ff85af",
+      "role": "case_report",
+      "size_bytes": 12691
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_full/review/generated_rgb.mp4",
+      "sha256": "c6aedee7db8f1bcd4c9725028f1a8d5748012f39965e81c13513bad41b36b38d",
+      "role": "rgb_video",
+      "size_bytes": 1981163
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__intended_full/review/generated_labels.npz",
+      "sha256": "4c538c4307a1db4be94d1c7228bc267bc3e3efd34a56ba4baf9bae735c291bf3",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 535771
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__wrong_reference/case_report.json",
+      "sha256": "6c7df5dcc591ba8d537c11d50687d1765fde886982f7a25a5e65767868e87eee",
+      "role": "case_report",
+      "size_bytes": 12753
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__wrong_reference/review/generated_rgb.mp4",
+      "sha256": "cd9d7fc524a33523f45b2125d71033d863e4cfdd70e4926942f7e439389ee2e7",
+      "role": "rgb_video",
+      "size_bytes": 1521383
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__wrong_reference/review/generated_labels.npz",
+      "sha256": "28016b37099e144edd93e8e4880c1f5c47bfa01c0a7a185781ee46749338bba9",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 480876
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__zero_reference/case_report.json",
+      "sha256": "7164640df5ac0092fbb9b265ce6a078fa39ed525fb8f7ded35cdf79178a8d600",
+      "role": "case_report",
+      "size_bytes": 12752
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__zero_reference/review/generated_rgb.mp4",
+      "sha256": "6a59ed17137e294e85311707c900c6b77f1a79131efec2ea6f355260435d4db8",
+      "role": "rgb_video",
+      "size_bytes": 2460134
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/avenue__zero_reference/review/generated_labels.npz",
+      "sha256": "798f6837f3001924bfe63b81bd60a24087dade9654d2ba4c3d6d7b62e53d7398",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 539502
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__off/case_report.json",
+      "sha256": "3d9cb76a05e3012773ced424f75bff2c87227317bee0dc72626041980fee8fda",
+      "role": "case_report",
+      "size_bytes": 12729
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__off/review/generated_rgb.mp4",
+      "sha256": "b5984f53b91082d988f450bb08c26bcc1078f66b592b83e85fb76a8346ea1ea1",
+      "role": "rgb_video",
+      "size_bytes": 1275581
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__off/review/generated_labels.npz",
+      "sha256": "07c946a9df9614b4b1c43824eed4bcb08d368aa806f67a262ca6991c18106ba7",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 463790
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_half/case_report.json",
+      "sha256": "debfda8dc59adf5bd3b97956d68200245550454e34320ff78a5e3290bbb856ab",
+      "role": "case_report",
+      "size_bytes": 12877
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_half/review/generated_rgb.mp4",
+      "sha256": "515119e5cd17d16e603031d61a0a14f84d48d0d0f7bbba08a69bd144db49c028",
+      "role": "rgb_video",
+      "size_bytes": 1152502
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_half/review/generated_labels.npz",
+      "sha256": "f0f6f441d7a7fd3629be292b5cd212efd4cc3e5ad96872a29f287edf0531e8a1",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 522456
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_full/case_report.json",
+      "sha256": "40f47ec947464c9fc0383c1df1a1f90ff57d4903ba4471346a2bd98bce99567a",
+      "role": "case_report",
+      "size_bytes": 12855
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_full/review/generated_rgb.mp4",
+      "sha256": "ba8f63c8effe31f0542171196c43fb398955d53afd9651738235491df8af38d0",
+      "role": "rgb_video",
+      "size_bytes": 1201463
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__intended_full/review/generated_labels.npz",
+      "sha256": "1cf8ca38fc869d7c196a9f7a3270d9189eb7d74c2ce9c37a9dd23c39476881bf",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 516334
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__wrong_reference/case_report.json",
+      "sha256": "9d92612776a0f98cf096b57cc259c1ff7f4321d2694472c400da9906e21c8f88",
+      "role": "case_report",
+      "size_bytes": 12950
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__wrong_reference/review/generated_rgb.mp4",
+      "sha256": "c10ba6de7e893acd517026bd52150ca0bdcfd4146184b21caf907be48f19c0bf",
+      "role": "rgb_video",
+      "size_bytes": 970903
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__wrong_reference/review/generated_labels.npz",
+      "sha256": "d631a1ba5ab103c30d6c2a72771ead05995ace45e0d98a250557dcf32856d5f8",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 486471
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__zero_reference/case_report.json",
+      "sha256": "8d9bd803b32ea8c36824eb6de15a01449422a3e1c78f3a853571e844e299ed43",
+      "role": "case_report",
+      "size_bytes": 12801
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__zero_reference/review/generated_rgb.mp4",
+      "sha256": "883e271c7deae02aa3d0728e1df689df494812e6a1edf075f33cbca77d36cc48",
+      "role": "rgb_video",
+      "size_bytes": 1777529
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/intersection__zero_reference/review/generated_labels.npz",
+      "sha256": "49e61965ec398f6e52d1dc328f242db8109949d8bd3fe7736208e041dfcd9549",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 442815
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__off/case_report.json",
+      "sha256": "d6a321055f898f3dd901e5fc5427fec1b19d7b2fffafb8995f868340ed1c08fa",
+      "role": "case_report",
+      "size_bytes": 12485
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__off/review/generated_rgb.mp4",
+      "sha256": "286faae7bec3cd1ff74e4e115259ff8de746db74809321d50de5d2059733c7ef",
+      "role": "rgb_video",
+      "size_bytes": 2725514
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__off/review/generated_labels.npz",
+      "sha256": "7b02677212f23e7c79904374706a2580bf4a79fc00a627364817880aedbb2ebe",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 565733
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_half/case_report.json",
+      "sha256": "1c23538ff2e85ea70fa9d7c3f11e2a4e91be0e7d3bb048287c7c8774a9a6f217",
+      "role": "case_report",
+      "size_bytes": 12665
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_half/review/generated_rgb.mp4",
+      "sha256": "29ae1117ab0d43fbd5b6686bb7d538fe304681123db43c47763f23aeb9017292",
+      "role": "rgb_video",
+      "size_bytes": 2531374
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_half/review/generated_labels.npz",
+      "sha256": "050191e262b27a8fa1317128dd3e8a0275426901a3906313e2bc771711c65269",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 690877
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_full/case_report.json",
+      "sha256": "9b3ac015c1ecfaa20b910b98211101924610dcf7f1e38a821a86cce5a31b8bde",
+      "role": "case_report",
+      "size_bytes": 12653
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_full/review/generated_rgb.mp4",
+      "sha256": "7cca61439a37659beec8adef213074446c1b9f383c9f4f911cafc64385dddc9d",
+      "role": "rgb_video",
+      "size_bytes": 2735199
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__intended_full/review/generated_labels.npz",
+      "sha256": "63bfada0f51267ead7d95df10271dd44c6bb24f78387b8159060ce017a7f6d22",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 448175
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__wrong_reference/case_report.json",
+      "sha256": "fbf261f6492dd1fcc298d94643612ead3dd996ce78d6c52d970edf63c4054bbf",
+      "role": "case_report",
+      "size_bytes": 12693
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__wrong_reference/review/generated_rgb.mp4",
+      "sha256": "a9936875f89e8e5dd0289a95f33faf1d6a8ddf2088ad5e630ca138065c200ff7",
+      "role": "rgb_video",
+      "size_bytes": 2421984
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__wrong_reference/review/generated_labels.npz",
+      "sha256": "6e9d343e13b533e6517ad8f358593130534c721c056aedd0b02b32cfee66cba2",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 576636
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__zero_reference/case_report.json",
+      "sha256": "7a20a1f589e5b6c7bb55ecfe51a9aa299734c23f2f684af859d2317ca815973d",
+      "role": "case_report",
+      "size_bytes": 12665
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__zero_reference/review/generated_rgb.mp4",
+      "sha256": "de224591f46ac829d586fb65eb4050b603f73b2e624330f845d48fdeee94644e",
+      "role": "rgb_video",
+      "size_bytes": 3164683
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/parkside__zero_reference/review/generated_labels.npz",
+      "sha256": "d246bd6656d96f4d32e4977eeaed0c88c074c8c60c46ec5221c3cc8b2260ef7f",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 538695
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__off/case_report.json",
+      "sha256": "44bdc940de281140e70da190de0013df0575ec9b929101130f5349df47560341",
+      "role": "case_report",
+      "size_bytes": 12809
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__off/review/generated_rgb.mp4",
+      "sha256": "710f1b8650e0015ce753e668489fa75c5a4d9b9d101525dc3a84ac0df40613b1",
+      "role": "rgb_video",
+      "size_bytes": 1940056
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__off/review/generated_labels.npz",
+      "sha256": "f4ed07a2da9681bb1e92984c95ea76e86c678c309935254e55c4f82b77b68689",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 538599
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_half/case_report.json",
+      "sha256": "4f07adae045636362e5de78a16a69ad15340cc89191b20faa5391fb6cd6cf723",
+      "role": "case_report",
+      "size_bytes": 12850
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_half/review/generated_rgb.mp4",
+      "sha256": "6aab10542c8bc43c8c1d57760fcce31b9c4e4843d63c7fb394a75fe12cbc9919",
+      "role": "rgb_video",
+      "size_bytes": 1875128
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_half/review/generated_labels.npz",
+      "sha256": "d0d0f80f29418b886e1baceddbbc6843c52b2b2fe36eaa7f2214a1f6b65eb9aa",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 565581
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_full/case_report.json",
+      "sha256": "d8bd3f92145862870ec1aeb4857c5c854443e9d5b2a77f104040df754bfffab7",
+      "role": "case_report",
+      "size_bytes": 12828
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_full/review/generated_rgb.mp4",
+      "sha256": "cbd523ec7b659fbc5b909874b4bba768879d1e6f9bc6aaeddc5c1ec6f77d3905",
+      "role": "rgb_video",
+      "size_bytes": 1909286
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__intended_full/review/generated_labels.npz",
+      "sha256": "99b84a741cd7494da7e99bafa4154c2123a0fd19188dfcdd744052d31dff8932",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 587371
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__wrong_reference/case_report.json",
+      "sha256": "82f04e9d36ee4664be5b37757c59e7bd57e565652f8a06ef75e4d50b0fd95427",
+      "role": "case_report",
+      "size_bytes": 12857
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__wrong_reference/review/generated_rgb.mp4",
+      "sha256": "7178eba927587d3dbf3d57a95a205c5a33cff07c5df79dfad13f4cedb27657e6",
+      "role": "rgb_video",
+      "size_bytes": 1856744
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__wrong_reference/review/generated_labels.npz",
+      "sha256": "ba8fd64a0c0a9abc801f88971e50518a20ad08ee58e9dc36e802b26516bd4a7e",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 598789
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__zero_reference/case_report.json",
+      "sha256": "35ca1a9be455fa3b23e1870b0c5747847b3f0f2668eaf9dd64caf70e2a7c95ae",
+      "role": "case_report",
+      "size_bytes": 12851
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__zero_reference/review/generated_rgb.mp4",
+      "sha256": "16fdb434e351bf295ea242b408d5a1346cb2a6e25a389d7a1028184035417be9",
+      "role": "rgb_video",
+      "size_bytes": 2439835
+    },
+    {
+      "relative_path": "reference_rgb_correction_59869249/evaluation/residential__zero_reference/review/generated_labels.npz",
+      "sha256": "4e6f72ed84f793fd9325c07e03051d04ea42fc45cb20f8ee0adaa3e1c48054d9",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 560091
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/reference_rgb_strength_gate.json",
+      "sha256": "8ab06b5c02654f98b35e44c4c1293f877d8fb23a26d96589691f43045561d06c",
+      "role": "engineering_gate",
+      "size_bytes": 12132
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/reference_rgb_strength_report.json",
+      "sha256": "66c00c0cc7f5982044393654114d8fd56afe6ab6bc576376e86830d0125c5178",
+      "role": "evaluation_report",
+      "size_bytes": 192852
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/experiment_contract.json",
+      "sha256": "54c753b19fb85fed8bb2d82f1b26da68be0c8d87eda49772613352b6666c9e59",
+      "role": "historical_contract",
+      "size_bytes": 6397
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/avenue__off/case_report.json",
+      "sha256": "855e0b051b5c5a5d260be7a1791ce21f334d8874e9569630cd91a3bfc3f2497f",
+      "role": "case_report",
+      "size_bytes": 11819
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/avenue__off/review/generated_rgb.mp4",
+      "sha256": "7883eb511c1392bacf918959b585ed13137118a81102c26615a5796fdd12f910",
+      "role": "rgb_video",
+      "size_bytes": 1939084
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/avenue__off/review/generated_labels.npz",
+      "sha256": "8f2a19441d689d11297bd889886d512cc4da8ba0338336f073087f18fa37737b",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 456914
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p1/case_report.json",
+      "sha256": "659678a05411ba94e41ec804a51278a44f5b6cdd1d04caa7eb16e1dca85f3ecd",
+      "role": "case_report",
+      "size_bytes": 11920
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p1/review/generated_rgb.mp4",
+      "sha256": "c8d255c277d878dc74231a3d43d9072ce47e3f992d83cd575e17eec42e7422ec",
+      "role": "rgb_video",
+      "size_bytes": 1901193
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p1/review/generated_labels.npz",
+      "sha256": "48a2d34216d3bfb2fdadd758789fe072929ecb042722011022820c83a0e59c02",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 467979
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p25/case_report.json",
+      "sha256": "e6b22c064eee65edffbfda6f10b9567ecc2a2fb048cffbaca886d5679b93acbd",
+      "role": "case_report",
+      "size_bytes": 11978
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p25/review/generated_rgb.mp4",
+      "sha256": "5d98380869cd7836f3013390ccc5018c48b6a987d7c1abd573dcb9d69b2ea6f9",
+      "role": "rgb_video",
+      "size_bytes": 1980084
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/avenue__intended_0p25/review/generated_labels.npz",
+      "sha256": "c82a6c85f615e8591ddef440c075f5a1195ced9b7033a01d4fe13496abed4c4e",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 481272
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/intersection__off/case_report.json",
+      "sha256": "7e5c5654629f9dcfe8436cc9bb53bd9dac61944bc82aa5ad62a61757750c2526",
+      "role": "case_report",
+      "size_bytes": 11961
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/intersection__off/review/generated_rgb.mp4",
+      "sha256": "b5984f53b91082d988f450bb08c26bcc1078f66b592b83e85fb76a8346ea1ea1",
+      "role": "rgb_video",
+      "size_bytes": 1275581
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/intersection__off/review/generated_labels.npz",
+      "sha256": "07c946a9df9614b4b1c43824eed4bcb08d368aa806f67a262ca6991c18106ba7",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 463790
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p1/case_report.json",
+      "sha256": "57fff91ab674d31516b0ea701c9fad787ef63046b819ec9286e096e728df1c8c",
+      "role": "case_report",
+      "size_bytes": 12045
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p1/review/generated_rgb.mp4",
+      "sha256": "b5c8345f36792e1e3dd745d79c4270e6c47ff0dfe56dc14892119c9f7539d3d7",
+      "role": "rgb_video",
+      "size_bytes": 1265623
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p1/review/generated_labels.npz",
+      "sha256": "7902dc450299645e2e301541c366bdc78f0f5e7a215e6b7412a41a642737ccbf",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 479501
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p25/case_report.json",
+      "sha256": "0151bd6bf8c776e491ddf23667f10be8530396fc43368d55282659379f4853e0",
+      "role": "case_report",
+      "size_bytes": 12091
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p25/review/generated_rgb.mp4",
+      "sha256": "186eec15245f01c7aed699389d4475be2556321d9875ad1f8866c0de010c1cbf",
+      "role": "rgb_video",
+      "size_bytes": 1187139
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/intersection__intended_0p25/review/generated_labels.npz",
+      "sha256": "2f50715082c21eaa5acf6798fd5961706ca0375437f7e9aedf6bceea39789068",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 504129
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/parkside__off/case_report.json",
+      "sha256": "4298a7fd09e48e402f6826dde01134270a78e55800886731e55b5263672ba038",
+      "role": "case_report",
+      "size_bytes": 11741
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/parkside__off/review/generated_rgb.mp4",
+      "sha256": "286faae7bec3cd1ff74e4e115259ff8de746db74809321d50de5d2059733c7ef",
+      "role": "rgb_video",
+      "size_bytes": 2725514
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/parkside__off/review/generated_labels.npz",
+      "sha256": "7b02677212f23e7c79904374706a2580bf4a79fc00a627364817880aedbb2ebe",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 565733
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p1/case_report.json",
+      "sha256": "75e4d2439cf89d24c72410bef8cfef43894af960cb1a3739cca402a813c16b36",
+      "role": "case_report",
+      "size_bytes": 11889
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p1/review/generated_rgb.mp4",
+      "sha256": "9238ecbfd88b033bb7593114e9508e6798d0954ef529f41dae35ae12a519f698",
+      "role": "rgb_video",
+      "size_bytes": 2586663
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p1/review/generated_labels.npz",
+      "sha256": "d4ae45f6d6e7a2d1e0ca67134038117b93ff48db01313d6c867e89093aeb198a",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 557103
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p25/case_report.json",
+      "sha256": "39f0f4477abaa860db9d9eb7f3af0e4cdd103e27f4da7161abc490c31e300fc4",
+      "role": "case_report",
+      "size_bytes": 11911
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p25/review/generated_rgb.mp4",
+      "sha256": "30a5837a6ef68c170a3a009ebc4d6d77073983aaf0fb7deaca793224b2bf627d",
+      "role": "rgb_video",
+      "size_bytes": 2500434
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/parkside__intended_0p25/review/generated_labels.npz",
+      "sha256": "3d5071d4655e7d5369d4edd085bfee945c88d7947f7618d3e0f2d68df774afc8",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 595309
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/residential__off/case_report.json",
+      "sha256": "5492686c1edf0c3483ea9809767e7c7a7b7d4be191f61e65ee1c2a9c44c4dae6",
+      "role": "case_report",
+      "size_bytes": 12047
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/residential__off/review/generated_rgb.mp4",
+      "sha256": "710f1b8650e0015ce753e668489fa75c5a4d9b9d101525dc3a84ac0df40613b1",
+      "role": "rgb_video",
+      "size_bytes": 1940056
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/residential__off/review/generated_labels.npz",
+      "sha256": "f4ed07a2da9681bb1e92984c95ea76e86c678c309935254e55c4f82b77b68689",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 538599
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p1/case_report.json",
+      "sha256": "fe12962a274052df04e9b40bcbd7dadded900edd2c38e766c867840c1a0053ae",
+      "role": "case_report",
+      "size_bytes": 12137
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p1/review/generated_rgb.mp4",
+      "sha256": "26299f822b1d5a7b1ff15c3c622b985c65f939ff7d38e37e634ca2da9e8d37bf",
+      "role": "rgb_video",
+      "size_bytes": 2006608
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p1/review/generated_labels.npz",
+      "sha256": "f0c40a9b4628e071824f55a760dda07088496e72e336afba026c1107dddb742d",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 523526
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p25/case_report.json",
+      "sha256": "ffd836e31332af25d1b1ed7510a61b095eab147addbcaff2629d87062d660b69",
+      "role": "case_report",
+      "size_bytes": 12094
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p25/review/generated_rgb.mp4",
+      "sha256": "b81157b256bed964eb3a0204c62eeebfc37254abff676da16fe5e663b72d1071",
+      "role": "rgb_video",
+      "size_bytes": 1965513
+    },
+    {
+      "relative_path": "reference_rgb_strength_59884661/evaluation/residential__intended_0p25/review/generated_labels.npz",
+      "sha256": "9594162a80efc68bf2c5a7fcd1c8c6b883d62a13d993c7b2ba48cb4fd749977e",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 514172
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/additional_rgb_gate.json",
+      "sha256": "cfc21088dcf3e381a479e2b612e68340d990a67e4be4931dae6ca5e02e1f2e1b",
+      "role": "engineering_gate",
+      "size_bytes": 121661
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/additional_rgb_report.json",
+      "sha256": "864841d322968ae31d9e2fc667ea3903c87f548c9d954fd63552e262e2009da5",
+      "role": "evaluation_report",
+      "size_bytes": 418923
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/experiment_contract.json",
+      "sha256": "d0380992a4d37028f27e15f8b332be9aecea5df2acc30448c72fa7b656c5812c",
+      "role": "historical_contract",
+      "size_bytes": 12479
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__off/case_report.json",
+      "sha256": "19f4214a56e8ef48167feedcd75217fc67d0446f745e3ba327114eb1727c3127",
+      "role": "case_report",
+      "size_bytes": 12231
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__off/review/generated_rgb.mp4",
+      "sha256": "7883eb511c1392bacf918959b585ed13137118a81102c26615a5796fdd12f910",
+      "role": "rgb_video",
+      "size_bytes": 1939084
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__off/review/generated_labels.npz",
+      "sha256": "8f2a19441d689d11297bd889886d512cc4da8ba0338336f073087f18fa37737b",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 456914
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__ordinary/case_report.json",
+      "sha256": "62423fc899b3a59ae50a84c9877fc34d8889e97613b4293fdcd2f3d56753d6b5",
+      "role": "case_report",
+      "size_bytes": 12366
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__ordinary/review/generated_rgb.mp4",
+      "sha256": "5d98380869cd7836f3013390ccc5018c48b6a987d7c1abd573dcb9d69b2ea6f9",
+      "role": "rgb_video",
+      "size_bytes": 1980084
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__ordinary/review/generated_labels.npz",
+      "sha256": "c82a6c85f615e8591ddef440c075f5a1195ced9b7033a01d4fe13496abed4c4e",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 481272
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast/case_report.json",
+      "sha256": "612a7ebc63560598a5184abac1db2a82630598ff12f996774e7feeb7904dcd0c",
+      "role": "case_report",
+      "size_bytes": 12310
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast/review/generated_rgb.mp4",
+      "sha256": "fd53ca3c7f93c7ded1cf9c7f5ab2cb9130c59f9f1602dd0c9167130d6d8a5174",
+      "role": "rgb_video",
+      "size_bytes": 1854886
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast/review/generated_labels.npz",
+      "sha256": "421626460fe26a6a2137cfac293bec995d3399d3037ac915b78b72170d76e128",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 470713
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast_matched/case_report.json",
+      "sha256": "c3594b6846332ef2fd4883e370572ac2a03c0e29baaeca37f17ec7e0913068ab",
+      "role": "case_report",
+      "size_bytes": 12467
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast_matched/review/generated_rgb.mp4",
+      "sha256": "45edca099882edb15dbbebc52ed86b147e70767bcd39bba38d012eddca0a1bc3",
+      "role": "rgb_video",
+      "size_bytes": 1957782
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__contrast_matched/review/generated_labels.npz",
+      "sha256": "1d3a6fe704ad24fc670b7edd66e76ac06ffea698aa5e1bc37dbe7b1cf122a632",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 484800
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__identity/case_report.json",
+      "sha256": "a6c9696ed38142f6280a1a9011ff69f46a67a1fd4552ac7ecd18ca1e6976dcf9",
+      "role": "case_report",
+      "size_bytes": 12293
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__identity/review/generated_rgb.mp4",
+      "sha256": "7883eb511c1392bacf918959b585ed13137118a81102c26615a5796fdd12f910",
+      "role": "rgb_video",
+      "size_bytes": 1939084
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/avenue__identity/review/generated_labels.npz",
+      "sha256": "8f2a19441d689d11297bd889886d512cc4da8ba0338336f073087f18fa37737b",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 456914
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__off/case_report.json",
+      "sha256": "0aa7f67587a63542c8a39bcf27ac2708be0338cd65a93c0953290421f45b529f",
+      "role": "case_report",
+      "size_bytes": 12385
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__off/review/generated_rgb.mp4",
+      "sha256": "b5984f53b91082d988f450bb08c26bcc1078f66b592b83e85fb76a8346ea1ea1",
+      "role": "rgb_video",
+      "size_bytes": 1275581
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__off/review/generated_labels.npz",
+      "sha256": "07c946a9df9614b4b1c43824eed4bcb08d368aa806f67a262ca6991c18106ba7",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 463790
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__ordinary/case_report.json",
+      "sha256": "70ca48334d730e75c078b123caae756c9ed563e1f3cb3db920d4e6e8a18ac948",
+      "role": "case_report",
+      "size_bytes": 12491
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__ordinary/review/generated_rgb.mp4",
+      "sha256": "186eec15245f01c7aed699389d4475be2556321d9875ad1f8866c0de010c1cbf",
+      "role": "rgb_video",
+      "size_bytes": 1187139
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__ordinary/review/generated_labels.npz",
+      "sha256": "2f50715082c21eaa5acf6798fd5961706ca0375437f7e9aedf6bceea39789068",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 504129
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast/case_report.json",
+      "sha256": "448327ef2cccbc8a1344fa292045afedb85c6959724ed347c76bd4c210ddf600",
+      "role": "case_report",
+      "size_bytes": 12463
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast/review/generated_rgb.mp4",
+      "sha256": "7a4989ea60f23900a59349faccdeb77305a553d2a9da2cf2f13da9da99654a6d",
+      "role": "rgb_video",
+      "size_bytes": 1150805
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast/review/generated_labels.npz",
+      "sha256": "e11dfc0f94d784e30fc64e578792138c47f64f8c3257bd822868f8c61c7beec9",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 515959
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast_matched/case_report.json",
+      "sha256": "34a40cd7c24967f00b035e4853dbf9b54a48d143355cf2ab0a1baae437823c69",
+      "role": "case_report",
+      "size_bytes": 12580
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast_matched/review/generated_rgb.mp4",
+      "sha256": "1341ed33e619d4f9d08e3130c87b430e002ff2dfd9d371d3e7db2e48983035ef",
+      "role": "rgb_video",
+      "size_bytes": 1214078
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__contrast_matched/review/generated_labels.npz",
+      "sha256": "759970c26104eb38b85696e6d9a23beb0cb68f2b2c680a6a4304275e8d184125",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 487110
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__identity/case_report.json",
+      "sha256": "c901535fa0a1ca1f0ade264522de43f5597b83785a59fe7158188ab479852d75",
+      "role": "case_report",
+      "size_bytes": 12447
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__identity/review/generated_rgb.mp4",
+      "sha256": "b5984f53b91082d988f450bb08c26bcc1078f66b592b83e85fb76a8346ea1ea1",
+      "role": "rgb_video",
+      "size_bytes": 1275581
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/intersection__identity/review/generated_labels.npz",
+      "sha256": "07c946a9df9614b4b1c43824eed4bcb08d368aa806f67a262ca6991c18106ba7",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 463790
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__off/case_report.json",
+      "sha256": "5f09b1090b1de23136ced4f784ec4c7fa8cc935e316c209da881ca6067bf42aa",
+      "role": "case_report",
+      "size_bytes": 12157
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__off/review/generated_rgb.mp4",
+      "sha256": "286faae7bec3cd1ff74e4e115259ff8de746db74809321d50de5d2059733c7ef",
+      "role": "rgb_video",
+      "size_bytes": 2725514
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__off/review/generated_labels.npz",
+      "sha256": "7b02677212f23e7c79904374706a2580bf4a79fc00a627364817880aedbb2ebe",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 565733
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__ordinary/case_report.json",
+      "sha256": "864cc9761bb7681f16ccfc1c7913960b4d4c73f5851eecb83d65d69b0cd6498a",
+      "role": "case_report",
+      "size_bytes": 12303
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__ordinary/review/generated_rgb.mp4",
+      "sha256": "30a5837a6ef68c170a3a009ebc4d6d77073983aaf0fb7deaca793224b2bf627d",
+      "role": "rgb_video",
+      "size_bytes": 2500434
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__ordinary/review/generated_labels.npz",
+      "sha256": "3d5071d4655e7d5369d4edd085bfee945c88d7947f7618d3e0f2d68df774afc8",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 595309
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast/case_report.json",
+      "sha256": "61780e08f6089720e10c69800a62c03ef5ace60e80b9f2058f477544a01d273b",
+      "role": "case_report",
+      "size_bytes": 12298
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast/review/generated_rgb.mp4",
+      "sha256": "5654805ca8e23f1182e86b92ab84af7c8da8544f3a9a8b37ebe850161b1abf34",
+      "role": "rgb_video",
+      "size_bytes": 2480801
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast/review/generated_labels.npz",
+      "sha256": "efdaf26d79dbccb2ed7f65f14141a6a6f7390de8e030710ff40535c705da47d4",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 620551
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast_matched/case_report.json",
+      "sha256": "fafaa70d11700a3d88c8db3761a53b5cd0751038cfd4ebcbc45e48daa794e1ef",
+      "role": "case_report",
+      "size_bytes": 12406
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast_matched/review/generated_rgb.mp4",
+      "sha256": "59e37d4b226c5d831ca7740da3153419ca3332667939a0bea97920528ad0cca1",
+      "role": "rgb_video",
+      "size_bytes": 2494559
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__contrast_matched/review/generated_labels.npz",
+      "sha256": "fcd8b449df6f8832819fccffc2ee0bf081c87e551cf38c8f8754bb507bd88d6c",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 597113
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__identity/case_report.json",
+      "sha256": "e25fa3f45496ea4d198956e72a9edb10842ebf20e6b656be32873bfaac85b67b",
+      "role": "case_report",
+      "size_bytes": 12219
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__identity/review/generated_rgb.mp4",
+      "sha256": "286faae7bec3cd1ff74e4e115259ff8de746db74809321d50de5d2059733c7ef",
+      "role": "rgb_video",
+      "size_bytes": 2725514
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/parkside__identity/review/generated_labels.npz",
+      "sha256": "7b02677212f23e7c79904374706a2580bf4a79fc00a627364817880aedbb2ebe",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 565733
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__off/case_report.json",
+      "sha256": "aafcb3e40579613307d3f0512f15393757182c0e3bfc88ab83a2be84bf5da37d",
+      "role": "case_report",
+      "size_bytes": 12469
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__off/review/generated_rgb.mp4",
+      "sha256": "710f1b8650e0015ce753e668489fa75c5a4d9b9d101525dc3a84ac0df40613b1",
+      "role": "rgb_video",
+      "size_bytes": 1940056
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__off/review/generated_labels.npz",
+      "sha256": "f4ed07a2da9681bb1e92984c95ea76e86c678c309935254e55c4f82b77b68689",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 538599
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__ordinary/case_report.json",
+      "sha256": "a0ca1d22aa1366e1ee5437917220ab0e2bbaf4415ef144de2a78800cc380452f",
+      "role": "case_report",
+      "size_bytes": 12493
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__ordinary/review/generated_rgb.mp4",
+      "sha256": "b81157b256bed964eb3a0204c62eeebfc37254abff676da16fe5e663b72d1071",
+      "role": "rgb_video",
+      "size_bytes": 1965513
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__ordinary/review/generated_labels.npz",
+      "sha256": "9594162a80efc68bf2c5a7fcd1c8c6b883d62a13d993c7b2ba48cb4fd749977e",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 514172
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast/case_report.json",
+      "sha256": "8c7b2d3da37d6ebcc97f38c47ef4641fd5b782595ea74dd68571f48ecc341361",
+      "role": "case_report",
+      "size_bytes": 12503
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast/review/generated_rgb.mp4",
+      "sha256": "14665ac2c53d8cd5385c1eacddde815a9d92e4ec0db5750a1fecbab7aa933f97",
+      "role": "rgb_video",
+      "size_bytes": 2045258
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast/review/generated_labels.npz",
+      "sha256": "ef1cc0debe7383172ea28989923fb61c2cb5ed8c8fa440ad573bf8195c9f6f70",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 544594
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast_matched/case_report.json",
+      "sha256": "72eba573d8895277da0b16cf67dc16fb9cc578c36793779ac3df060f42c22ea4",
+      "role": "case_report",
+      "size_bytes": 12619
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast_matched/review/generated_rgb.mp4",
+      "sha256": "bcb7235307b6a290160a7d83e8d862a2fd5b91eca991787e240270e23aad2a37",
+      "role": "rgb_video",
+      "size_bytes": 1946821
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__contrast_matched/review/generated_labels.npz",
+      "sha256": "2aef6b8a7d15c5f3ed2b0eb819b1119631a316dba851317d54b9f3d8db2beaa0",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 510510
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__identity/case_report.json",
+      "sha256": "be796c6a902451474f5abdfba07825f87e7ce476be524c8f5256708402399d74",
+      "role": "case_report",
+      "size_bytes": 12531
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__identity/review/generated_rgb.mp4",
+      "sha256": "710f1b8650e0015ce753e668489fa75c5a4d9b9d101525dc3a84ac0df40613b1",
+      "role": "rgb_video",
+      "size_bytes": 1940056
+    },
+    {
+      "relative_path": "additional_rgb_r4_59900883/evaluation/residential__identity/review/generated_labels.npz",
+      "sha256": "f4ed07a2da9681bb1e92984c95ea76e86c678c309935254e55c4f82b77b68689",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 538599
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/additional_rgb_gate.json",
+      "sha256": "77a3b102604c09d47ae1d5d2f350575e1a1f3311822ba0fdccf6d261d06ed266",
+      "role": "engineering_gate",
+      "size_bytes": 117529
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/additional_rgb_report.json",
+      "sha256": "928eb93861b7013b10d80f76e27bcb869de1e3370feb9d9293401f292637875a",
+      "role": "evaluation_report",
+      "size_bytes": 355832
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/experiment_contract.json",
+      "sha256": "fd9068f842c854af438c6955aee5af5cb77d6fd546a712599974d764177023c1",
+      "role": "historical_contract",
+      "size_bytes": 10772
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__off/case_report.json",
+      "sha256": "32f6ae319b1b75e96ea9bb48388dd27756e5d3002172429009abc9e1a8f9cb52",
+      "role": "case_report",
+      "size_bytes": 12231
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__off/review/generated_rgb.mp4",
+      "sha256": "7883eb511c1392bacf918959b585ed13137118a81102c26615a5796fdd12f910",
+      "role": "rgb_video",
+      "size_bytes": 1939084
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__off/review/generated_labels.npz",
+      "sha256": "8f2a19441d689d11297bd889886d512cc4da8ba0338336f073087f18fa37737b",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 456914
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__ordinary/case_report.json",
+      "sha256": "f298cc33247b6b928fc98720ce4569865fe6ea864caf2eb1260b2f4f105a1232",
+      "role": "case_report",
+      "size_bytes": 12366
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__ordinary/review/generated_rgb.mp4",
+      "sha256": "5d98380869cd7836f3013390ccc5018c48b6a987d7c1abd573dcb9d69b2ea6f9",
+      "role": "rgb_video",
+      "size_bytes": 1980084
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__ordinary/review/generated_labels.npz",
+      "sha256": "c82a6c85f615e8591ddef440c075f5a1195ced9b7033a01d4fe13496abed4c4e",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 481272
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_constant/case_report.json",
+      "sha256": "7d7fec49b44abd41ccfd9683c90d724c590a3fe5e7de083e1e469d4e8121a1a6",
+      "role": "case_report",
+      "size_bytes": 12378
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_constant/review/generated_rgb.mp4",
+      "sha256": "9f20b23804a5e513e542b169c59442c00226d25ba081a23103e647a6fe195865",
+      "role": "rgb_video",
+      "size_bytes": 2067712
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_constant/review/generated_labels.npz",
+      "sha256": "aee2ffd1f7334eb16d9e5d0f768284fdaecd269476d406b62f93bb0acc7c2fd3",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 486727
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_noise_penalty/case_report.json",
+      "sha256": "f7eb2c955c5f2c870e78079755eb162ebb015fa0e11ef43b0e9b17f035cddcfd",
+      "role": "case_report",
+      "size_bytes": 12442
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_noise_penalty/review/generated_rgb.mp4",
+      "sha256": "965b160116aeeeb79a6a12c0885a38d372098b652bf585c541f2c7ee93c0abee",
+      "role": "rgb_video",
+      "size_bytes": 2061516
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/avenue__r5_noise_penalty/review/generated_labels.npz",
+      "sha256": "50df6be3d19f563a99489690fbc0707cadb5904919b5c2e474c0c7832fb0724a",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 479118
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__off/case_report.json",
+      "sha256": "f574d1e2feff7e518ecd1aa04c70cffb59d4bc6b5d6ed73464f103b5d33fb475",
+      "role": "case_report",
+      "size_bytes": 12385
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__off/review/generated_rgb.mp4",
+      "sha256": "b5984f53b91082d988f450bb08c26bcc1078f66b592b83e85fb76a8346ea1ea1",
+      "role": "rgb_video",
+      "size_bytes": 1275581
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__off/review/generated_labels.npz",
+      "sha256": "07c946a9df9614b4b1c43824eed4bcb08d368aa806f67a262ca6991c18106ba7",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 463790
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__ordinary/case_report.json",
+      "sha256": "67ed285a39d09e0c0457f2184bb820c4ab229a275c9b81ce3fa562c36c518fa0",
+      "role": "case_report",
+      "size_bytes": 12491
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__ordinary/review/generated_rgb.mp4",
+      "sha256": "186eec15245f01c7aed699389d4475be2556321d9875ad1f8866c0de010c1cbf",
+      "role": "rgb_video",
+      "size_bytes": 1187139
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__ordinary/review/generated_labels.npz",
+      "sha256": "2f50715082c21eaa5acf6798fd5961706ca0375437f7e9aedf6bceea39789068",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 504129
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_constant/case_report.json",
+      "sha256": "8276a6db0a35c5d0394c337b592504c22d4cf8b786a7a73bebbd7ed6e1cc5e2e",
+      "role": "case_report",
+      "size_bytes": 12510
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_constant/review/generated_rgb.mp4",
+      "sha256": "8c404cfcd153ed684645a464758efa39239d22371814ced2ce1eb2dfe7e154f6",
+      "role": "rgb_video",
+      "size_bytes": 1299132
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_constant/review/generated_labels.npz",
+      "sha256": "89b6809b9bf12a179837475c065cf97174afe41621adc3c7f42089f2a85c44e9",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 502792
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_noise_penalty/case_report.json",
+      "sha256": "57a353a66d1df80dabcb70e408d0e4b8927c80c1ecf94f66fcdfeece197e9d61",
+      "role": "case_report",
+      "size_bytes": 12628
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_noise_penalty/review/generated_rgb.mp4",
+      "sha256": "1e93daa56a068f5361ddc5efd615ed003f33ee96543f925d61baea84dfb7c89d",
+      "role": "rgb_video",
+      "size_bytes": 1330178
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/intersection__r5_noise_penalty/review/generated_labels.npz",
+      "sha256": "2586017bddae431c875ce8a3000a67023ffd802bc4faf4a842006d0e4b6cc82d",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 502615
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__off/case_report.json",
+      "sha256": "f8b26563da712ca17b4e3c6fd27308dd42ac2d791bb4fa1233af545fa82d02df",
+      "role": "case_report",
+      "size_bytes": 12157
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__off/review/generated_rgb.mp4",
+      "sha256": "286faae7bec3cd1ff74e4e115259ff8de746db74809321d50de5d2059733c7ef",
+      "role": "rgb_video",
+      "size_bytes": 2725514
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__off/review/generated_labels.npz",
+      "sha256": "7b02677212f23e7c79904374706a2580bf4a79fc00a627364817880aedbb2ebe",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 565733
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__ordinary/case_report.json",
+      "sha256": "3575f02109548b3d86a4c79b3a6c3703c66715457f2605641112c65fbd28b16c",
+      "role": "case_report",
+      "size_bytes": 12303
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__ordinary/review/generated_rgb.mp4",
+      "sha256": "30a5837a6ef68c170a3a009ebc4d6d77073983aaf0fb7deaca793224b2bf627d",
+      "role": "rgb_video",
+      "size_bytes": 2500434
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__ordinary/review/generated_labels.npz",
+      "sha256": "3d5071d4655e7d5369d4edd085bfee945c88d7947f7618d3e0f2d68df774afc8",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 595309
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_constant/case_report.json",
+      "sha256": "c8fd98dc37836b410d7c751d80429e09e1c4147da576ce7206b27c3a76ea2989",
+      "role": "case_report",
+      "size_bytes": 12356
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_constant/review/generated_rgb.mp4",
+      "sha256": "ad8525ba9a704f8c94dcf57516e3fe71b6655ef5f215b98a191117ca39797e7f",
+      "role": "rgb_video",
+      "size_bytes": 2700639
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_constant/review/generated_labels.npz",
+      "sha256": "c397d4639fc01ff1b94d76d95e6a9dd36d47cb452167f4e6d0db9c51a3cd60bb",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 624141
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_noise_penalty/case_report.json",
+      "sha256": "d597a379f85908b1c919081cd6a6c3a02a596692b3572de8d8b3565dcdd37bba",
+      "role": "case_report",
+      "size_bytes": 12426
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_noise_penalty/review/generated_rgb.mp4",
+      "sha256": "2e372933ce0f0e7f89761cdc10eec3c38ed890bd7cae2ca6bd2c4f8a52a4e8d5",
+      "role": "rgb_video",
+      "size_bytes": 2673092
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/parkside__r5_noise_penalty/review/generated_labels.npz",
+      "sha256": "0c7bf463a1227baf94717e460d92e52538612e57ed30b165a521e34585ef6c81",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 608387
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__off/case_report.json",
+      "sha256": "8f4a52bfac075fc87024c2f3e41305452a43be8650d9e576a7e76d7319fcc99a",
+      "role": "case_report",
+      "size_bytes": 12469
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__off/review/generated_rgb.mp4",
+      "sha256": "710f1b8650e0015ce753e668489fa75c5a4d9b9d101525dc3a84ac0df40613b1",
+      "role": "rgb_video",
+      "size_bytes": 1940056
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__off/review/generated_labels.npz",
+      "sha256": "f4ed07a2da9681bb1e92984c95ea76e86c678c309935254e55c4f82b77b68689",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 538599
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__ordinary/case_report.json",
+      "sha256": "be725995d8a7eaeffdc085a83c1cf0f46fc35e88811fd0519bd986f6f205d82c",
+      "role": "case_report",
+      "size_bytes": 12493
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__ordinary/review/generated_rgb.mp4",
+      "sha256": "b81157b256bed964eb3a0204c62eeebfc37254abff676da16fe5e663b72d1071",
+      "role": "rgb_video",
+      "size_bytes": 1965513
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__ordinary/review/generated_labels.npz",
+      "sha256": "9594162a80efc68bf2c5a7fcd1c8c6b883d62a13d993c7b2ba48cb4fd749977e",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 514172
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_constant/case_report.json",
+      "sha256": "f86360a990a0b23c24fc1dc26c9ac4a1a49c119a66bdc156ce185d1a9b4d3206",
+      "role": "case_report",
+      "size_bytes": 12530
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_constant/review/generated_rgb.mp4",
+      "sha256": "28df6ae0542c8b6c55542b8eafc03027d4b41352d8deee7e47386d557848600b",
+      "role": "rgb_video",
+      "size_bytes": 2167702
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_constant/review/generated_labels.npz",
+      "sha256": "a73f18c9cac45dfeae3dc816bdf5c9510d7a21cc8f6e83de79901f2fca379593",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 503195
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_noise_penalty/case_report.json",
+      "sha256": "34fa08cab8d76663044f7706332df8469a0afca3c179fb45b2d0e2a8cbda83ae",
+      "role": "case_report",
+      "size_bytes": 12592
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_noise_penalty/review/generated_rgb.mp4",
+      "sha256": "e783366fec8407392e617cbccef7bfb10a3f2fab2389b098772db4ba6a1126f3",
+      "role": "rgb_video",
+      "size_bytes": 2159479
+    },
+    {
+      "relative_path": "additional_rgb_r5_59900884/evaluation/residential__r5_noise_penalty/review/generated_labels.npz",
+      "sha256": "af4ddafdcdfb65d78c6d463fe6aa6e6bc0f96ecd86c6f271d8bbdb3b71586f56",
+      "role": "rgb_teacher_labels",
+      "size_bytes": 496941
+    }
+  ]
+}

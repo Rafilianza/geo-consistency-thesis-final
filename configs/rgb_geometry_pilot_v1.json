@@ -1,0 +1,46 @@
+{
+  "format": "rgb_geometry_pilot_v1",
+  "semantic_update": 4600,
+  "training_prompts": [
+    {
+      "scene": "suburban_car_departing",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A dark blue car drives slowly away along a straight suburban road. Detached houses stand behind low hedges and planted front gardens. Nearby trees and garden fences pass toward the sides as the camera advances, while the car recedes into the distance. A broad sidewalk continues ahead under an open blue sky. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "office_district_approaching_car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A white car approaches along the road beside glass office buildings. The car gradually grows larger while remaining on the road. Planted trees and low shrubs line the wide sidewalk, and nearby building entrances slide toward the frame edges as the camera advances. Soft reflections cover the glass facades beneath a lightly clouded sky. Realistic daylight, natural colors and perspective. One continuous shot."
+    },
+    {
+      "scene": "small_intersection_crossing_car",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A blue car crosses a small intersection ahead, briefly passing behind a roadside tree before becoming visible again. Low buildings surround the junction, with grass verges and clearly visible sidewalks around the road. The camera approaches the corner while remaining on the sidewalk. Nearby trees grow larger and shift toward the frame edges beneath a clear sky. Realistic daylight and natural perspective. One continuous shot."
+    },
+    {
+      "scene": "mixed_suburban_three_cars",
+      "prompt": "First-person POV of a person walking steadily forward along a sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. Three cars drive along a quiet residential road. A silver car follows a dark car away with a clear gap, while a red car approaches in the opposite lane. All three keep moving with turning wheels. Garden hedges, low houses and leafy trees border the sidewalk. Nearby trees, buildings and pavement shift naturally as the camera advances. Realistic daylight, distinct vehicle shapes and natural perspective. One continuous shot."
+    }
+  ],
+  "confirmation_prompts": [
+    {
+      "scene": "orchard_lane",
+      "prompt": "First-person view of a person walking steadily forward on a gravel footpath beside an orchard lane. A small red car drives slowly away between rows of apple trees. Fence posts and nearby tree trunks pass toward the image edges as the camera advances. The car naturally becomes smaller. Daylight, realistic perspective, one continuous shot."
+    },
+    {
+      "scene": "brick_warehouse_street",
+      "prompt": "First-person view of a person walking steadily forward along a sidewalk beside old brick warehouses. A silver car approaches on the road and grows larger naturally. Loading-bay entrances and lampposts pass toward the image edges. Realistic daylight and natural walking motion, one continuous shot."
+    },
+    {
+      "scene": "railway_station_approach",
+      "prompt": "First-person view of a person walking forward on a sidewalk toward a small railway station. A blue car crosses the road ahead and briefly passes behind a narrow signpost before becoming visible again. Nearby bollards move toward the image edges as the camera advances. Realistic daylight, natural perspective, one continuous shot."
+    },
+    {
+      "scene": "open_market_road",
+      "prompt": "First-person view of a person walking steadily forward beside an open-air market road. Three cars are visible: a white car drives away, a red car approaches in the other lane, and a dark car turns into a side road. Market stalls and nearby posts pass toward the image edges as the camera advances. Realistic daylight and perspective, one continuous shot."
+    }
+  ],
+  "flow_updates": 400,
+  "flow_confirmation_alpha": 0.25,
+  "rl_rounds": 4,
+  "candidates_per_prompt": 4,
+  "maximum_concurrent_gpus": 3,
+  "note": "Separate jobs. Final alpha fixed before generation; no manual approval or post-result alpha selection. All proposed automatic thresholds are new to this namespace."
+}

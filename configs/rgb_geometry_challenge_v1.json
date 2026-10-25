@@ -1,0 +1,952 @@
+{
+  "format": "rgb_geometry_challenge_v1",
+  "inference_only": true,
+  "settings": {
+    "rounds": 0,
+    "siblings": 4,
+    "seed": 42,
+    "train_steps": 50,
+    "eval_steps": 50,
+    "height": 480,
+    "width": 832,
+    "frames": 81,
+    "fps": 16,
+    "guidance_scale": 5.0,
+    "flow_shift": 3.0,
+    "alpha": 0.25,
+    "correction_rms_cap": 0.25,
+    "head_learning_rate": 0.0001,
+    "lora_learning_rate": 1e-05,
+    "gradient_clip": 1.0,
+    "advantage_epsilon": 0.0001,
+    "advantage_standard_deviation": "population",
+    "maximum_concurrent_gpus": 4,
+    "retention": "final_rgb_mp4_and_json_csv_no_new_checkpoints",
+    "reward": "expected_class_lifetime",
+    "observer": "historical_frozen_semantic_flow_update4600",
+    "inference_steps": 50,
+    "action_indices": [
+      10,
+      20,
+      30,
+      40
+    ],
+    "noise_scale": 0.03,
+    "sampler": "euler_four_gaussian_actions",
+    "sibling_initial_noise": "shared_within_prompt",
+    "prompt_initial_noise": "fixed_across_rounds"
+  },
+  "experiments": [
+    "baseline",
+    "rloo_R",
+    "rloo_S",
+    "rloo_L",
+    "flow_grpo_R",
+    "flow_grpo_S",
+    "flow_grpo_L",
+    "flash_grpo_R",
+    "flash_grpo_S",
+    "flash_grpo_L"
+  ],
+  "method_settings": {
+    "flash_grpo": {
+      "replay_passes": 2,
+      "clip_range": 0.001,
+      "reference_coefficient": 0.0,
+      "replay_steps": 1,
+      "replay_choice": "uniform_over_four_actions",
+      "temporal_weight": "inverse_euler_mean_sensitivity_normalized_over_four_actions"
+    },
+    "flow_grpo": {
+      "replay_passes": 2,
+      "replay_steps": 4,
+      "clip_range": 0.001,
+      "reference_coefficient": 0.004
+    },
+    "rloo": {
+      "head_learning_rate": 1e-06,
+      "updates_per_round": 1,
+      "advantage": "leave_one_out_unstandardized",
+      "log_probability": "sum_coordinates",
+      "gradient_clip": null,
+      "lora_learning_rate": 1e-08
+    }
+  },
+  "checkpoint_training_reference": {
+    "completed_round": 10,
+    "training_seed": 42,
+    "note": "Historical training metadata only; this campaign performs no updates."
+  },
+  "source_recipes": {
+    "configs/rgb_geometry_rl_comparison_v1.json": "cde09caefdf7293b53cf4f22a1dae708dbed877501c472c9216a6933000aa2e9",
+    "configs/rgb_geometry_campaign_v1.json": "e8eae79c6162e1a1763b6132be3a8c9398f83fa695bb379634cc05322f8954ba"
+  },
+  "provenance": {
+    "expected_semantic_files": {
+      "prepared.json": "1da7cd6725430e38d94dee5755846434f3ac97d2b116af79ed40080daabaf9d0",
+      "training_config.json": "f67e3e2dd8b012f7f0f1b570d39f6b6060647deaae41642c966f8bc131e86457",
+      "training_complete.json": "1f319918ff2fdc9ac4460e1a881c476fcf0c782ee9bf0599ae23c418e815553f",
+      "semantic_best.pt": "434a8438ee8745fa87a171ee41e7048f516b8418e825560bdd64b2f27328066a",
+      "frozen_codec.pt": "5b44d02685d168c9f19f5effc19b8350c4a9a2c9d69c10ff46184d4394ccc434",
+      "normalization_stats.json": "9ef4ad057e301a160cfa9ef3c925cf52c3c030d31d601f2ba14335846fe1e2f0"
+    },
+    "scene_transfer_verified": false,
+    "evaluation_panel_previously_inspected": false,
+    "note": "New prompts chosen after reviewing the earlier qualitative study. The new generated outputs have not yet been inspected. This is an exploratory challenge study using the existing round-10 policies, not a blinded confirmation test. Visible failures and tracking scores do not certify 3D geometry.",
+    "historical_panel_previously_inspected": true
+  },
+  "panels": {
+    "evaluation": [
+      {
+        "scene": "challenge_00",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A single red sedan drives slowly from left to right along the road in side view, staying fully visible throughout the shot.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "vehicle_shape",
+        "family": "car_pass",
+        "condition": "control",
+        "camera": "fixed",
+        "requested_counts": {
+          "car": 1
+        },
+        "review_focus": "Body, roof, windows and wheels during translation.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_01",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A red sedan makes a gentle left turn across the view. Its front is visible first, followed by its side; the complete car stays in frame.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "vehicle_shape",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Vehicle parts and plausible perspective during turning.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_02",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A blue hatchback follows a gentle curve towards the camera. The whole car remains visible as its front and side become larger.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "vehicle_shape",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Body shape and scale changes as a car approaches.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_03",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A single yellow city bus slowly turns around a broad street corner. Its front and long side are visible and its whole body remains in frame.",
+        "expected_classes": [
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "vehicle_shape",
+        "family": "bus_turn",
+        "condition": "control",
+        "camera": "fixed",
+        "requested_counts": {
+          "bus": 1
+        },
+        "review_focus": "Long body, windows and wheels during a turn.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_04",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A single white box truck slowly turns around a broad street corner. Its cab and cargo box remain fully visible throughout the shot.",
+        "expected_classes": [
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "vehicle_shape",
+        "family": "truck_turn",
+        "condition": "control",
+        "camera": "fixed",
+        "requested_counts": {
+          "truck": 1
+        },
+        "review_focus": "Connection between cab, cargo box and wheels.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_05",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A red car and a blue car move slowly along separate lanes with a clear visible gap between them throughout the shot.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "overlap_and_separation",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {
+          "car": 2
+        },
+        "review_focus": "Simple two-object control.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_06",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A red car drives slowly in front of a parked blue car. The blue car is fully visible at first, partly hidden in the middle of the shot, and visible again before the shot ends.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "overlap_and_separation",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {
+          "car": 2
+        },
+        "review_focus": "Temporary overlap and separation of two cars.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_07",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A red car and a blue car travel in opposite directions in separate lanes. Their outlines briefly overlap in the camera view and separate again before the shot ends.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "overlap_and_separation",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {
+          "car": 2
+        },
+        "review_focus": "Opposite motion, image overlap and object identity.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_08",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A white bus drives slowly past a parked blue bus. Both buses are visible before and after the moving bus partly obscures the parked bus in the middle of the shot.",
+        "expected_classes": [
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "overlap_and_separation",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {
+          "bus": 2
+        },
+        "review_focus": "Separate bus bodies and windows during overlap.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_09",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A red car and a blue car drive side by side in separate lanes. The red car slowly moves ahead, while both whole cars remain in the camera view.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "overlap_and_separation",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {
+          "car": 2
+        },
+        "review_focus": "Distinct vehicle bodies while relative positions change.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_10",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A single pedestrian wearing a blue jacket walks from left to right along the sidewalk. Their full body remains visible throughout the shot.",
+        "expected_classes": [
+          "person",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "occlusion",
+        "family": "pedestrian_crossing",
+        "condition": "control",
+        "camera": "fixed",
+        "requested_counts": {
+          "person": 1
+        },
+        "review_focus": "Full-body walking control.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_11",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A pedestrian in a blue jacket walks along the sidewalk behind a parked car. Their full body is visible at first, their lower body is briefly hidden by the car, and their full body is visible again before the end.",
+        "expected_classes": [
+          "person",
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "occlusion",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Pedestrian shape and reappearance after partial occlusion.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_12",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A red car drives behind a parked bus. The car is visible before reaching the bus, hidden briefly, then fully visible again before the five-second shot ends.",
+        "expected_classes": [
+          "car",
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "occlusion",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Vehicle identity before and after complete occlusion.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_13",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A cyclist rides slowly from left to right behind one narrow tree trunk. The cyclist and bicycle are visible before and after the brief partial occlusion, with both bicycle wheels inside the image.",
+        "expected_classes": [
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "occlusion",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Thin bicycle parts through partial occlusion.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_14",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A blue car drives slowly past a narrow tree trunk. Only a small part of the car is hidden at a time; the whole car is visible both before and after it passes the tree.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "occlusion",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Window and body continuity behind a narrow occluder.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_15",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. One person stands beside a stationary bicycle on the sidewalk. The full person, bicycle frame and both wheels remain visible.",
+        "expected_classes": [
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "pedestrian_and_bicycle",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Static fine-structure control.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_16",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A pedestrian takes several normal walking steps towards the camera along the sidewalk, remaining fully visible from head to feet.",
+        "expected_classes": [
+          "person",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "pedestrian_and_bicycle",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Body proportions during approach and walking.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_17",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A single cyclist rides slowly from left to right along a clear bicycle lane. The rider, bicycle frame and both wheels remain visible in side view throughout the shot.",
+        "expected_classes": [
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "pedestrian_and_bicycle",
+        "family": "cyclist_pass",
+        "condition": "control",
+        "camera": "fixed",
+        "requested_counts": {
+          "person": 1,
+          "bicycle": 1
+        },
+        "review_focus": "Rider limbs, frame and wheels in side view.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_18",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A cyclist follows a gentle curve so the bicycle changes from side view to a three-quarter view. The rider and both wheels stay inside the image.",
+        "expected_classes": [
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "pedestrian_and_bicycle",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Plausible bicycle structure during viewpoint changes.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_19",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A pedestrian walks from left to right beside a bicycle, pushing it along the sidewalk. Both the full person and bicycle remain visible, including their hand on the handlebar.",
+        "expected_classes": [
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "pedestrian_and_bicycle",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Contact between hand and handlebar and separation of legs and frame.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_20",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. The stationary camera looks along a straight street with a clear pavement edge and a rectangular building corner. No large object passes in front of these edges.",
+        "expected_classes": [
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "camera_and_scene",
+        "family": null,
+        "condition": "original",
+        "camera": "fixed",
+        "requested_counts": {},
+        "review_focus": "Static road and building structure.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_21",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. The camera moves slowly sideways past one parked red car, gradually revealing its front and side. The complete car remains in view, with the pavement and a building behind it.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "camera_and_scene",
+        "family": null,
+        "condition": "original",
+        "camera": "sideways",
+        "requested_counts": {},
+        "review_focus": "Car geometry and background parallax during lateral camera motion.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_22",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. The camera moves slowly forward beside a straight pavement edge and a row of parked cars. Near and distant cars and the building edges remain visible.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "camera_and_scene",
+        "family": null,
+        "condition": "original",
+        "camera": "forward",
+        "requested_counts": {},
+        "review_focus": "Road boundaries, parallax and vehicle structure during camera motion.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_23",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. The camera moves slowly sideways past a rectangular building corner, revealing the adjoining wall and the pavement below. Both walls and the pavement remain in view.",
+        "expected_classes": [
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "camera_and_scene",
+        "family": null,
+        "condition": "original",
+        "camera": "sideways",
+        "requested_counts": {},
+        "review_focus": "Wall junctions, corner shape and pavement relationships.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_24",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. The camera moves slowly forward along a gently curving street towards a parked bus. The full bus, the curved pavement edge and nearby buildings remain in view.",
+        "expected_classes": [
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "camera_and_scene",
+        "family": null,
+        "condition": "original",
+        "camera": "forward",
+        "requested_counts": {},
+        "review_focus": "Road curvature, bus structure and perspective during approach.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_25",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. Six cars of different colours drive slowly from left to right along three lanes. Several cars partly overlap in the view and then separate, with gaps between the lanes. The nearest cars remain large enough to inspect their windows and wheels.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "crowded",
+        "family": "car_pass",
+        "condition": "crowded",
+        "camera": "fixed",
+        "requested_counts": {
+          "car": 6
+        },
+        "review_focus": "Distinct car bodies, count and identity in a crowded view.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_26",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. Three city buses, yellow, white and blue, slowly turn around a broad street corner in separate lanes. Their long sides partly overlap in the view and separate again. Each bus is visible before and after the overlap.",
+        "expected_classes": [
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "crowded",
+        "family": "bus_turn",
+        "condition": "crowded",
+        "camera": "fixed",
+        "requested_counts": {
+          "bus": 3
+        },
+        "review_focus": "Long vehicle bodies, windows and separation during turns.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_27",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. Three box trucks, white, blue and red, slowly turn around a broad street corner in separate lanes. Their cabs and cargo boxes partly overlap in the view, then separate again before the end of the shot.",
+        "expected_classes": [
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "crowded",
+        "family": "truck_turn",
+        "condition": "crowded",
+        "camera": "fixed",
+        "requested_counts": {
+          "truck": 3
+        },
+        "review_focus": "Separate cab-box pairs and wheels through overlap.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_28",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. Eight pedestrians in different coloured jackets walk along a broad sidewalk in both directions. People pass in front of one another, briefly hiding parts of their bodies, then separate. Several full bodies remain close enough to inspect.",
+        "expected_classes": [
+          "person",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "crowded",
+        "family": "pedestrian_crossing",
+        "condition": "crowded",
+        "camera": "fixed",
+        "requested_counts": {
+          "person": 8
+        },
+        "review_focus": "Separate people, body parts and reappearance after occlusion.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_29",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. Six cyclists ride slowly from left to right along a broad bicycle lane in two staggered rows. Riders and bicycles briefly overlap in the view, then separate. The nearest bicycle frames and wheels remain visible.",
+        "expected_classes": [
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "crowded",
+        "family": "cyclist_pass",
+        "condition": "crowded",
+        "camera": "fixed",
+        "requested_counts": {
+          "person": 6,
+          "bicycle": 6
+        },
+        "review_focus": "Distinct riders and bicycle frames in a group.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_30",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A single red sedan drives briskly from left to right along the road in side view. It moves several car lengths during the shot while remaining fully visible; its body, windows and wheels can still be seen.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "faster",
+        "family": "car_pass",
+        "condition": "faster",
+        "camera": "fixed",
+        "requested_counts": {
+          "car": 1
+        },
+        "review_focus": "Car geometry under faster translation; distinguish blur from deformation.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_31",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A single yellow city bus turns briskly around a broad street corner, completing the visible change from front to side view during the shot. The whole bus remains in frame, with its windows and wheels visible.",
+        "expected_classes": [
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "faster",
+        "family": "bus_turn",
+        "condition": "faster",
+        "camera": "fixed",
+        "requested_counts": {
+          "bus": 1
+        },
+        "review_focus": "Long body and wheel layout under faster turning.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_32",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A single white box truck turns briskly around a broad street corner. It makes a clear change from front to side view during the shot, with its entire cab and cargo box still in frame.",
+        "expected_classes": [
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "faster",
+        "family": "truck_turn",
+        "condition": "faster",
+        "camera": "fixed",
+        "requested_counts": {
+          "truck": 1
+        },
+        "review_focus": "Cab-box relationship and wheel layout under faster turning.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_33",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A single pedestrian wearing a blue jacket jogs briskly from left to right along the sidewalk. Their full body remains in view while their arms and legs move through several running strides.",
+        "expected_classes": [
+          "person",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "faster",
+        "family": "pedestrian_crossing",
+        "condition": "faster",
+        "camera": "fixed",
+        "requested_counts": {
+          "person": 1
+        },
+        "review_focus": "Body proportions and limbs during faster movement.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_34",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. A single cyclist rides briskly from left to right along a clear bicycle lane in side view. The rider pedals quickly and moves several bicycle lengths while the complete rider and both wheels remain in frame.",
+        "expected_classes": [
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "faster",
+        "family": "cyclist_pass",
+        "condition": "faster",
+        "camera": "fixed",
+        "requested_counts": {
+          "person": 1,
+          "bicycle": 1
+        },
+        "review_focus": "Rider-frame relationships and wheels under faster movement.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_35",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. Six cars of different colours drive briskly from left to right along three lanes. Some move ahead of others; their outlines briefly overlap in the view and separate again. The nearest cars stay in frame long enough to see their windows and wheels before and after overlap.",
+        "expected_classes": [
+          "car",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "crowded_and_faster",
+        "family": "car_pass",
+        "condition": "crowded_and_faster",
+        "camera": "fixed",
+        "requested_counts": {
+          "car": 6
+        },
+        "review_focus": "Car merging, shape and identity with both crowding and faster motion.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_36",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. Three city buses, yellow, white and blue, turn briskly around a broad street corner in separate lanes. Their long sides briefly overlap in the view then separate, with each bus visible before and after the overlap within this shot.",
+        "expected_classes": [
+          "bus",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "crowded_and_faster",
+        "family": "bus_turn",
+        "condition": "crowded_and_faster",
+        "camera": "fixed",
+        "requested_counts": {
+          "bus": 3
+        },
+        "review_focus": "Distinct bus bodies and windows under crowded faster turning.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_37",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. Three box trucks, white, blue and red, turn briskly around a broad street corner in separate lanes. Their cabs and cargo boxes briefly overlap in the view and then separate, all within the shot.",
+        "expected_classes": [
+          "truck",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "crowded_and_faster",
+        "family": "truck_turn",
+        "condition": "crowded_and_faster",
+        "camera": "fixed",
+        "requested_counts": {
+          "truck": 3
+        },
+        "review_focus": "Distinct trucks, cab-box links and reappearance after overlap.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_38",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. Eight pedestrians in different coloured jackets jog along a broad sidewalk in both directions. They pass in front of one another, briefly hiding body parts, then separate. Several runners remain fully in frame long enough to inspect their arms and legs.",
+        "expected_classes": [
+          "person",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "crowded_and_faster",
+        "family": "pedestrian_crossing",
+        "condition": "crowded_and_faster",
+        "camera": "fixed",
+        "requested_counts": {
+          "person": 8
+        },
+        "review_focus": "Body merging, limb changes and identity in a moving crowd.",
+        "prompt_adherence": "unverified_until_video_review"
+      },
+      {
+        "scene": "challenge_39",
+        "prompt": "Realistic daytime street scene with a paved road, a sidewalk, low-rise buildings, green trees and an open sky. Clear daylight. One continuous five-second shot without a cut. The main action stays within view. A stationary camera at pavement height shows the whole action in a moderately wide view. The main objects are close enough to see their outlines and parts. Six cyclists ride briskly from left to right along a broad bicycle lane in two staggered rows. Some riders overtake others, briefly overlapping in the view then separating. The nearest riders and bicycles remain in frame before and after the overlap.",
+        "expected_classes": [
+          "person",
+          "bicycle",
+          "road",
+          "sidewalk",
+          "building",
+          "vegetation",
+          "sky"
+        ],
+        "category": "crowded_and_faster",
+        "family": "cyclist_pass",
+        "condition": "crowded_and_faster",
+        "camera": "fixed",
+        "requested_counts": {
+          "person": 6,
+          "bicycle": 6
+        },
+        "review_focus": "Rider and bicycle merging, wheels and reappearance at greater speed.",
+        "prompt_adherence": "unverified_until_video_review"
+      }
+    ]
+  },
+  "sampling": {
+    "seeds_per_prompt": 2,
+    "rgb_seed_base": 610001,
+    "semantic_seed_offset": 100000,
+    "action_seed_offset": 200000,
+    "same_case_noise_across_variants": true,
+    "generation_seed_is_not_training_seed": true
+  },
+  "retention": {
+    "videos_per_variant": 80,
+    "total_videos": 800,
+    "video_format": "RGB_H264_MP4",
+    "save_raw_reward_points": true,
+    "save_new_checkpoints": false,
+    "copy_frozen_models": false
+  },
+  "interpretation": {
+    "study": "exploratory_inference_challenge_with_existing_round_10_weights",
+    "difficulty": "intended_not_empirically_validated",
+    "prompt_adherence": "manually_check_actual_density_motion_and_occlusion",
+    "geometry_certified": false,
+    "independent_human_evaluation": false,
+    "review_without_reward_first": true,
+    "proxy_limit": "Class persistence cannot establish 3D geometry accuracy.",
+    "semantic_limit": "The frozen codec maps person and bicycle into Other.",
+    "comparison_limit": "Original method learning rates and update counts differ.",
+    "family_limit": "Related prompts keep the camera fixed, but are not identical scenes or a calibrated speed experiment."
+  }
+}

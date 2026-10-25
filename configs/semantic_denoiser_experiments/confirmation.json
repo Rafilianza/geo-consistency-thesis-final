@@ -1,0 +1,58 @@
+[
+  {
+    "case_id": "confirm_airport_frontage_s46",
+    "scene": "confirm_airport_frontage",
+    "seed": 46,
+    "role": "confirmation_new_prompt",
+    "prompt": "First-person POV of a person walking steadily forward along an airport terminal sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A blue shuttle bus follows a white shuttle bus away along the frontage road, with a clear gap. A red car approaches in the opposite lane. All three vehicles keep moving. A long curved terminal roof and tall glass entrance bays extend beside the sidewalk, with grass strips and young trees. Nearby paving and canopy columns pass naturally toward the frame edges. Realistic daylight, distinct vehicle shapes and natural perspective. One continuous shot."
+  },
+  {
+    "case_id": "confirm_airport_frontage_s48",
+    "scene": "confirm_airport_frontage",
+    "seed": 48,
+    "role": "confirmation_new_prompt",
+    "prompt": "First-person POV of a person walking steadily forward along an airport terminal sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A blue shuttle bus follows a white shuttle bus away along the frontage road, with a clear gap. A red car approaches in the opposite lane. All three vehicles keep moving. A long curved terminal roof and tall glass entrance bays extend beside the sidewalk, with grass strips and young trees. Nearby paving and canopy columns pass naturally toward the frame edges. Realistic daylight, distinct vehicle shapes and natural perspective. One continuous shot."
+  },
+  {
+    "case_id": "confirm_stadium_concourse_s46",
+    "scene": "confirm_stadium_concourse",
+    "seed": 46,
+    "role": "confirmation_new_prompt",
+    "prompt": "First-person POV of a person walking steadily forward along a sidewalk outside a sports stadium at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A silver car follows a red car away along the stadium perimeter road, with a clear gap. A blue city bus approaches in the opposite lane. All three vehicles keep moving. The stadium's curved outer wall, exposed support ribs and floodlight towers rise beyond the road. Grass verges and evenly spaced trees border the wide entrance concourse. Nearby paving and tree trunks pass naturally beside the viewer. Realistic daylight and natural perspective. One continuous shot."
+  },
+  {
+    "case_id": "confirm_stadium_concourse_s48",
+    "scene": "confirm_stadium_concourse",
+    "seed": 48,
+    "role": "confirmation_new_prompt",
+    "prompt": "First-person POV of a person walking steadily forward along a sidewalk outside a sports stadium at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A silver car follows a red car away along the stadium perimeter road, with a clear gap. A blue city bus approaches in the opposite lane. All three vehicles keep moving. The stadium's curved outer wall, exposed support ribs and floodlight towers rise beyond the road. Grass verges and evenly spaced trees border the wide entrance concourse. Nearby paving and tree trunks pass naturally beside the viewer. Realistic daylight and natural perspective. One continuous shot."
+  },
+  {
+    "case_id": "confirm_greenhouse_road_s46",
+    "scene": "confirm_greenhouse_road",
+    "seed": 46,
+    "role": "confirmation_new_prompt",
+    "prompt": "First-person POV of a person walking steadily forward along a sidewalk beside a commercial greenhouse complex at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A white box truck follows a green box truck away along a straight access road, with a clear gap. A red car approaches in the opposite lane. All three vehicles keep moving. Rows of tall glass greenhouses with pitched transparent roofs extend beyond a grass verge, with growing plants visible through their walls. Young roadside trees and nearby paving pass naturally beside the viewer. Realistic daylight, distinct vehicle shapes and natural perspective. One continuous shot."
+  },
+  {
+    "case_id": "confirm_greenhouse_road_s48",
+    "scene": "confirm_greenhouse_road",
+    "seed": 48,
+    "role": "confirmation_new_prompt",
+    "prompt": "First-person POV of a person walking steadily forward along a sidewalk beside a commercial greenhouse complex at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A white box truck follows a green box truck away along a straight access road, with a clear gap. A red car approaches in the opposite lane. All three vehicles keep moving. Rows of tall glass greenhouses with pitched transparent roofs extend beyond a grass verge, with growing plants visible through their walls. Young roadside trees and nearby paving pass naturally beside the viewer. Realistic daylight, distinct vehicle shapes and natural perspective. One continuous shot."
+  },
+  {
+    "case_id": "confirm_observatory_campus_s46",
+    "scene": "confirm_observatory_campus",
+    "seed": 46,
+    "role": "confirmation_new_prompt",
+    "prompt": "First-person POV of a person walking steadily forward along a broad observatory campus sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A red car follows a blue visitor bus away along a level campus road, with a clear gap. A white delivery truck approaches in the opposite lane. All three vehicles keep moving. Large white telescope domes on round buildings stand across trimmed lawns, with low curved laboratory wings and scattered trees beside the road. Nearby grass edges, paving and tree trunks pass naturally beside the viewer. Realistic daylight, distinct vehicle shapes and natural perspective. One continuous shot."
+  },
+  {
+    "case_id": "confirm_observatory_campus_s48",
+    "scene": "confirm_observatory_campus",
+    "seed": 48,
+    "role": "confirmation_new_prompt",
+    "prompt": "First-person POV of a person walking steadily forward along a broad observatory campus sidewalk at natural walking speed. The camera faces ahead at eye level with gentle walking movement. A red car follows a blue visitor bus away along a level campus road, with a clear gap. A white delivery truck approaches in the opposite lane. All three vehicles keep moving. Large white telescope domes on round buildings stand across trimmed lawns, with low curved laboratory wings and scattered trees beside the road. Nearby grass edges, paving and tree trunks pass naturally beside the viewer. Realistic daylight, distinct vehicle shapes and natural perspective. One continuous shot."
+  }
+]

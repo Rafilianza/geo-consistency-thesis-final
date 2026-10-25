@@ -1,0 +1,79 @@
+{
+  "format": "rgb_geometry_rl_v2",
+  "semantic_update": 4600,
+  "rl_rounds": 4,
+  "candidates_per_prompt": 4,
+  "maximum_concurrent_gpus": 3,
+  "action_indices": [10, 20],
+  "inference_steps": 50,
+  "guidance_scale": 5.0,
+  "alpha": 0.25,
+  "rho": 0.25,
+  "action_noise_scale": 0.03,
+  "learning_rate": 0.000001,
+  "head_initialization_seed": 42,
+  "lora_initialization_seed": 12000,
+  "endpoint_selection": "last_fully_accepted_checkpoint",
+  "training_prompts": [
+    {
+      "scene": "canal_lock_service_road",
+      "prompt": "First-person view of a person walking forward on a paved path beside a canal lock. A dark green car drives slowly away on the narrow service road to the left. Lock gates, a stone lockkeeper cottage and metal railings are visible. Nearby railing posts pass toward the image edges as the camera advances; the car recedes along the road. Realistic daylight, natural walking motion and perspective, one continuous shot.",
+      "provenance": "unverified"
+    },
+    {
+      "scene": "quarry_visitor_access_road",
+      "prompt": "First-person view of a person walking steadily along a sidewalk beside a quarry visitor access road. A yellow car approaches slowly in its lane, growing larger naturally. Terraced rock faces rise beyond a small visitor hut, and short timber posts separate the sidewalk from gravel. The nearby posts move toward the frame edges as the camera walks forward. Realistic daylight and perspective, one continuous shot.",
+      "provenance": "unverified"
+    },
+    {
+      "scene": "pottery_workshop_courtyard_road",
+      "prompt": "First-person view of a person walking forward on a footpath beside a pottery workshop courtyard. A cream car crosses the short access road ahead, briefly passing behind a narrow wooden utility pole before reappearing. Low tiled workshop roofs and outdoor stacks of empty clay pots frame the road. Nearby walls and the pole shift naturally as the camera advances. Realistic daylight, one continuous shot.",
+      "provenance": "unverified"
+    },
+    {
+      "scene": "watermill_approach_two_cars",
+      "prompt": "First-person view of a person walking steadily along a paved footpath approaching an old watermill. A burgundy car follows a white car away along the adjacent access road with a clear gap. Both cars keep moving. A mill wheel, stone boundary walls and a shallow millrace remain visible beside the road. Nearby wall stones shift toward the image edges as the camera advances. Realistic daylight and natural perspective, one continuous shot.",
+      "provenance": "unverified"
+    }
+  ],
+  "sentinel_prompts": [
+    {
+      "scene": "rowing_club_boathouse_lane",
+      "prompt": "First-person view of a person walking forward beside a rowing club boathouse lane. A red car drives slowly away between a timber boathouse and upright boat racks. Low wooden barriers line the footpath; their near posts pass toward the image edges as the camera advances. The car moves independently of the camera and becomes smaller down the lane. Realistic daylight and natural walking motion, one continuous shot.",
+      "provenance": "unverified"
+    },
+    {
+      "scene": "hilltop_cablecar_terminal_road",
+      "prompt": "First-person view of a person walking along a sidewalk beside a hilltop cable-car terminal access road. A blue car approaches slowly in its lane and grows larger naturally. A low terminal building, cable support tower and stone retaining wall frame the view. Nearby railing posts pass toward the image edges with the forward walking camera. Clear daylight, realistic perspective, one continuous shot.",
+      "provenance": "unverified"
+    }
+  ],
+  "endpoint_prompts": [
+    {
+      "scene": "saltmarsh_floodgate_road",
+      "prompt": "First-person view of a person walking steadily along a footpath beside a saltmarsh floodgate access road. A silver car drives slowly away toward a low floodgate control hut. Reed beds, drainage channels and short concrete boundary posts line the route. Nearby posts move toward the image edges as the camera advances and the car recedes naturally. Realistic daylight and perspective, one continuous shot.",
+      "provenance": "unverified"
+    },
+    {
+      "scene": "clocktower_museum_access_road",
+      "prompt": "First-person view of a person walking forward on a sidewalk beside a clocktower museum access road. A dark red car approaches slowly, growing larger in its lane. A square stone clocktower and low exhibition buildings stand beside the road. Nearby iron fence uprights and doorway edges shift naturally as the camera advances. Realistic daylight and natural walking motion, one continuous shot.",
+      "provenance": "unverified"
+    },
+    {
+      "scene": "marina_drydock_crossing",
+      "prompt": "First-person view of a person walking steadily along a paved footpath beside a marina drydock. A white car crosses a short access road ahead, briefly passing behind a narrow mooring post before becoming visible again. Empty boat cradles and a low repair shed border the road. Nearby posts grow larger and slide toward the image edges as the camera approaches. Realistic daylight and perspective, one continuous shot.",
+      "provenance": "unverified"
+    },
+    {
+      "scene": "mountain_reservoir_dam_road",
+      "prompt": "First-person view of a person walking forward on a protected footpath beside a mountain reservoir dam road. A blue car follows a cream car away with a clear gap while a charcoal car approaches in the opposite lane. All three keep moving. Concrete parapets, a small valve building and wooded hills frame the road. Nearby parapet joints shift naturally as the camera advances. Realistic daylight and perspective, one continuous shot.",
+      "provenance": "unverified"
+    }
+  ],
+  "provenance": {
+    "status": "unverified",
+    "endpoint_transfer_claim_allowed": false,
+    "note": "Proposed scene identities are frozen before generation. Local manifests and the actual semantic prepared/training configuration must be checked. No complete inventory of previously inspected scenes is available; a clean known-record check does not establish untouched scenes."
+  },
+  "note": "New proxy-learning namespace. B/R/S/L share RGB reward and fixed noise contexts. The 253 primary rollout slots exclude extra disposable preflight continuations, failures, scoring and replay. Declared job ceilings are unmeasured; profile and fix runtime limits before training. No historical qualification or trained-head reuse."
+}
