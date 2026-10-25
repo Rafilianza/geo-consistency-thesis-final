@@ -1,10 +1,10 @@
 # Enhancing the Geometric Consistency of Video Generation for Interactive Environments
 
-Thesis code by **Muhammad Dhiaz Rafilianza**, Monash University, supervised by **Professor Tien-Tsin Wong**.
+
 
 This repository contains the code needed to inspect the thesis approach: train a semantic codec, predict semantic maps alongside Wan 2.1 video generation, and compare RGB correction with and without semantic guidance. The three RL methods are **RLOO, Flow-GRPO and Flash-GRPO**. Each has an RGB correction head, a semantic-guided correction head and a separate rank-4 LoRA arm.
 
-This repository contains the source code used for the thesis. Model weights, datasets and generated videos are stored separately. `SOURCE_MANIFEST.json` records the original source revision and copied-file hashes.
+This repository contains the source code used for the thesis. 
 
 ## What is included
 
